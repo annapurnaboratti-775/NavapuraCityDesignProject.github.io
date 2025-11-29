@@ -146,7 +146,7 @@ header {
 /* FOOTER */
 footer {
   text-align: center;
-  /* --- Modern Nav Menu --- */
+ /* --- Modern Nav Menu --- */
 .top-menu {
   text-align: center;
   margin-top: -10px;
@@ -170,10 +170,4 @@ footer {
   background: #00B4D8;
   color: white;
   transform: translateY(-2px);
-}
-
-  padding: 25px;
-  color: #52637A;
-  font-size: 0.9rem;
-  margin-top: 40px;
 }
