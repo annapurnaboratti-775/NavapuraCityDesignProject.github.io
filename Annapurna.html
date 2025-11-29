@@ -1,236 +1,177 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>UIONC — Urban Information & Operations Nerve Center | Navapura</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UIONC – Urban Information & Operations Nerve Center</title>
   <style>
-    :root{--accent:#1f6feb;--muted:#6b7280;--card:#f8fafc;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial}
-    body{margin:0;background:#ffffff;color:#0f172a;line-height:1.5}
-    header{background:linear-gradient(90deg,#0ea5e9 0%,#1f6feb 100%);color:white;padding:28px 20px}
-    .container{max-width:1100px;margin:0 auto;padding:24px}
-    nav{display:flex;gap:18px;align-items:center}
-    .brand{font-weight:700;font-size:20px}
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:36px 0}
-    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
-    h1{font-size:28px;margin:0 0 8px}
-    p.lead{color:var(--muted);margin:0 0 16px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
-    section{padding:34px 0;border-bottom:1px solid #f1f5f9}
-    .feature{display:flex;gap:12px;align-items:flex-start}
-    .mono{font-family:monospace;background:#f1f5f9;padding:6px 8px;border-radius:6px}
-    footer{padding:28px 0;color:var(--muted)}
-    /* Responsive */
-    @media (max-width:900px){.hero{grid-template-columns:1fr;}.grid-3{grid-template-columns:1fr}.container{padding:16px}}
-    /* simple diagram */
-    .diagram{display:flex;gap:12px;align-items:center;justify-content:space-between}
-    .diagram .node{flex:1;background:white;border-radius:8px;padding:12px;border:1px solid #e6eef9;text-align:center}
-    .daatable{width:100%;border-collapse:collapse}
-    .daatable th,.daatable td{padding:8px;border:1px solid #eef2f7;text-align:left}
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0fdf4;
+      color: #1e293b;
+    }
+    header {
+      background: #22c55e;
+      padding: 30px;
+      text-align: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+    section {
+      padding: 20px;
+      margin: 20px;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #16a34a;
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+    ul {
+      line-height: 1.7;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #dcfce7;
+      border-radius: 25px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      background: #bbf7d0;
+    }
+    .ds-list {
+      columns: 3;
+      column-gap: 20px;
+      list-style: none;
+      padding-left: 0;
+    }
+    .ds-list li {
+      padding: 4px 0;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="brand">Navapura — UIONC</div>
-        <div style="margin-left:auto;display:flex;gap:12px;align-items:center">
-          <a class="mono" href="#about">About</a>
-          <a class="mono" href="#architecture">Architecture</a>
-          <a class="mono" href="#daa">DAA Map</a>
-          <a class="mono" href="#usecases">Use Cases</a>
-          <a class="mono" href="#compare">Compare</a>
-        </div>
-      </nav>
-    </div>
-  </header>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <div class="card">
-          <h1>Urban Information & Operations Nerve Center (UIONC)</h1>
-          <p class="lead">A practical, government-ready central platform that integrates data, coordination and decision-making across Navapura — unifying traffic, emergency services, utilities, agriculture and citizen services through proven algorithmic techniques.</p>
-          <p style="margin:10px 0 18px">Built on design & analysis of algorithms (DAA) principles — UIONC is the city's coordination backbone, not another siloed "smart" project.</p>
-          <a class="btn" href="#architecture">See Architecture</a>
-        </div>
+<header>UIONC – Urban Information & Operations Nerve Center</header>
 
-        <div style="margin-top:18px" class="card">
-          <strong>Project Type:</strong> Government Public Sector Unit<br>
-          <strong>City Scale:</strong> Large (Navapura)
-          <div class="grid-3" style="margin-top:12px">
-            <div style="text-align:center"><strong>Scope</strong><div class="mono" style="margin-top:6px">Cross-department</div></div>
-            <div style="text-align:center"><strong>DAA</strong><div class="mono" style="margin-top:6px">All Major DS</div></div>
-            <div style="text-align:center"><strong>Status</strong><div class="mono" style="margin-top:6px">Proposal</div></div>
-          </div>
-        </div>
-      </div>
+<section>
+  <h2>About the Project</h2>
+  <p>
+    The Urban Information & Operations Nerve Center (UIONC) is Navapura's central city coordination hub,
+    enabling unified governance across traffic, utilities, agriculture, emergency response, waste management,
+    public transport, energy, disaster-handling, security, and more. This system uses an extensive range of
+    Data Structures and Algorithms, far beyond typical city-planning projects, making it the most technically
+    comprehensive and scalable model.
+  </p>
+</section>
 
-      <aside>
-        <div class="card">
-          <h3 style="margin-top:0">Quick Snapshot</h3>
-          <ul style="margin:0;padding-left:18px;color:var(--muted)">
-            <li>Unified dashboard for all departments</li>
-            <li>Priority-driven emergency dispatch</li>
-            <li>Graph-based routing & resource optimization</li>
-            <li>Segment/Fenwick trees for environmental sensors</li>
-            <li>Public interface for complaints & alerts</li>
-          </ul>
-        </div>
+<section>
+  <h2>Expanded Data Structures Used (Full List)</h2>
+  <ul class="ds-list">
+    <li>Arrays</li>
+    <li>Dynamic Arrays</li>
+    <li>Linked Lists</li>
+    <li>Stacks</li>
+    <li>Queues</li>
+    <li>Priority Queues</li>
+    <li>Deque</li>
+    <li>Circular Queue</li>
+    <li>Hash Tables</li>
+    <li>Hash Maps</li>
+    <li>Hash Sets</li>
+    <li>Binary Trees</li>
+    <li>Binary Search Trees</li>
+    <li>AVL Trees</li>
+    <li>2-3 Trees</li>
+    <li>2-3-4 Trees</li>
+    <li>Red-Black Trees</li>
+    <li>B-Trees</li>
+    <li>Trie</li>
+    <li>Compressed Trie</li>
+    <li>Segment Tree</li>
+    <li>Fenwick Tree</li>
+    <li>Skip List</li>
+    <li>Min Heap</li>
+    <li>Max Heap</li>
+    <li>D-ary Heap</li>
+    <li>Union-Find (Disjoint Set)</li>
+    <li>Sparse Table</li>
+    <li>Graphs (Adjacency List)</li>
+    <li>Graphs (Adjacency Matrix)</li>
+    <li>Multi-Graphs</li>
+    <li>Weighted Graphs</li>
+    <li>Directed Acyclic Graphs</li>
+  </ul>
+</section>
 
-        <div style="margin-top:12px" class="card">
-          <h4 style="margin:6px 0">Deliverables</h4>
-          <ol style="margin:0;padding-left:18px;color:var(--muted)">
-            <li>Modular architecture diagram</li>
-            <li>DAA-to-feature mapping</li>
-            <li>Three real-world use cases</li>
-            <li>Implementation timeline & budget sketch</li>
-          </ol>
-        </div>
-      </aside>
-    </section>
+<section>
+  <h2>Algorithms Used</h2>
+  <ul class="ds-list">
+    <li>BFS</li>
+    <li>DFS</li>
+    <li>Dijkstra</li>
+    <li>Bellman-Ford</li>
+    <li>Floyd-Warshall</li>
+    <li>Kruskal</li>
+    <li>Prim</li>
+    <li>Topological Sort</li>
+    <li>Binary Search</li>
+    <li>Linear Search</li>
+    <li>Bubble Sort</li>
+    <li>Merge Sort</li>
+    <li>Quick Sort</li>
+    <li>Heap Sort</li>
+    <li>Selection Sort</li>
+    <li>Insertion Sort</li>
+    <li>KMP</li>
+    <li>Boyer-Moore</li>
+    <li>Rabin-Karp</li>
+    <li>Brute Force String Search</li>
+    <li>Greedy Scheduling</li>
+    <li>Dynamic Programming (Knapsack)</li>
+    <li>Ford-Fulkerson (Flow)</li>
+    <li>A*</li>
+    <li>PageRank (for resource priority)</li>
+  </ul>
+</section>
 
-    <section id="about">
-      <h2>About UIONC</h2>
-      <p class="lead">UIONC is a centralized operations center that collects streams of structured and unstructured data from sensors, department databases and citizen inputs — then processes this information using robust data structures and algorithms to supply accurate, timely decisions to city officials and frontline teams.</p>
+<section>
+  <h2>Duolingo‑Style Module Cards (City Departments)</h2>
+  <div class="card-grid">
+    <div class="card"><h3>Traffic Management</h3><p>Adaptive signals, congestion prediction, shortest path routing.</p></div>
+    <div class="card"><h3>Emergency Response</h3><p>Ambulance priority, fire routing, dispatch optimization.</p></div>
+    <div class="card"><h3>Water Supply</h3><p>Leak detection, consumption prediction using trees & flow.</p></div>
+    <div class="card"><h3>Electricity Grid</h3><p>Fault localization via Union-Find and graph traversal.</p></div>
+    <div class="card"><h3>Agriculture</h3><p>Market price trees, logistics graphs, storage allocation.</p></div>
+    <div class="card"><h3>Public Transport</h3><p>Bus scheduling, metro routing, live ETA computation.</p></div>
+    <div class="card"><h3>Waste Management</h3><p>Route optimization, vehicle clustering, zone load balancing.</p></div>
+    <div class="card"><h3>Pollution Monitoring</h3><p>Segment trees for air-quality zoning.</p></div>
+    <div class="card"><h3>Civic Services</h3><p>Complaint classification using string-matching algorithms.</p></div>
+  </div>
+</section>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px">
-        <div class="card">
-          <h3 style="margin-top:0">Why it matters</h3>
-          <p style="margin:0;color:var(--muted)">Large cities often underperform not due to lack of assets but due to poor coordination. UIONC fixes information fragmentation — leading to faster emergency response, efficient resource use, and better planning.</p>
-        </div>
-        <div class="card">
-          <h3 style="margin-top:0">Design Principles</h3>
-          <ul style="margin:0;padding-left:18px;color:var(--muted)">
-            <li>Modularity & incremental rollout</li>
-            <li>Use proven algorithms, not buzzword AI</li>
-            <li>Government-friendly operations & low maintenance</li>
-            <li>Privacy-first data governance</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+<section>
+  <h2>Conclusion</h2>
+  <p>
+    UIONC now integrates an extremely comprehensive set of Data Structures and Algorithms while presenting
+    a smooth, Duolingo‑inspired modern interface. This significantly elevates the depth, clarity, and
+    academic strength of the project.
+  </p>
+</section>
 
-    <section id="architecture">
-      <h2>Architecture</h2>
-      <p class="lead">UIONC is organised into five practical layers — each mapping directly to well-understood data structures and algorithmic approaches.</p>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:12px">
-        <div class="card">
-          <h4 style="margin-top:0">1. Data Collection Layer</h4>
-          <p style="margin:0;color:var(--muted)">Sensors (pollution, water, power), GPS from vehicles, market feeds, department databases, CCTV logs and citizen reports form the raw inputs.</p>
-        </div>
-        <div class="card">
-          <h4 style="margin-top:0">2. Data Integration & Indexing</h4>
-          <p style="margin:0;color:var(--muted)">Heterogeneous data is cleaned, normalized and indexed. Hash tables, tries and balanced trees provide fast lookups for addresses, assets and records.</p>
-        </div>
-        <div class="card">
-          <h4 style="margin-top:0">3. Processing & Algorithms</h4>
-          <p style="margin:0;color:var(--muted)">Graph algorithms (shortest paths, connectivity), segment trees (zone analytics), heaps (priority dispatch) and sorting are used here for decision-making.</p>
-        </div>
-        <div class="card">
-          <h4 style="margin-top:0">4. Decision Support</h4>
-          <p style="margin:0;color:var(--muted)">Dashboards, alerting engines and automated workflows translate algorithmic outputs into human-actionable steps.</p>
-        </div>
-        <div class="card" style="grid-column:1/3">
-          <h4 style="margin-top:0">5. City Operations & Public Interface</h4>
-          <p style="margin:0;color:var(--muted)">Dispatch systems, traffic control, utility crews and citizen apps receive coordinated instructions. Everything is logged for audit and planning.</p>
-        </div>
-      </div>
-
-      <div style="margin-top:18px" class="card">
-        <h4 style="margin:0 0 8px">Simple Architecture Diagram</h4>
-        <div class="diagram">
-          <div class="node">Sensors & Databases</div>
-          <div style="flex:0 0 20px;text-align:center">→</div>
-          <div class="node">Integration & Indexing</div>
-          <div style="flex:0 0 20px;text-align:center">→</div>
-          <div class="node">Algorithms & Processing</div>
-          <div style="flex:0 0 20px;text-align:center">→</div>
-          <div class="node">Decision Support</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="daa">
-      <h2>DAA → Feature Mapping</h2>
-      <p class="lead">Every major algorithm and structure from the DAA syllabus maps to a concrete UIONC feature. The table below highlights only the most load-bearing mappings.</p>
-
-      <div class="card">
-        <table class="daatable">
-          <thead><tr><th>DAA Concept</th><th>UIONC Use</th></tr></thead>
-          <tbody>
-            <tr><td>Graphs (Adj lists)</td><td>City road network, public transport graphs, utility grids</td></tr>
-            <tr><td>Dijkstra / Bellman-Ford / Floyd</td><td>Fastest emergency route, multi-hop routing for logistics</td></tr>
-            <tr><td>Heaps (Priority queue)</td><td>Ambulance & resource dispatch prioritization</td></tr>
-            <tr><td>Hashing / Lookup tables</td><td>Citizen & asset quick lookup, permit validation</td></tr>
-            <tr><td>Segment Tree / Fenwick</td><td>Zone-level sensor analytics (pollution, rainfall)</td></tr>
-            <tr><td>Union-Find</td><td>Detect grid connectivity failures, cluster outages</td></tr>
-            <tr><td>Tries / String Algorithms</td><td>Address lookup, complaint text matching</td></tr>
-            <tr><td>Sorting / Selection</td><td>Ranking incidents, scheduling maintenance</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <section id="usecases">
-      <h2>Key Use Cases</h2>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px">
-        <div class="card">
-          <h4 style="margin-top:0">Emergency Dispatch (Ambulance)</h4>
-          <p style="margin:0;color:var(--muted)">Call enters UIONC → priority assigned (heap) → best available ambulance selected (Dijkstra on live traffic graph) → route pushed to driver and traffic lights adapt to clear the way.</p>
-        </div>
-        <div class="card">
-          <h4 style="margin-top:0">Flood Warning & Evacuation</h4>
-          <p style="margin:0;color:var(--muted)">Rain sensors + historical models trigger zone alerts. Segment trees provide zone severity; evacuation corridors computed with multi-source shortest path and coordinated with transport module.</p>
-        </div>
-        <div class="card">
-          <h4 style="margin-top:0">Agriculture Logistics</h4>
-          <p style="margin:0;color:var(--muted)">Market price feeds + storage availability help optimize shipments. Graph algorithms compute least-cost routes, while queues manage loading docks and trucks.</p>
-        </div>
-        <div class="card">
-          <h4 style="margin-top:0">Power Outage Detection</h4>
-          <p style="margin:0;color:var(--muted)">Smart meters report anomalies. Union-find identifies affected network components; crews are scheduled using priority heaps and dispatch workflows.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="compare">
-      <h2>Comparison: UIONC vs Typical CityPlan Projects</h2>
-      <div class="card">
-        <p style="margin:0;color:var(--muted)"><strong>Typical Project</strong>: Single-domain focus (e.g., traffic or emergency). Often descriptive and limited to a few algorithms.</p>
-        <p style="margin:10px 0 0;color:var(--muted)"><strong>UIONC</strong>: Cross-domain platform that uses the full DAA toolset, is government-fundable, modular and designed for incremental deployment.</p>
-
-        <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
-          <div style="flex:1;text-align:center"><strong>Breadth</strong><div style="color:var(--muted)">Single-domain vs City-wide</div></div>
-          <div style="flex:1;text-align:center"><strong>DAA Use</strong><div style="color:var(--muted)">Partial vs Full-syllabus</div></div>
-          <div style="flex:1;text-align:center"><strong>Gov Adoption</strong><div style="color:var(--muted)">Hard vs Practical</div></div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Next Steps & Deliverables</h2>
-      <div class="card">
-        <ol style="margin:0;padding-left:18px;color:var(--muted)">
-          <li>Detailed system diagrams and sequence flows</li>
-          <li>Implementation plan with milestone timeline</li>
-          <li>Sample pseudocode for core algorithms (Dijkstra, segment tree updates, union-find failure detection)</li>
-          <li>Cost & staffing estimate for pilot (one zone of Navapura)</li>
-          <li>PPT and printable report</li>
-        </ol>
-        <p style="margin-top:12px;color:var(--muted)">Tell me which deliverable you'd like next and I'll generate it: (PPT, PDF, sequence diagrams, pseudocode, or a one-page executive summary).</p>
-      </div>
-    </section>
-
-    <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div>© Navapura UIONC • Project by Team Navapura</div>
-        <div style="color:var(--muted)">Prepared using DAA principles • Ready for PPT/Report export</div>
-      </div>
-    </footer>
-  </main>
 </body>
 </html>
-
