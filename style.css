@@ -146,6 +146,32 @@ header {
 /* FOOTER */
 footer {
   text-align: center;
+  /* --- Modern Nav Menu --- */
+.top-menu {
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+.top-menu a {
+  display: inline-block;
+  padding: 8px 18px;
+  margin: 0 6px;
+  background: #ffffff;
+  border-radius: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #2A2F4F;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.08);
+  transition: 0.2s ease;
+}
+
+.top-menu a:hover {
+  background: #00B4D8;
+  color: white;
+  transform: translateY(-2px);
+}
+
   padding: 25px;
   color: #52637A;
   font-size: 0.9rem;
