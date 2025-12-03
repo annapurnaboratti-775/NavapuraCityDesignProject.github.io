@@ -13,84 +13,92 @@
         img {width: 80%; margin: 10px auto; display:block; border-radius:10px;}
     </style>
 </head>
-
 <body>
 
-<h1>Smart City Service Automation & Routing System</h1>
+<h1>Smart City Services Dashboard</h1>
 
-<p>
-As cities grow, managing emergency services and public utilities becomes challenging. 
-This system automates major services like <b>Hospital Internal Management, Parking Allocation, EV Charging Points and Waste Collection</b>
-using advanced Data Structures & Algorithms such as <b>Dijkstra, BFS, DFS, Sorting & Trees</b>.
-</p>
+<nav>
+    <a href="#hospital">Hospital</a>
+    <a href="#waste">Garbage & Waste collection</a>
+    <a href="#utilities">Water & Electricity</a>
+    <a href="#parking">Parking & Petrol</a>
+    <a href="#salt">Salt Production</a>
+</nav>
 
-
-
-<h2>Service Modules Implemented</h2>
-
-<div class="section">
-<h3>1. Hospital Internal Management</h3>
-<p>
-• Manages patient queue and emergency prioritization<br>
-• Tracks bed availability in ICU, general wards, and emergency<br>
-• Assigns doctors efficiently based on specialty and availability
-</p>
-<p><b>Algorithms & Data Structures Used:</b> Priority Queue (emergency patients), Queue (regular patients), HashMap (bed & doctor tracking)</p>
-</div>
-<div class="section">
-<h3>2. Smart Parking System</h3>
-<p>
-• Shows nearest available parking slot<br>
-• Sorts parking spaces based on distance/price<br>
-• Can allocate in real-time
-</p>
-<p><b>Algorithms Used:</b> Merge/Quick Sort + Priority Queue,dfs</p>
-</div>
-
-<div class="section">
-<h3>3. EV Charging Station Locator</h3>
-<p>
-• Stores charging stations in tree structure<br>
-• Fast search based on distance and availability<br>
-• Supports insert/delete/search efficiently
-</p>
-<p><b>Data Structure Used:</b> Red-Black Tree / AVL Tree</p>
-</div>
-
-<div class="section">
-<h3>4. Waste Collection Route Optimization</h3>
-<p>
-• Plans garbage truck path covering max junctions<br>
-• Finds reachable areas + reduces fuel/time<br>
-• Useful for smart municipal management
-</p>
-<p><b>Algorithms Used:</b> DFS + Minimum Spanning Tree</p>
+<div class="section" id="hospital">
+    <h2>Hospital</h2>
+    <p>Manage internal hospital facilities including patient records, available beds, doctors, and emergency services.</p>
+    <div class="algorithms">
+        <strong>Algorithms / DSA Used:</strong>
+        <ul>
+            <li>Priority Queues – to assign patients based on urgency</li>
+            <li>Hash Tables / Maps – to manage patient records</li>
+        </ul>
+    </div>
 </div>
 
 
-<div class="section">
-<h3>5. Smart Salt Production Monitoring System</h3>
-<p>
-• Tracks daily salt production in coastal salt pans near the city<br>
-• Stores production levels and identifies highest/lowest producing zones<br>
-• Helps plan salt transportation, storage, and maintenance efficiently
-</p>
-<p><b>Algorithms & Data Structures Used:</b> Array/List (production values), HashMap (salt pan data), Sorting or Max Search (find top production area), Queue (for transportation scheduling)</p>
-
+<div class="section" id="waste">
+   <h3> Waste Collection Route Optimization</h3>
+   <p>
+    • Plans garbage truck path covering max junctions<br>
+    • Finds reachable areas + reduces fuel/time<br>
+    <div class="algorithms">
+        <p><b>Algorithms Used:</b> DFS + Minimum Spanning Tree</p>
+    </div>
 </div>
 
-    
+<div class="section" id="utilities">
+    <h2>Water & Electricity</h2>
+    <p>Monitor water supply, quality, and electricity distribution for better resource management.</p>
+    <div class="algorithms">
+        <strong>Algorithms / DSA Used:</strong>
+        <ul>
+            <li>Dynamic Allocation – to distribute water/electricity efficiently</li>
+            <li>Priority Queues – for critical area supply</li>
+            <li>Graphs – to represent pipeline and grid networks</li>
+        </ul>
+    </div>
+</div>
 
+<div class="section" id="parking">
+    <h2>Parking & Petrol</h2>
+    <p>Locate available parking spaces and nearby petrol/EV stations for efficient traffic and fuel management.</p>
+    <div class="algorithms">
+        <strong>Algorithms / DSA Used:</strong>
+        <ul>
+            <li>BFS + Min-Heap – to find the nearest available parking or fuel station</li>
+            <li>Hash Maps – to maintain parking slot availability</li>
+ 
+        </ul>
+    </div>
+</div>                 
+
+<div class="section" id="salt">
+    <h2>Salt Production</h2>
+    <p>Monitor and optimize salt harvesting, production, and distribution efficiently.</p>
+    <div class="algorithms">
+        <strong>Algorithms / DSA Used:</strong>
+        <ul>
+            <li>Priority Queue (Max-Heap) – harvest pans with highest salt quantity first</li>
+            <li>Graphs / Shortest Path – for optimal delivery route planning</li>
+        </ul>
+    </div>
+</div>
 
 <h2>Relation With Data Structures & Algorithms (DAA)</h2>
 
 <ul>
-    <li><b>Graphs</b> represent the entire city layout.</li>
-    <li><b>BFS/DFS</b> optimize movement across city nodes and inside hospital routing.</li>
-    <li><b>Sorting</b> organizes parking slots & resource priority.</li>
-    <li><b>Priority Queue & HashMap</b> optimize patient management & bed allocation.</li>
-    <li><b>Red-Black Tree</b> ensures fast EV station lookup.</li>
-    <li><b>MST (Prim/Kruskal)</b> minimizes waste collection route.</li>
+   <h2>Complexity & Efficiency</h2>
+<ul>
+    <li>Priority Queue :insertion/removal (used for patient assignment, salt harvesting, and critical utilities)</li>
+    <li>Hash Map :lookup (managing patient records, parking availability)</li>
+    <li>DFS :waste collection route optimization</li>
+    <li>BFS :finding nearest parking or petrol stations</li>
+    <li>Graphs :for traversal, O(E log V) for MST (city layout, pipelines, and waste routes)</li>
+    <li>Min-Heap :nearest parking/fuel station search</li>
+</ul>
+
 </ul>
 
 
@@ -102,23 +110,25 @@ using advanced Data Structures & Algorithms such as <b>Dijkstra, BFS, DFS, Sorti
 
 <h2>Complexity & Efficiency</h2>
 <ul>
-    <li>Priority Queue → O(log n) insertion/removal</li>
-    <li>Queue → O(1) enqueue/dequeue</li>
-    <li>HashMap Lookup → O(1)</li>
-    <li>Merge Sort → O(n log n)</li>
-    <li>Red-Black Tree Search → O(log n)</li>
-    <li>DFS/BFS → O(V + E)</li>
+    <h2>Complexity & Efficiency</h2>
+<ul>
+    <li>Priority Queue → O(log n) insertion/removal (used for patient assignment, salt harvesting, and critical utilities)</li>
+    <li>Hash Map → O(1) lookup (managing patient records, parking availability)</li>
+    <li>DFS → O(V + E) (waste collection route optimization)</li>
+    <li>BFS → O(V + E) (finding nearest parking or petrol stations)</li>
+    <li>Graphs → O(V + E) for traversal, O(E log V) for MST (city layout, pipelines, and waste routes)</li>
+    <li>Min-Heap → O(log n) (nearest parking/fuel station search)</li>
 </ul>
+
+
 
 
 
 <h2>Conclusion</h2>
 <p>
-The Smart City Service Automation System integrates multiple utilities under 
-one platform and optimizes them using DAA techniques. The use of graphs, trees, 
-queues, and sorting improves public infrastructure, reduces delays, and builds a 
-safer, faster, and more efficient urban environment.
+Overall, the integration of priority queues, hash maps, graphs, and other DAA techniques transforms urban management into a smarter, faster, and more sustainable system, improving both city operations and citizen quality of life.
 </p>
+
 
 
 </body>
