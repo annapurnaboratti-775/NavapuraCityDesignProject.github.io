@@ -1,259 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Navapura City Initiatives</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-
-    body {
-      background-color: #f5f8fa;
-      color: #333;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-weight: 700;
-      color: #2a9d8f;
-    }
-
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background-color: #fff;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      padding: 25px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-    }
-
-    .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #264653;
-    }
-
-    .sdg {
-      display: inline-block;
-      background-color: #e9c46a;
-      color: #000;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 12px;
-      margin-bottom: 15px;
-      font-size: 0.85rem;
-    }
-
-    .description, .implementation {
-      margin-bottom: 15px;
-    }
-
-    .description ul, .implementation ul {
-      list-style: disc;
-      padding-left: 20px;
-      margin-top: 8px;
-    }
-
-    .implementation h3 {
-      margin-bottom: 8px;
-      color: #e76f51;
-      font-size: 1rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navapura City Initiatives</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+  body { background:#f5f8fa; padding:20px; color:#333; }
+  h1 { text-align:center; margin-bottom:40px; font-weight:700; color:#2a9d8f; }
+  .cards-container { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; }
+  .card { background:#fff; border-radius:16px; padding:25px; box-shadow:0 8px 20px rgba(0,0,0,0.08); transition:0.2s; }
+  .card:hover { transform:translateY(-5px); box-shadow:0 12px 25px rgba(0,0,0,0.15); }
+  .card h2 { color:#264653; font-size:1.5rem; margin-bottom:10px; }
+  .sdg { display:inline-block; background:#e9c46a; color:#000; font-weight:600; padding:4px 10px; border-radius:12px; font-size:0.85rem; margin-bottom:15px; }
+  .section { margin-bottom:15px; }
+  .section ul { padding-left:20px; list-style:disc; margin-top:8px; }
+  .section h3 { color:#e76f51; font-size:1rem; margin-bottom:8px; }
+  .algo-buttons { margin-top:10px; display:flex; flex-wrap:wrap; gap:10px; }
+  .algo-buttons a { text-decoration:none; background:#2a9d8f; color:#fff; padding:8px 12px; border-radius:8px; font-size:0.85rem; transition:0.2s; }
+  .algo-buttons a:hover { background:#264653; }
+  table { width:100%; border-collapse:collapse; margin-top:40px; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.08); }
+  th, td { padding:12px 15px; border-bottom:1px solid #ddd; text-align:left; }
+  th { background:#2a9d8f; color:#fff; }
+  tr:hover { background:#f1f1f1; }
+</style>
 </head>
 <body>
-  <h1>Navapura City Initiatives</h1>
-  <div class="cards-container">
 
-    <!-- Card 1 -->
-    <div class="card">
-      <h2>Urban Waste-to-Resource Hubs</h2>
-      <div class="sdg">SDG 11.6</div>
-      <div class="description">
-        <strong>Description & Contribution:</strong>
-        <ul>
-          <li>Minimizing landfill usage and reducing harmful emissions.</li>
-          <li>Creating local employment and promoting circular economy practices.</li>
-          <li>Encouraging sustainable consumption and production in neighborhoods.</li>
-        </ul>
-      </div>
-      <div class="implementation">
-        <h3>Implementation using Algorithms/Data Structures:</h3>
-        <ul>
-          <li>Represent waste collection points and processing units as <strong>graph nodes</strong>, with transportation routes as edges.</li>
-          <li>Use <strong>Dijkstra’s Algorithm</strong> to optimize waste transportation routes to hubs.</li>
-          <li>Apply <strong>Heaps / Priority Queues</strong> to prioritize waste types with highest environmental impact.</li>
-          <li><strong>Lookup Tables</strong> to track quantities and types of waste generated per area.</li>
-        </ul>
+<h1>Navapura City Initiatives</h1>
+<div class="cards-container">
+
+  <!-- Card 1 -->
+  <div class="card">
+    <h2>1. Urban Waste-to-Resource Hubs</h2>
+    <div class="sdg">SDG 11.6</div>
+    <div class="section">
+      <h3>Implementation Steps (ADS)</h3>
+      <ul>
+        <li>Represent waste collection points and processing hubs as <strong>graph nodes</strong>; transportation routes are edges.</li>
+        <li>Apply <strong>Dijkstra’s Algorithm</strong> to determine optimal routes for transporting waste to hubs.</li>
+        <li>Use <strong>Heaps / Priority Queues</strong> to prioritize high-impact or hazardous waste first.</li>
+        <li>Store historical waste generation data in <strong>Lookup Tables</strong> for quick retrieval.</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h3>Algorithms / Data Structures Used</h3>
+      <ul>
+        <li>Dijkstra’s Algorithm</li>
+        <li>Heap / Priority Queue</li>
+        <li>Lookup Table</li>
+      </ul>
+      <div class="algo-buttons">
+        <a href="https://github.com/your-repo/Dijkstra" target="_blank">Learn Dijkstra</a>
+        <a href="https://github.com/your-repo/Heap-PriorityQueue" target="_blank">Learn Heap / PQ</a>
+        <a href="https://github.com/your-repo/Lookup-Table" target="_blank">Learn Lookup Table</a>
       </div>
     </div>
-
-    <!-- Card 2 -->
-    <div class="card">
-      <h2>Neighborhood Water Resilience Centers</h2>
-      <div class="sdg">SDG 6</div>
-      <div class="description">
-        <strong>Description & Contribution:</strong>
-        <ul>
-          <li>Ensuring water security at the community level.</li>
-          <li>Reducing dependence on centralized water systems.</li>
-          <li>Supporting sustainable urban growth by promoting water efficiency.</li>
-        </ul>
-      </div>
-      <div class="implementation">
-        <h3>Implementation using Algorithms/Data Structures:</h3>
-        <ul>
-          <li><strong>Segment Trees / Fenwick Trees</strong> for tracking water usage efficiently.</li>
-          <li><strong>Graphs + BFS</strong> to model and monitor water distribution networks.</li>
-          <li><strong>Binary Search Trees</strong> to manage households and water consumption records.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Card 3 -->
-    <div class="card">
-      <h2>Community Microgrids for Energy Security</h2>
-      <div class="sdg">SDG 7</div>
-      <div class="description">
-        <strong>Description & Contribution:</strong>
-        <ul>
-          <li>Ensure essential services remain operational during outages.</li>
-          <li>Reduce reliance on central grids.</li>
-          <li>Promote decentralized clean energy adoption.</li>
-        </ul>
-      </div>
-      <div class="implementation">
-        <h3>Implementation using Algorithms/Data Structures:</h3>
-        <ul>
-          <li>Represent microgrid connections as <strong>graphs</strong> with weighted edges.</li>
-          <li><strong>Prim’s Algorithm</strong> to design MST for microgrid connectivity.</li>
-          <li><strong>Heaps / Priority Queues</strong> for prioritizing critical energy loads.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Card 4 -->
-    <div class="card">
-      <h2>Smart Wastewater & Sewage Monitoring</h2>
-      <div class="sdg">SDG 6, 11.6</div>
-      <div class="description">
-        <strong>Description & Contribution:</strong>
-        <ul>
-          <li>Reduces public health risks and infrastructure damage.</li>
-          <li>Supports data-driven urban maintenance and cost savings.</li>
-        </ul>
-      </div>
-      <div class="implementation">
-        <h3>Implementation using Algorithms/Data Structures:</h3>
-        <ul>
-          <li>Use <strong>Graphs</strong> to model sewer networks.</li>
-          <li><strong>DFS/BFS</strong> to detect disconnected or blocked sections.</li>
-          <li><strong>Hash Tables</strong> for storing sensor data for quick anomaly detection.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Card 5 -->
-    <div class="card">
-      <h2>Urban Heat & Climate Mitigation Networks</h2>
-      <div class="sdg">SDG 11.6</div>
-      <div class="description">
-        <strong>Description & Contribution:</strong>
-        <ul>
-          <li>Reduces urban heat islands.</li>
-          <li>Improves city livability and climate resilience.</li>
-          <li>Enhances public health and comfort.</li>
-        </ul>
-      </div>
-      <div class="implementation">
-        <h3>Implementation using Algorithms/Data Structures:</h3>
-        <ul>
-          <li><strong>2-3 Trees / AVL Trees</strong> to store sensor data and temperature readings.</li>
-          <li><strong>Heap</strong> to prioritize intervention zones with highest heat index.</li>
-          <li><strong>Graphs + Dijkstra</strong> to plan green infrastructure distribution.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Card 6 -->
-    <div class="card">
-      <h2>Localized Food Security & Storage Units</h2>
-      <div class="sdg">SDG 2, 11</div>
-      <div class="description">
-        <strong>Description & Contribution:</strong>
-        <ul>
-          <li>Reduces post-harvest losses and supply chain disruptions.</li>
-          <li>Supports local farmers and neighborhood food security.</li>
-        </ul>
-      </div>
-      <div class="implementation">
-        <h3>Implementation using Algorithms/Data Structures:</h3>
-        <ul>
-          <li><strong>Priority Queues / Heaps</strong> to prioritize perishable goods.</li>
-          <li><strong>Graphs</strong> to map supply routes between farms and storage units.</li>
-          <li><strong>Merge / Quick Sort</strong> to sort produce by shelf-life.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Card 7 -->
-    <div class="card">
-      <h2>Citizen Digital Literacy & Civic Engagement Labs</h2>
-      <div class="sdg">SDG 4, 11</div>
-      <div class="description">
-        <strong>Description & Contribution:</strong>
-        <ul>
-          <li>Empowers citizens to actively participate in governance.</li>
-          <li>Supports equitable access to technology.</li>
-          <li>Encourages citizen-driven urban improvements.</li>
-        </ul>
-      </div>
-      <div class="implementation">
-        <h3>Implementation using Algorithms/Data Structures:</h3>
-        <ul>
-          <li><strong>Trie</strong> for managing learning resources and search-based recommendations.</li>
-          <li><strong>Queues</strong> for scheduling workshops.</li>
-          <li><strong>Hash Tables</strong> for storing participant records securely.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Card 8 -->
-    <div class="card">
-      <h2>Preventive Health & Lifestyle Monitoring Centers</h2>
-      <div class="sdg">SDG 3</div>
-      <div class="description">
-        <strong>Description & Contribution:</strong>
-        <ul>
-          <li>Early detection of health risks reduces strain on hospitals.</li>
-          <li>Promotes healthier urban populations.</li>
-          <li>Supports data-driven public health interventions.</li>
-        </ul>
-      </div>
-      <div class="implementation">
-        <h3>Implementation using Algorithms/Data Structures:</h3>
-        <ul>
-          <li><strong>Arrays / Structures</strong> to maintain patient records and health metrics.</li>
-          <li><strong>BFS / DFS</strong> for contact tracing or movement tracking.</li>
-          <li><strong>Fenwick Tree / Segment Tree</strong> to monitor trends in health parameters over time.</li>
-        </ul>
-      </div>
-    </div>
-
   </div>
+
+  <!-- Card 2 -->
+  <div class="card">
+    <h2>2. Neighborhood Water Resilience Centers</h2>
+    <div class="sdg">SDG 6</div>
+    <div class="section">
+      <h3>Implementation Steps (ADS)</h3>
+      <ul>
+        <li>Track water usage per household using <strong>Segment Trees / Fenwick Trees</strong> for efficient range queries.</li>
+        <li>Model water distribution as a <strong>graph</strong> and use <strong>BFS</strong> to check connectivity and detect leaks.</li>
+        <li>Store household and facility data in <strong>Binary Search Trees</strong> for fast access.</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h3>Algorithms / Data Structures Used</h3>
+      <ul>
+        <li>BFS</li>
+        <li>Segment Tree / Fenwick Tree</li>
+        <li>Binary Search Tree (BST)</li>
+      </ul>
+      <div class="algo-buttons">
+        <a href="https://github.com/your-repo/BFS" target="_blank">Learn BFS</a>
+        <a href="https://github.com/your-repo/Segment-Fenwick" target="_blank">Learn Segment/Fenwick Tree</a>
+        <a href="https://github.com/your-repo/BST" target="_blank">Learn BST</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Repeat for cards 3–8 with their respective algorithm links -->
+
+</div>
+
+<!-- Summary Table (can add buttons too if needed) -->
+<table>
+  <thead>
+    <tr>
+      <th>Initiative</th>
+      <th>SDG</th>
+      <th>Algorithms</th>
+      <th>Data Structures</th>
+      <th>Purpose / Application</th>
+      <th>Efficiency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Urban Waste-to-Resource Hubs</td>
+      <td>SDG 11.6</td>
+      <td>Dijkstra</td>
+      <td>Graph, Heap, Lookup Table</td>
+      <td>Optimize waste transport & prioritize high-impact waste</td>
+      <td>O(|E| log |V|), O(log n), O(1)</td>
+    </tr>
+    <tr>
+      <td>Neighborhood Water Resilience Centers</td>
+      <td>SDG 6</td>
+      <td>BFS, Segment Tree</td>
+      <td>Graph, Array, BST</td>
+      <td>Track water usage & detect leaks</td>
+      <td>O(V+E), O(log n)</td>
+    </tr>
+    <!-- Add remaining rows for initiatives 3–8 -->
+  </tbody>
+</table>
+
 </body>
 </html>
