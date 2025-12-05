@@ -1,135 +1,273 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>Smart City Service Automation & Routing System</title>
+
     <style>
-        body { font-family: Arial; padding: 30px; line-height: 1.6; background:#f8fbff;}
-        h1 { color:#1b3d79; text-align:center; font-size:32px; }
-        h2 { color:#0b2545; margin-top:35px; }
-        h3 { color:#055c9d; }
-        ul { margin-left:30px; }
-        .section {background:#fff; padding:20px; margin:20px 0; border-left:5px solid #0b2545;}
-        img {width: 80%; margin: 10px auto; display:block; border-radius:10px;}
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f3f6fb;
+            padding: 20px;
+            color: #1f1f1f;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 40px;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+            padding: 18px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
+        }
+
+        /* Navigation */
+        nav {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 12px 0;
+            background: #2563eb;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+        }
+        nav a {
+            margin: 0 18px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 600;
+            font-size: 18px;
+            transition: 0.25s;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+            transform: scale(1.08);
+        }
+
+        /* Sections */
+        .section {
+            background: #ffffff;
+            padding: 22px;
+            margin: 22px 0;
+            border-radius: 14px;
+            border-left: 6px solid transparent;
+            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
+            transition: 0.25s;
+        }
+        .section:hover {
+            transform: translateY(-4px);
+            border-left: 6px solid #1e3a8a;
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h2 {
+            color: #1e3a8a;
+            font-size: 28px;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+        }
+
+        /* Algorithm box */
+        .algorithms {
+            background: #e8eef8;
+            padding: 16px;
+            border-left: 6px solid #3b82f6;
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 3px 8px rgba(59, 130, 246, 0.18);
+        }
+
+        ul li {
+            padding: 5px 0;
+            font-size: 16px;
+        }
+
+
+        /* Complexity & Conclusion Highlight */
+.section.complexity, 
+.section.conclusion {
+    border-left: 6px solid #10b981; /* green accent for efficiency */
+    background: #f0fdf4; /* soft green background for emphasis */
+    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.2);
+    transition: 0.3s;
+}
+.section.complexity:hover, 
+.section.conclusion:hover {
+    transform: translateY(-4px);
+    border-left: 6px solid #059669;
+    box-shadow: 0 8px 22px rgba(5, 150, 105, 0.25);
+}
+.section.complexity h2,
+.section.conclusion h2 {
+    color: #047857; /* darker green for heading */
+    border-bottom: 3px solid #10b981;
+}
+
     </style>
 </head>
+
 <body>
 
 <h1>Smart City Services Dashboard</h1>
 
 <nav>
-    <a href="#hospital">Hospital</a>
-    <a href="#waste">Garbage & Waste collection</a>
-    <a href="#utilities">Water & Electricity</a>
-    <a href="#parking">Parking & Petrol</a>
-    <a href="#salt">Salt Production</a>
+    <a href="#hospital">🏥 Hospital</a>
+    <a href="#waste">♻️ Waste Collection</a>
+    <a href="#utilities">💡💧 Utilities</a>
+    <a href="#parking">🅿️ Parking</a>
+    <a href="#salt">🧂 Salt Production</a>
+    <a href="#feedback">📝 Feedback</a>
+
 </nav>
 
+<div class="section">
+    <h2>System Overview</h2>
+    <p>
+        The Smart City Service Automation & Routing System provides a unified platform
+        for managing essential city services such as healthcare, waste collection, utilities,
+        parking, and industrial production. Each module works independently while sharing
+        data through a centralized architecture, ensuring seamless coordination.
+    </p>
+    <p>
+        By integrating graph-based models, efficient data structures, and priority-driven logic,
+        the system optimizes routing, resource distribution, and real-time decision-making.
+    </p>
+</div>
+
+<!-- HOSPITAL -->
 <div class="section" id="hospital">
-    <h2>Hospital</h2>
-    <p>Manage internal hospital facilities including patient records, available beds, doctors, and emergency services.</p>
+    <h2>🏥 Hospital Management</h2>
+    <p>
+        This module manages patient details, available beds, doctor allocation,
+        and emergency case handling. Critical patients are automatically prioritized
+        to ensure faster treatment.
+    </p>
+
     <div class="algorithms">
-        <strong>Algorithms / DSA Used:</strong>
+        <strong>Algorithms / Data Structures Used:</strong>
         <ul>
-            <li>Priority Queues – to assign patients based on urgency</li>
-            <li>Hash Tables / Maps – to manage patient records</li>
+            <li><strong>Priority Queue:</strong> Assigns emergency patients based on urgency.</li>
+            <li><strong>Hash Maps:</strong> Stores patient records for instant lookup.</li>
         </ul>
     </div>
 </div>
 
-
+<!-- WASTE -->
 <div class="section" id="waste">
-   <h3> Waste Collection Route Optimization</h3>
-   <p>
-    • Plans garbage truck path covering max junctions<br>
-    • Finds reachable areas + reduces fuel/time<br>
+    <h2>♻️ Waste Collection Route Optimization</h2>
+    <p>
+        The system plans efficient paths for waste collection trucks, covering the
+        maximum number of junctions while minimizing time and fuel consumption.
+    </p>
+
     <div class="algorithms">
-        <p><b>Algorithms Used:</b> DFS + Minimum Spanning Tree</p>
+        <strong>Algorithms Used:</strong>
+        <ul>
+            <li><strong>Depth First Search (DFS):</strong> Identifies reachable collection areas.</li>
+            <li><strong>Minimum Spanning Tree:</strong> Optimizes overall route structure.</li>
+        </ul>
     </div>
 </div>
 
+<!-- UTILITIES -->
 <div class="section" id="utilities">
-    <h2>Water & Electricity</h2>
-    <p>Monitor water supply, quality, and electricity distribution for better resource management.</p>
+    <h2>💡💧 Water & Electricity Management</h2>
+    <p>
+        Monitors and manages water flow, quality checks, and electricity distribution.
+        Critical areas are supplied first to prevent outages and imbalances.
+    </p>
+
     <div class="algorithms">
         <strong>Algorithms / DSA Used:</strong>
         <ul>
-            <li>Dynamic Allocation – to distribute water/electricity efficiently</li>
-            <li>Priority Queues – for critical area supply</li>
-            <li>Graphs – to represent pipeline and grid networks</li>
+            <li>Graph Structures – representing pipeline and grid networks.</li>
+            <li>Priority Queues – allocate resources during peak demand.</li>
+            <li>Dynamic Allocation – manages adaptive supply distribution.</li>
         </ul>
     </div>
 </div>
 
+<!-- PARKING -->
 <div class="section" id="parking">
-    <h2>Parking & Petrol</h2>
-    <p>Locate available parking spaces and nearby petrol/EV stations for efficient traffic and fuel management.</p>
-    <div class="algorithms">
-        <strong>Algorithms / DSA Used:</strong>
-        <ul>
-            <li>BFS + Min-Heap – to find the nearest available parking or fuel station</li>
-            <li>Hash Maps – to maintain parking slot availability</li>
- 
-        </ul>
-    </div>
-</div>                 
+    <h2>🅿️ Parking & Fuel Services</h2>
+    <p>
+        Identifies available parking slots and locates nearby fuel/EV charging stations.
+        The system ensures drivers find the shortest path to the nearest available spot.
+    </p>
 
-<div class="section" id="salt">
-    <h2>Salt Production</h2>
-    <p>Monitor and optimize salt harvesting, production, and distribution efficiently.</p>
     <div class="algorithms">
         <strong>Algorithms / DSA Used:</strong>
         <ul>
-            <li>Priority Queue (Max-Heap) – harvest pans with highest salt quantity first</li>
-            <li>Graphs / Shortest Path – for optimal delivery route planning</li>
+            <li>Breadth First Search (BFS) – locates nearest available parking.</li>
+            <li>Min-Heap – retrieves the closest station in real-time.</li>
+            <li>Hash Maps – maintain live status of parking slots.</li>
         </ul>
     </div>
 </div>
 
-<h2>Relation With Data Structures & Algorithms (DAA)</h2>
+<!-- SALT -->
+<div class="section" id="salt">
+    <h2>🧂 Salt Production & Distribution</h2>
+    <p>
+        Tracks production, harvesting cycles, and delivery routes for salt pans.
+        Ensures that the highest-yield pans are harvested first.
+    </p>
 
-<ul>
-   <h2>Complexity & Efficiency</h2>
-<ul>
-    <li>Priority Queue :insertion/removal (used for patient assignment, salt harvesting, and critical utilities)</li>
-    <li>Hash Map :lookup (managing patient records, parking availability)</li>
-    <li>DFS :waste collection route optimization</li>
-    <li>BFS :finding nearest parking or petrol stations</li>
-    <li>Graphs :for traversal, O(E log V) for MST (city layout, pipelines, and waste routes)</li>
-    <li>Min-Heap :nearest parking/fuel station search</li>
-</ul>
+    <div class="algorithms">
+        <strong>Algorithms / DSA Used:</strong>
+        <ul>
+            <li>Max-Heap – selects pans with the highest salt output.</li>
+            <li>Graph Routing – plans efficient distribution paths.</li>
+        </ul>
+    </div>
+</div>
 
-</ul>
+<div class="section" id="feedback">
+    <h2>🗣️ Smart Citizen Feedback & Issue Reporting</h2>
+    <p>
+        Residents can submit real-time service requests and feedback through the platform. 
+        The system automatically categorizes issues, prioritizes critical requests, and integrates them 
+        with relevant service modules for faster resolution. Citizens are notified once issues are addressed.
+    </p>
+    <div class="algorithms">
+        <strong>Algorithms / DSA Used:</strong>
+        <ul>
+            <li>Priority Queue – handles urgent requests first.</li>
+            <li>Hash Maps – stores user reports for instant lookup and analytics.</li>
+            <li>Graph Notification Routing – directs reports to nearest service teams.</li>
+        </ul>
+    </div>
+</div>
 
 
-<h2>Flowcharts & City Maps</h2>
-<img src="YOUR_FLOWCHART_IMAGE.png" alt="Flowchart Here">
-<img src="YOUR_CITY_GRAPH.png" alt="City Graph">
-
-
-
-<h2>Complexity & Efficiency</h2>
-<ul>
+<!-- COMPLEXITY ANALYSIS -->
+ <div class="section complexity">
+<div class="section">
     <h2>Complexity & Efficiency</h2>
-<ul>
-    <li>Priority Queue → O(log n) insertion/removal (used for patient assignment, salt harvesting, and critical utilities)</li>
-    <li>Hash Map → O(1) lookup (managing patient records, parking availability)</li>
-    <li>DFS → O(V + E) (waste collection route optimization)</li>
-    <li>BFS → O(V + E) (finding nearest parking or petrol stations)</li>
-    <li>Graphs → O(V + E) for traversal, O(E log V) for MST (city layout, pipelines, and waste routes)</li>
-    <li>Min-Heap → O(log n) (nearest parking/fuel station search)</li>
-</ul>
-
-
-
-
-
-<h2>Conclusion</h2>
-<p>
-Overall, the integration of priority queues, hash maps, graphs, and other DAA techniques transforms urban management into a smarter, faster, and more sustainable system, improving both city operations and citizen quality of life.
-</p>
-
-
-
+    <ul>
+        <li>Priority Queue → O(log n) insertion/removal</li>
+        <li>Hash Map → O(1) data lookup</li>
+        <li>DFS → O(V + E) traversal</li>
+        <li>BFS → O(V + E) nearest search</li>
+        <li>Graphs → O(E log V) for MST-based routing</li>
+        <li>Min-Heap → O(log n) nearest node extraction</li>
+    </ul>
+</div>
+</div>
+<!-- CONCLUSION -->
+ <div class="section conclusion">
+<div class="section">
+    <h2>Conclusion</h2>
+    <p>
+        The integration of advanced data structures and algorithms transforms city services
+        into a highly efficient, automated, and interconnected system. By optimizing routes,
+        prioritizing emergencies, and ensuring real-time availability, this platform helps
+        enhance both operational efficiency and citizens' quality of life.
+    </p>
+</div>
+</div>
 </body>
 </html>
