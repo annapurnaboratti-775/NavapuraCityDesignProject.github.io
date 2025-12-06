@@ -1,273 +1,431 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Smart City Service Automation & Routing System</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart City Services Dashboard</title>
 
-    <style>
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            background: #f3f6fb;
-            padding: 20px;
-            color: #1f1f1f;
-            line-height: 1.6;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-        /* Header */
-        h1 {
-            text-align: center;
-            color: #fff;
-            font-size: 40px;
-            margin-bottom: 25px;
-            background: linear-gradient(90deg, #1e40af, #3b82f6);
-            padding: 18px;
-            border-radius: 14px;
-            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.4);
-        }
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
+  body { background:#f5f8fa; padding:25px; color:#333; }
 
-        /* Navigation */
-        nav {
-            text-align: center;
-            margin-bottom: 30px;
-            padding: 12px 0;
-            background: #2563eb;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
-        }
-        nav a {
-            margin: 0 18px;
-            text-decoration: none;
-            color: #fff;
-            font-weight: 600;
-            font-size: 18px;
-            transition: 0.25s;
-        }
-        nav a:hover {
-            color: #ffeb3b;
-            transform: scale(1.08);
-        }
+  h1 { 
+    text-align:center; 
+    margin-bottom:40px; 
+    font-weight:700; 
+    color:#1abc9c;
+    font-size:2.4rem;
+  }
 
-        /* Sections */
-        .section {
-            background: #ffffff;
-            padding: 22px;
-            margin: 22px 0;
-            border-radius: 14px;
-            border-left: 6px solid transparent;
-            box-shadow: 0 5px 14px rgba(0, 0, 0, 0.10);
-            transition: 0.25s;
-        }
-        .section:hover {
-            transform: translateY(-4px);
-            border-left: 6px solid #1e3a8a;
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
-        }
+  /* System Overview + Conclusion special full-width cards */
+  .big-card {
+    width:100%;
+    background:#fff;
+    border-radius:16px;
+    padding:25px;
+    margin-bottom:30px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  }
 
-        h2 {
-            color: #1e3a8a;
-            font-size: 28px;
-            border-bottom: 3px solid #3b82f6;
-            padding-bottom: 5px;
-            margin-bottom: 12px;
-        }
+  .big-card h2 {
+    color:#16a085;
+    font-size:1.7rem;
+    margin-bottom:12px;
+  }
 
-        /* Algorithm box */
-        .algorithms {
-            background: #e8eef8;
-            padding: 16px;
-            border-left: 6px solid #3b82f6;
-            border-radius: 8px;
-            margin-top: 15px;
-            box-shadow: 0 3px 8px rgba(59, 130, 246, 0.18);
-        }
+  /* Grid Cards Layout (3 per row) */
+  .cards-container {
+    width:100%;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px;
+    margin-bottom:35px;
+  }
 
-        ul li {
-            padding: 5px 0;
-            font-size: 16px;
-        }
+  .card {
+    background:#fff;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    transition:0.25s;
+  }
 
+  .card:hover {
+    transform:translateY(-6px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.15);
+  }
 
-        /* Complexity & Conclusion Highlight */
-.section.complexity, 
-.section.conclusion {
-    border-left: 6px solid #10b981; /* green accent for efficiency */
-    background: #f0fdf4; /* soft green background for emphasis */
-    box-shadow: 0 6px 18px rgba(16, 185, 129, 0.2);
-    transition: 0.3s;
+  .card h2 {
+    color:#16a085;
+    font-size:1.45rem;
+    margin-bottom:10px;
+  }
+
+  .tag {
+    display:inline-block;
+    background:#1abc9c;
+    color:#fff;
+    font-weight:600;
+    padding:4px 12px;
+    border-radius:10px;
+    font-size:0.85rem;
+    margin-bottom:15px;
+  }
+
+  .section-title {
+    color:#27ae60;
+    font-size:1rem;
+    margin-top:15px;
+    margin-bottom:8px;
+    font-weight:600;
+  }
+
+  ul { padding-left:20px; margin-bottom:10px; }
+  ul li { margin-bottom:6px; }
+
+  /* Table */
+  table {
+    width:100%;
+    border-collapse:collapse;
+    margin-top:45px;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  }
+  th, td {
+    padding:14px 16px;
+    border-bottom:1px solid #ddd;
+    text-align:left;
+  }
+  th {
+    background:#1abc9c;
+    color:#fff;
+    font-size:1rem;
+  }
+  tr:hover { background:#f1f1f1; }
+
+  /* Responsive */
+  @media(max-width:900px){
+    .cards-container {
+      grid-template-columns:1fr;
+    }
+  }
+  .table-spacing {
+  margin-bottom: 40px; /* adds space after table before conclusion */
 }
-.section.complexity:hover, 
-.section.conclusion:hover {
-    transform: translateY(-4px);
-    border-left: 6px solid #059669;
-    box-shadow: 0 8px 22px rgba(5, 150, 105, 0.25);
-}
-.section.complexity h2,
-.section.conclusion h2 {
-    color: #047857; /* darker green for heading */
-    border-bottom: 3px solid #10b981;
+
+.button-group {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-    </style>
+.button-group button {
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 8px 14px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+  background-color: #159f87;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 40px;
+  background: #1abc9c;
+  padding: 12px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(26, 188, 156, 0.4);
+}
+
+.navbar a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+  background-color: #159f87;
+}
+
+</style>
 </head>
 
 <body>
 
 <h1>Smart City Services Dashboard</h1>
-
-<nav>
-    <a href="#hospital">🏥 Hospital</a>
-    <a href="#waste">♻️ Waste Collection</a>
-    <a href="#utilities">💡💧 Utilities</a>
-    <a href="#parking">🅿️ Parking</a>
-    <a href="#salt">🧂 Salt Production</a>
-    <a href="#feedback">📝 Feedback</a>
-
+<nav class="navbar">
+  <a href="#h">Hospital</a>
+  <a href="#w">Waste Collection</a>
+  <a href="#u">Water & Electricity</a>
+  <a href="#p">Parking</a>
+  <a href="#s">Salt Production</a>
+  <a href="#f">Feedback</a>
 </nav>
 
-<div class="section">
-    <h2>System Overview</h2>
-    <p>
-        The Smart City Service Automation & Routing System provides a unified platform
-        for managing essential city services such as healthcare, waste collection, utilities,
-        parking, and industrial production. Each module works independently while sharing
-        data through a centralized architecture, ensuring seamless coordination.
-    </p>
-    <p>
-        By integrating graph-based models, efficient data structures, and priority-driven logic,
-        the system optimizes routing, resource distribution, and real-time decision-making.
-    </p>
+
+<!-- SYSTEM OVERVIEW -->
+<div class="big-card">
+  <h2>System Overview</h2>
+  <p>
+    A unified platform managing hospitals, waste collection, utilities, parking,
+    salt production, and citizen feedback. 
+    It integrates graph-based routing, dynamic allocation, and priority-driven logic
+    to enhance real-time decision-making across the city.
+  </p>
 </div>
 
-<!-- HOSPITAL -->
-<div class="section" id="hospital">
+<!-- MODULES: ALWAYS 3 PER ROW -->
+<div class="cards-container">
+
+  <!-- Hospital -->
+  <div class="card" id="h">
     <h2>🏥 Hospital Management</h2>
-    <p>
-        This module manages patient details, available beds, doctor allocation,
-        and emergency case handling. Critical patients are automatically prioritized
-        to ensure faster treatment.
-    </p>
+    <span class="tag">Critical Services</span>
 
-    <div class="algorithms">
-        <strong>Algorithms / Data Structures Used:</strong>
-        <ul>
-            <li><strong>Priority Queue:</strong> Assigns emergency patients based on urgency.</li>
-            <li><strong>Hash Maps:</strong> Stores patient records for instant lookup.</li>
-        </ul>
-    </div>
-</div>
-
-<!-- WASTE -->
-<div class="section" id="waste">
-    <h2>♻️ Waste Collection Route Optimization</h2>
-    <p>
-        The system plans efficient paths for waste collection trucks, covering the
-        maximum number of junctions while minimizing time and fuel consumption.
-    </p>
-
-    <div class="algorithms">
-        <strong>Algorithms Used:</strong>
-        <ul>
-            <li><strong>Depth First Search (DFS):</strong> Identifies reachable collection areas.</li>
-            <li><strong>Minimum Spanning Tree:</strong> Optimizes overall route structure.</li>
-        </ul>
-    </div>
-</div>
-
-<!-- UTILITIES -->
-<div class="section" id="utilities">
-    <h2>💡💧 Water & Electricity Management</h2>
-    <p>
-        Monitors and manages water flow, quality checks, and electricity distribution.
-        Critical areas are supplied first to prevent outages and imbalances.
-    </p>
-
-    <div class="algorithms">
-        <strong>Algorithms / DSA Used:</strong>
-        <ul>
-            <li>Graph Structures – representing pipeline and grid networks.</li>
-            <li>Priority Queues – allocate resources during peak demand.</li>
-            <li>Dynamic Allocation – manages adaptive supply distribution.</li>
-        </ul>
-    </div>
-</div>
-
-<!-- PARKING -->
-<div class="section" id="parking">
-    <h2>🅿️ Parking & Fuel Services</h2>
-    <p>
-        Identifies available parking slots and locates nearby fuel/EV charging stations.
-        The system ensures drivers find the shortest path to the nearest available spot.
-    </p>
-
-    <div class="algorithms">
-        <strong>Algorithms / DSA Used:</strong>
-        <ul>
-            <li>Breadth First Search (BFS) – locates nearest available parking.</li>
-            <li>Min-Heap – retrieves the closest station in real-time.</li>
-            <li>Hash Maps – maintain live status of parking slots.</li>
-        </ul>
-    </div>
-</div>
-
-<!-- SALT -->
-<div class="section" id="salt">
-    <h2>🧂 Salt Production & Distribution</h2>
-    <p>
-        Tracks production, harvesting cycles, and delivery routes for salt pans.
-        Ensures that the highest-yield pans are harvested first.
-    </p>
-
-    <div class="algorithms">
-        <strong>Algorithms / DSA Used:</strong>
-        <ul>
-            <li>Max-Heap – selects pans with the highest salt output.</li>
-            <li>Graph Routing – plans efficient distribution paths.</li>
-        </ul>
-    </div>
-</div>
-
-<div class="section" id="feedback">
-    <h2>🗣️ Smart Citizen Feedback & Issue Reporting</h2>
-    <p>
-        Residents can submit real-time service requests and feedback through the platform. 
-        The system automatically categorizes issues, prioritizes critical requests, and integrates them 
-        with relevant service modules for faster resolution. Citizens are notified once issues are addressed.
-    </p>
-    <div class="algorithms">
-        <strong>Algorithms / DSA Used:</strong>
-        <ul>
-            <li>Priority Queue – handles urgent requests first.</li>
-            <li>Hash Maps – stores user reports for instant lookup and analytics.</li>
-            <li>Graph Notification Routing – directs reports to nearest service teams.</li>
-        </ul>
-    </div>
-</div>
-
-
-<!-- COMPLEXITY ANALYSIS -->
- <div class="section complexity">
-<div class="section">
-    <h2>Complexity & Efficiency</h2>
+    <div class="section-title">Implementation Steps (ADS)</div>
     <ul>
-        <li>Priority Queue → O(log n) insertion/removal</li>
-        <li>Hash Map → O(1) data lookup</li>
-        <li>DFS → O(V + E) traversal</li>
-        <li>BFS → O(V + E) nearest search</li>
-        <li>Graphs → O(E log V) for MST-based routing</li>
-        <li>Min-Heap → O(log n) nearest node extraction</li>
+      <li>Store patient profiles using <strong>Hash Maps</strong>.</li>
+      <li>Push emergency cases into a <strong>Priority Queue</strong>.</li>
+      <li>Assign doctors based on patient urgency.</li>
+      <li>Track bed availability with boolean arrays.</li>
     </ul>
+
+    <div class="section-title">Algorithms / DSA Used</div>
+    <ul>
+      <li>Priority Queue</li>
+      <li>Hash Map</li>
+    </ul>
+
+    <div class="button-group">
+    <button>Learn Priority Queue</button>
+    <button>Learn Hash Map</button>
+  </div>
+  </div>
+  <!-- Waste -->
+  <div class="card" id="w">
+    <h2>♻️ Waste Collection Optimization</h2>
+    <span class="tag">Routing</span>
+    <div class="section-title">Implementation Steps (ADS)</div>
+    <ul>
+      <li>Represent city routes as a <strong>graph</strong>.</li>
+      <li>Use <strong>DFS</strong> to find reachable collection points.</li>
+      <li>Use <strong>Dijkstra</strong> to find shortest paths between bins.</li>
+    </ul>
+    <div class="section-title">Algorithms / Data Structures</div>
+    <ul>
+      <li>DFS </li>
+      <li>Dijkstra</li>
+      <li>Graph</li>    
+    </ul>
+    <div class="button-group">
+    <button>Learn DFS</button>
+    <button>Learn Dijkstra</button>
+    <button>Learn Graph</button>
+  </div>
+  </div>
+  <!-- Utilities -->
+ <div class="card" id="u">
+    <h2>💡💧 Water & Electricity</h2>
+    <span class="tag">Utilities</span>
+    <div class="section-title">Implementation Steps (ADS)</div>
+    <ul>
+      <li>Model supply grid as a <strong>graph</strong>.</li>
+      <li>Use <strong>MST (Prim/Kruskal)</strong> to design minimal cost network.</li>
+      <li>Track high-demand nodes with <strong>Priority Queue / Min-Heap</strong>.</li>
+      <li>Apply dynamic allocation to adapt supply during peak hours.</li>
+    </ul>
+    <div class="section-title">Algorithms / Data Structures</div>
+    <ul>
+      <li>MST (Prim’s or Kruskal’s Algorithm) </li>
+      <li>Graphs </li>
+      <li>Priority Queue / Min-Heap </li>
+      <li>Dynamic Allocation </li>
+    </ul>
+    <div class="button-group">
+    <button>Learn MST</button>
+    <button>Learn Graphs</button>
+    <button>Learn Priority Queue</button>
+    <button>Learn Dynamic Allocation</button>
+  </div>
+  </div>
+  <!-- Parking -->
+  <div class="card" id="p">
+    <h2>🅿️ Parking & Fuel Services</h2>
+    <span class="tag">Transport</span>
+    <div class="section-title">Implementation Steps (ADS)</div>
+    <ul>
+      <li>Check slot availability using <strong>Hash Map</strong>.</li>
+      <li>Use <strong>BFS</strong> to locate nearest free slot.</li>
+      <li>Store station distances in a <strong>Min Heap</strong>.</li>
+      <li>Provide shortest route to driver.</li>
+    </ul>
+    <div class="section-title">Algorithms / DSA</div>
+    <ul>
+      <li>BFS</li>
+      <li>Min Heap</li>
+      <li>Hash Map</li>
+    </ul>
+     <div class="button-group">
+    <button>Learn BFS</button>
+    <button>Learn Min Heap</button>
+    <button>Learn Hash Map</button>
+  </div>
+  </div>
+  <!-- Salt -->
+ <div class="card" id="s">
+    <h2>🧂 Salt Production</h2>
+    <span class="tag">Industry</span>
+    <div class="section-title">Implementation Steps (ADS)</div>
+    <ul>
+      <li>Store salt pan outputs in a <strong>Max Heap</strong>.</li>
+      <li>Pick highest-yield pans first.</li>
+      <li>Plan shortest distribution routes to storage using <strong>Graph / Dijkstra</strong>.</li>
+      <li>Manage trucks and deliveries with <strong>Priority Queue</strong>.</li>
+      <li>Store pan data (yield, status) in <strong>Hash Map</strong>.</li>
+    </ul>
+    <div class="section-title">Algorithms / Data Structures</div>
+    <ul>
+      <li>Max-Heap </li>
+      <li>Graph / Dijkstra</li>
+      <li>Priority Queue </li>
+      <li>Hash Map / Lookup Table</li>
+    </ul>
+     <div class="button-group">
+    <button>Learn Max Heap</button>
+    <button>Learn Graph</button>
+    <button>Learn Dijkstra</button>
+    <button>Learn Priority Queue</button>
+    <button>Learn Hash Map</button>
+  </div>
+  </div>
+  <!-- Feedback -->
+  <div class="card" id="f">
+    <h2>📝 Citizen Feedback</h2>
+    <span class="tag">Public Interaction</span>
+
+    <div class="section-title">Implementation Steps (ADS)</div>
+    <ul>
+      <li>Store feedback entries in <strong>Hash Maps</strong>.</li>
+      <li>Push urgent complaints into <strong>Priority Queue</strong>.</li>
+      <li>Route issues to nearest team using <strong>Graph</strong>.</li>
+      <li>Notify citizens once resolved.</li>
+    </ul>
+
+    <div class="section-title">Algorithms / DSA</div>
+    <ul>
+      <li>Priority Queue</li>
+      <li>Hash Map</li>
+      <li>Graph Routing</li>
+    </ul>
+    <div class="button-group" >
+    <button>Learn Priority Queue</button>
+    <button>Learn Hash Map</button>
+    <button>Learn Graph Routing</button>
+  </div>
+  </div>
+  <!-- Complexity -->
+  <div class="car">
+    <h2>📊 Complexity Analysis</h2>
+    <div class="section-title">Time Complexities</div>
+    <ul>
+      <li>Priority Queue → O(log n)</li>
+    <li>Max Heap / Min Heap → O(log n)</li>
+    <li>Hash Map / Lookup Table → O(1)</li>
+    <li>DFS / BFS → O(V + E)</li>
+    <li>Dijkstra → O(E log V) using Min Heap</li>
+    <li>MST (Prim/Kruskal) → O(E log V)</li>
+    <li>Graph Traversal / Routing → O(V + E)</li>
+    </ul>
+  </div>
 </div>
-</div>
+<!-- SUMMARY TABLE -->
+  <!-- SUMMARY TABLE -->
+<h2>Summary Table</h2>
+<table class="table-spacing">
+<thead>
+<tr>
+<th>Service</th>
+<th>Algorithms</th>
+<th>Data Structures</th>
+<th>Purpose</th>
+<th>Efficiency</th>
+<th>SDGs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hospital</td>
+<td>Priority Queue</td>
+<td>Hash Map, Boolean Array</td>
+<td>Emergency prioritization, bed management</td>
+<td>O(log n), O(1)</td>
+<td>Good Health & Well-being (SDG 3)</td>
+</tr>
+<tr>
+<td>Waste Collection</td>
+<td>DFS, Dijkstra</td>
+<td>Graph</td>
+<td>Route optimization for bin collection</td>
+<td>O(V+E), O(E log V)</td>
+<td>Clean Water & Sanitation (SDG 6), Sustainable Cities (SDG 11)</td>
+</tr>
+<tr>
+<td>Water & Electricity</td>
+<td>MST (Prim/Kruskal), Priority Queue / Min-Heap, Dynamic Allocation</td>
+<td>Graph, Heap</td>
+<td>Optimal supply network, high-demand tracking</td>
+<td>O(E log V), O(log n)</td>
+<td>Affordable & Clean Energy (SDG 7)</td>
+</tr>
+<tr>
+<td>Parking</td>
+<td>BFS, Min Heap</td>
+<td>Graph, Hash Map</td>
+<td>Locate nearest free slot efficiently</td>
+<td>O(V+E), O(log n)</td>
+<td>Sustainable Cities (SDG 11)</td>
+</tr>
+<tr>
+<td>Salt Production</td>
+<td>Max Heap, Dijkstra</td>
+<td>Heap, Graph, Priority Queue, Hash Map</td>
+<td>High-yield prioritization and distribution</td>
+<td>O(log n), O(E log V)</td>
+<td>Decent Work & Economic Growth (SDG 8)</td>
+</tr>
+<tr>
+<td>Feedback System</td>
+<td>Priority Queue, Graph Routing</td>
+<td>Hash Map</td>
+<td>Urgent complaint handling, routing issues</td>
+<td>O(log n), O(V+E)</td>
+<td>Peace, Justice & Strong Institutions (SDG 16)</td>
+</tr>
+</tbody>
+</table>
 <!-- CONCLUSION -->
- <div class="section conclusion">
-<div class="section">
-    <h2>Conclusion</h2>
-    <p>
-        The integration of advanced data structures and algorithms transforms city services
-        into a highly efficient, automated, and interconnected system. By optimizing routes,
-        prioritizing emergencies, and ensuring real-time availability, this platform helps
-        enhance both operational efficiency and citizens' quality of life.
-    </p>
-</div>
+<div class="big-card">
+  <h2>Conclusion</h2>
+  <p>
+   “The system leverages advanced algorithms and data structures to optimize city services such as hospitals, waste collection, utilities, parking, salt production, and citizen feedback. By enabling automation, prioritization, and real-time decision-making, it improves service delivery, enhances efficiency and scalability, and contributes to better quality of life for citizens.”
+  </p>
 </div>
 </body>
 </html>
