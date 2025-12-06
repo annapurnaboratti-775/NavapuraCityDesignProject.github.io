@@ -5,287 +5,220 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Emergency Response System – Akmal</title>
 
-    <!-- Existing CSS -->
+    <!-- Link to your existing CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Additional premium styling -->
     <style>
-        body {
-            font-family: "Segoe UI", Tahoma, sans-serif;
-            background: #f7f9fc;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #007bff, #6610f2);
-            color: white;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-        }
-
-        .header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            animation: fadeIn 1.2s ease-in-out;
-        }
-
-        .header p {
-            font-size: 18px;
-            opacity: 0.9;
-            animation: fadeIn 1.6s ease-in-out;
-        }
-
         .section {
+            margin: 40px auto;
             width: 90%;
-            margin: 30px auto;
-            animation: fadeInUp 0.8s ease;
-        }
-
-        h2, h3 {
-            color: #333;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0px 4px 15px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
-            transition: 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0px 6px 20px rgba(0,0,0,0.12);
+            line-height: 1.6;
         }
 
         table {
             border-collapse: collapse;
             width: 100%;
             margin-top: 15px;
-            border-radius: 10px;
-            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        table, th, td {
+            border: 1px solid #555;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
         }
 
         th {
-            background: #e9ecef;
-            padding: 12px;
+            background-color: #f0f0f0;
             font-weight: bold;
         }
 
-        td {
-            padding: 12px;
-            background: #fff;
-        }
-
-        tr:nth-child(even) td {
-            background: #f8f9fa;
-        }
-
-        ul li {
-            margin-bottom: 8px;
+        h2, h3 {
+            color: #222;
+            margin-top: 30px;
         }
 
         hr {
-            border: none;
-            height: 1px;
-            background: #ddd;
             margin: 25px 0;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 
 <body>
 
-    <div class="header">
-        <h1>Smart Emergency Response System</h1>
-        <p>Transforming city safety through intelligent routing, predictive analytics & real-time coordination</p>
-    </div>
-
     <div class="section">
 
-        <!-- SECTION TITLE -->
-        <div class="card">
-            <h2>Section 1: Identified Business Ideas</h2>
-            <p>
-                Modern cities face emergencies every single day—accidents, medical crises, fires, crimes, and sudden natural disasters.
-                Our proposed <b>Smart Emergency Response System (SERS)</b> integrates intelligent routing, 
-                predictive policing, fire hazard response, and evacuation planning to build a resilient and future-ready city.
-                This aligns strongly with <b>SDG 3, SDG 9, SDG 11, SDG 13, and SDG 16</b>.
-            </p>
-        </div>
+        <h2>Section 1: Identified Business Ideas</h2>
 
-        <!-- SUMMARY TABLE -->
-        <div class="card">
-            <h3>🔶 Business Idea Summary</h3>
+        <p>
+            Modern cities face a wide range of emergencies—medical crises, road accidents, fires, crimes, and sudden natural disasters. 
+            To handle these rapidly and effectively, our project proposes a 
+            <b>Smart Emergency Response System (SERS)</b> that integrates routing, disaster management, 
+            fire hazard prediction, and predictive policing. This aligns with the United Nations 
+            <b>SDGs 3, 9, 11, 13, and 16</b>, creating safer and more resilient urban environments.
+        </p>
 
-            <table>
-                <tr>
-                    <th>Business Idea</th>
-                    <th>SDG Alignment</th>
-                    <th>Purpose</th>
-                    <th>Technologies</th>
-                </tr>
+        <hr>
 
-                <tr>
-                    <td>Smart Emergency Response Control Centre</td>
-                    <td>SDG 3, 11</td>
-                    <td>Coordinate ambulances, fire trucks & police</td>
-                    <td>Graphs, routing algorithms, GPS</td>
-                </tr>
+        <h3>🔶 Business Idea Summary Table</h3>
 
-                <tr>
-                    <td>Intelligent Ambulance Routing Network</td>
-                    <td>SDG 3, 9</td>
-                    <td>Fastest path computation</td>
-                    <td>Dijkstra, weighted graphs, traffic data</td>
-                </tr>
+        <table>
+            <tr>
+                <th>Business Idea</th>
+                <th>SDG Alignment</th>
+                <th>Core Purpose</th>
+                <th>Key Technologies Used</th>
+            </tr>
 
-                <tr>
-                    <td>Disaster Evacuation Planning</td>
-                    <td>SDG 11, 13</td>
-                    <td>Safe evacuation routes</td>
-                    <td>BFS/DFS, simulation</td>
-                </tr>
+            <tr>
+                <td>Smart Emergency Response Control Centre</td>
+                <td>SDG 3, SDG 11</td>
+                <td>Central coordination of ambulances, fire trucks & police</td>
+                <td>Graph systems, routing algorithms, GPS integration</td>
+            </tr>
 
-                <tr>
-                    <td>Crime Hotspot Detection</td>
-                    <td>SDG 16</td>
-                    <td>Identify risky zones</td>
-                    <td>Analytics, shortest paths</td>
-                </tr>
+            <tr>
+                <td>Intelligent Ambulance Routing Network</td>
+                <td>SDG 3, SDG 9</td>
+                <td>Compute fastest routes with live traffic</td>
+                <td>Weighted graphs, Dijkstra, traffic analyzers</td>
+            </tr>
 
-                <tr>
-                    <td>Fire Hazard Monitoring</td>
-                    <td>SDG 11, 13</td>
-                    <td>Rapid fire response</td>
-                    <td>Sensors, routing, risk mapping</td>
-                </tr>
-            </table>
-        </div>
+            <tr>
+                <td>Disaster Evacuation & Safe Shelter Planning</td>
+                <td>SDG 11, SDG 13</td>
+                <td>Predict safe evacuation strategies</td>
+                <td>BFS/DFS, simulations, heatmap analysis</td>
+            </tr>
 
-        <!-- SERCC -->
-        <div class="card">
-            <h3>🔶 Smart Emergency Response Control Centre (SERCC)</h3>
-            <p>
-                The SERCC acts as the city’s digital nervous system. It receives emergency calls, tracks vehicles, 
-                and ensures the nearest available unit is dispatched instantly.
-            </p>
+            <tr>
+                <td>Crime Hotspot Detection & Predictive Policing</td>
+                <td>SDG 16</td>
+                <td>Identify high-risk zones and optimize patrols</td>
+                <td>Data analytics, shortest path algorithms</td>
+            </tr>
 
-            <ul>
-                <li>Real-time vehicle tracking with GPS.</li>
-                <li>Predicts response time using traffic density.</li>
-                <li>Dynamic routing during roadblocks.</li>
-                <li>24/7 monitoring of city-wide emergency activity.</li>
-                <li>Improves response accuracy and speed.</li>
-            </ul>
+            <tr>
+                <td>Integrated Fire Hazard Monitoring & Response</td>
+                <td>SDG 11, SDG 13</td>
+                <td>Detect & respond to fire incidents rapidly</td>
+                <td>Sensor networks, routing algorithms, risk mapping</td>
+            </tr>
+        </table>
 
-            <p><b>Impact:</b> A smarter, faster, more connected emergency ecosystem.</p>
-        </div>
+        <hr>
 
-        <!-- AMBULANCE ROUTING -->
-        <div class="card">
-            <h3>🔶 Intelligent Ambulance Routing Network</h3>
-            <p>
-                Ambulance delays often cost lives. This system uses real-time data and graph algorithms 
-                to compute the optimal path for ambulances.
-            </p>
+        <h3>🔶 Smart Emergency Response Control Centre (SERCC)</h3>
 
-            <table>
-                <tr>
-                    <th>Feature</th>
-                    <th>Description</th>
-                </tr>
+        <p>
+            The <b>Smart Emergency Response Control Centre</b> acts as the central command hub for all emergency services. 
+            It provides a unified digital platform for monitoring, dispatching, and coordinating ambulances, 
+            fire engines, and police units across the city.
+        </p>
 
-                <tr>
-                    <td>Live routing</td>
-                    <td>Updates route every few seconds</td>
-                </tr>
+        <ul>
+            <li>Live tracking of all emergency vehicles.</li>
+            <li>Automatic dispatch based on proximity and availability.</li>
+            <li>Predicts response time using real-time traffic data.</li>
+            <li>Dynamic rerouting during roadblocks or congestion.</li>
+            <li>Enhances coordination during peak times and major incidents.</li>
+        </ul>
 
-                <tr>
-                    <td>Smart signals</td>
-                    <td>Prioritizes green lights for ambulances</td>
-                </tr>
+        <p><b>Impact:</b> Faster responses, reduced delays, and improved emergency handling efficiency.</p>
 
-                <tr>
-                    <td>Congestion prediction</td>
-                    <td>Avoids known busy roads automatically</td>
-                </tr>
+        <hr>
 
-                <tr>
-                    <td>Emergency failover</td>
-                    <td>Switches to backup routes instantly</td>
-                </tr>
-            </table>
+        <h3>🔶 Intelligent Ambulance Routing Network</h3>
 
-            <p><b>Impact:</b> Reduces response time by up to 60%.</p>
-        </div>
+        <p>
+            This subsystem uses weighted graph algorithms to determine the <b>fastest possible path</b> for ambulances. 
+            By considering traffic density, road width, signals, and accident-prone spots, it creates a truly smart routing system.
+        </p>
 
-        <!-- DISASTER -->
-        <div class="card">
-            <h3>🔶 Disaster Evacuation & Safe Shelter Planning</h3>
-            <p>
-                This subsystem prepares the city for emergencies like floods, fires, and chemical leaks by identifying 
-                safe shelters and evacuation routes.
-            </p>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>Description</th>
+            </tr>
 
-            <ul>
-                <li>Finds reachable shelters via BFS/DFS.</li>
-                <li>Identifies bottlenecks in city road networks.</li>
-                <li>Predicts risk zones using historical data.</li>
-                <li>Sends real-time evacuation alerts to citizens.</li>
-            </ul>
+            <tr>
+                <td>Real-time routing</td>
+                <td>Continuously updates the fastest path</td>
+            </tr>
 
-            <p><b>Impact:</b> Saves thousands of lives during catastrophic events.</p>
-        </div>
+            <tr>
+                <td>Smart traffic coordination</td>
+                <td>Turns signals green on ambulance path</td>
+            </tr>
 
-        <!-- CRIME -->
-        <div class="card">
-            <h3>🔶 Crime Hotspot Detection & Predictive Policing</h3>
-            <p>
-                By analyzing emergency call patterns, the system identifies hotspots where crimes or accidents occur frequently.
-            </p>
+            <tr>
+                <td>Congestion prediction</td>
+                <td>Uses stored patterns to avoid high-traffic zones</td>
+            </tr>
 
-            <ul>
-                <li>Generates heatmaps for dangerous zones.</li>
-                <li>Identifies crime trends over time.</li>
-                <li>Suggests optimized patrol routes.</li>
-                <li>Improves overall city safety.</li>
-            </ul>
+            <tr>
+                <td>Fail-safe routing</td>
+                <td>Switches routes instantly when the primary path fails</td>
+            </tr>
+        </table>
 
-            <p><b>Impact:</b> Enables smarter resource deployment and safer communities.</p>
-        </div>
+        <p><b>Impact:</b> Reduces ambulance delay by up to 60%, saving countless lives.</p>
 
-        <!-- FIRE -->
-        <div class="card">
-            <h3>🔶 Integrated Fire Hazard Monitoring & Rapid Response</h3>
-            <p>
-                Fires spread fast — this subsystem ensures early detection and the fastest possible fire engine dispatch.
-            </p>
+        <hr>
 
-            <ul>
-                <li>Instant alerts from fire sensors.</li>
-                <li>Maps nearest hydrants and stations.</li>
-                <li>Chooses best route considering truck mobility.</li>
-                <li>Predicts fire spread with wind data.</li>
-            </ul>
+        <h3>🔶 Disaster Evacuation & Safe Shelter Planning</h3>
 
-            <p><b>Impact:</b> Minimizes fire damage and speeds up containment.</p>
-        </div>
+        <p>
+            Cities face many disaster risks—floods, fires, chemical leaks, and industrial explosions. 
+            This subsystem identifies safe evacuation routes, detects vulnerable zones, and guides citizens 
+            to shelters through real-time alerts.
+        </p>
+
+        <ul>
+            <li>Finds reachable shelters using BFS/DFS.</li>
+            <li>Detects bottlenecks and narrow routes in the city.</li>
+            <li>Predicts disaster spread using historical and pattern-based analysis.</li>
+            <li>Provides evacuation maps and warnings during emergencies.</li>
+        </ul>
+
+        <p><b>Impact:</b> Strengthens disaster preparedness and ensures safer evacuations.</p>
+
+        <hr>
+
+        <h3>🔶 Crime Hotspot Detection & Predictive Policing</h3>
+
+        <p>
+            By analyzing call logs and emergency data, the system can identify locations with frequent crimes, 
+            accidents, or late-night disturbances. The insights help authorities plan effective patrol routes.
+        </p>
+
+        <ul>
+            <li>Generates visual heatmaps of risky zones.</li>
+            <li>Detects time-based crime trends (night thefts, weekend accidents).</li>
+            <li>Suggests shortest, most efficient patrol routes.</li>
+            <li>Supports city planning for safer public spaces.</li>
+        </ul>
+
+        <hr>
+
+        <h3>🔶 Integrated Fire Hazard Monitoring & Rapid Response</h3>
+
+        <p>
+            Fires can escalate rapidly. This subsystem combines sensor networks, weather data, and routing algorithms 
+            to ensure the fastest arrival of fire engines and prevent secondary fires.
+        </p>
+
+        <ul>
+            <li>Automatic alerts from fire sensors installed across the city.</li>
+            <li>Maps show nearest fire stations and hydrants.</li>
+            <li>Considers road width & slope to choose best truck route.</li>
+            <li>Predicts fire spread direction using wind patterns.</li>
+        </ul>
+
+        <p><b>Impact:</b> Saves infrastructure, prevents fire spread, and reduces casualties.</p>
 
     </div>
 
