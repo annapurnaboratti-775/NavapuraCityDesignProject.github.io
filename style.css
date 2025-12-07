@@ -1,173 +1,182 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
+/* GLOBAL */
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #F7F9FC;
-  color: #2E3A59;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0d0f12;
+    color: white;
+    opacity: 0;
+    transition: opacity 1.2s ease;
 }
 
-/* HEADER */
-header {
-  padding: 20px;
-  text-align: center;
+h1, h2 { font-weight: 600; }
+
+/* NAVIGATION */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    background: #0f1115;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.5);
 }
 
 .logo {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #58CC02;
+    font-size: 26px;
+    font-weight: 700;
 }
 
-/* HERO */
+.logo span {
+    color: #5eff34;
+}
+
+.nav-links a {
+    margin: 0 18px;
+    text-decoration: none;
+    color: #cfcfcf;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00eaff;
+}
+
+.contact-btn {
+    background: #00eaff;
+    padding: 8px 22px;
+    border-radius: 30px;
+    color: black !important;
+    font-weight: 600;
+}
+
+/* HERO SECTION */
 .hero {
-  text-align: center;
-  padding: 50px 20px;
+    text-align: center;
+    padding: 150px 20px;
+    max-width: 900px;
+    margin: auto;
 }
 
-.hero-title {
-  font-size: 2.6rem;
-  color: #2E3A59;
-  font-weight: 800;
+.hero h1 {
+    font-size: 60px;
+    margin-bottom: 10px;
 }
 
-.hero-sub {
-  margin-top: 10px;
-  color: #52637A;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+.hero p {
+    font-size: 22px;
+    opacity: 0.8;
+    margin-bottom: 40px;
 }
 
-.hero-btn {
-  margin-top: 25px;
-  display: inline-block;
-  padding: 14px 30px;
-  background: #58CC02;
-  color: white;
-  font-weight: 600;
-  border-radius: 30px;
-  font-size: 1rem;
-  text-decoration: none;
-  transition: 0.3s;
-  box-shadow: 0 5px 0 #2E8D00;
+.hero button {
+    background: linear-gradient(135deg, #5eff34, #00c122);
+    border: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #0d0f12;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(0,255,100,0.4);
+    transition: 0.3s ease;
 }
 
-.hero-btn:hover {
-  background: #4EB800;
-  box-shadow: 0 3px 0 #2E8D00;
+.hero button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,255,100,0.6);
 }
 
-.hero-img {
-  width: 260px;
-  margin-top: 40px;
-  animation: float 3s ease-in-out infinite;
-}
-
-/* FLOAT ANIMATION */
-@keyframes float {
-  0% { transform: translateY(0);}
-  50% { transform: translateY(-14px);}
-  100% { transform: translateY(0);}
+/* SECTION CARD */
+.section-card {
+    width: 80%;
+    margin: 60px auto;
+    background: #14171d;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    text-align: center;
 }
 
 /* TEAM SECTION */
-.team {
-  padding: 60px 20px;
-  text-align: center;
+.team-section {
+    width: 90%;
+    margin: 80px auto;
+    text-align: center;
 }
 
-.section-title {
-  font-size: 2.3rem;
-  color: #2E3A59;
-  font-weight: 800;
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 40px;
 }
 
-.section-sub {
-  color: #52637A;
-  margin-top: 8px;
+.team-card {
+    background: #14171d;
+    padding: 25px;
+    width: 230px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.6);
+    transition: 0.35s ease;
 }
 
-.team-cards {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 40px;
-  flex-wrap: wrap;
+.team-card:hover {
+    transform: translateY(-12px);
 }
 
-.card {
-  background: white;
-  width: 260px;
-  padding: 25px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.07);
-  transition: 0.3s;
+/* AVATARS ---------------------------- */
+
+/* ⭐ Annapurna — COOLEST */
+.annapurna-avatar {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    margin: auto;
+    background: radial-gradient(circle, #00ffe7, #0088ff);
+    border: 4px solid #73fff6;
+    box-shadow:
+        0 0 30px #00ffe7,
+        0 0 60px #0088ff,
+        inset 0 0 20px rgba(255,255,255,0.4);
+    animation: float 3s ease-in-out infinite;
 }
 
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.10);
+/* 🔵 Akmal */
+.akmal-avatar {
+    width: 110px;
+    height: 110px;
+    margin: auto;
+    border-radius: 50%;
+    background: radial-gradient(circle, #2563eb, #1e3a8a);
+    border: 3px solid #60a5fa;
+    box-shadow: 0 0 25px rgba(37,99,235,0.5);
 }
 
-.profile {
-  width: 90px;
-  margin-bottom: 12px;
+/* 🟣 Amruta */
+.amruta-avatar {
+    width: 110px;
+    height: 110px;
+    margin: auto;
+    border-radius: 50%;
+    background: radial-gradient(circle, #a855f7, #6d28d9);
+    border: 3px solid #c084fc;
+    box-shadow: 0 0 25px rgba(168,85,247,0.5);
 }
 
-.role {
-  color: #52637A;
-  font-size: 0.9rem;
-}
-
-.code-btn {
-  margin-top: 14px;
-  display: inline-block;
-  padding: 12px 22px;
-  background: #1CB0F6;
-  color: white;
-  font-weight: 600;
-  border-radius: 25px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  box-shadow: 0 5px 0 #0A6BA6;
-  transition: 0.3s;
-}
-
-.code-btn:hover {
-  background: #169dd8;
-  box-shadow: 0 3px 0 #0A6BA6;
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
 }
 
 /* FOOTER */
 footer {
-  text-align: center;
- /* --- Modern Nav Menu --- */
-.top-menu {
-  text-align: center;
-  margin-top: -10px;
-  margin-bottom: 30px;
-}
-
-.top-menu a {
-  display: inline-block;
-  padding: 8px 18px;
-  margin: 0 6px;
-  background: #ffffff;
-  border-radius: 20px;
-  font-weight: 600;
-  text-decoration: none;
-  color: #2A2F4F;
-  box-shadow: 0 3px 5px rgba(0,0,0,0.08);
-  transition: 0.2s ease;
-}
-
-.top-menu a:hover {
-  background: #00B4D8;
-  color: white;
-  transform: translateY(-2px);
+    text-align: center;
+    padding: 30px;
+    opacity: 0.6;
+    margin-top: 60px;
 }
