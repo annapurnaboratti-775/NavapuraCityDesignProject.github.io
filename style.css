@@ -1,16 +1,16 @@
-/* GLOBAL */
+/* GLOBAL RESET */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: #0d0f12;
     color: white;
     opacity: 0;
-    transition: opacity 1.2s ease;
+    transition: opacity 1s ease;
 }
 
-h1, h2 { font-weight: 600; }
+h1, h2 { font-weight: 700; }
 
-/* NAVIGATION */
+/* NAVBAR */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -28,31 +28,25 @@ h1, h2 { font-weight: 600; }
     font-weight: 700;
 }
 
-.logo span {
-    color: #5eff34;
-}
+.logo span { color: #5eff34; }
 
 .nav-links a {
     margin: 0 18px;
     text-decoration: none;
-    color: #cfcfcf;
-    font-size: 16px;
+    color: #cccccc;
     transition: 0.3s ease;
 }
 
-.nav-links a:hover {
-    color: #00eaff;
-}
+.nav-links a:hover { color: #00eaff; }
 
 .contact-btn {
     background: #00eaff;
     padding: 8px 22px;
     border-radius: 30px;
     color: black !important;
-    font-weight: 600;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
     text-align: center;
     padding: 150px 20px;
@@ -60,16 +54,8 @@ h1, h2 { font-weight: 600; }
     margin: auto;
 }
 
-.hero h1 {
-    font-size: 60px;
-    margin-bottom: 10px;
-}
-
-.hero p {
-    font-size: 22px;
-    opacity: 0.8;
-    margin-bottom: 40px;
-}
+.hero h1 { font-size: 60px; }
+.hero p { font-size: 22px; opacity: 0.8; }
 
 .hero button {
     background: linear-gradient(135deg, #5eff34, #00c122);
@@ -80,7 +66,7 @@ h1, h2 { font-weight: 600; }
     cursor: pointer;
     color: #0d0f12;
     font-weight: 600;
-    box-shadow: 0 8px 25px rgba(0,255,100,0.4);
+    box-shadow: 0 8px 25px rgba(0,255,100,0.35);
     transition: 0.3s ease;
 }
 
@@ -96,17 +82,11 @@ h1, h2 { font-weight: 600; }
     background: #14171d;
     padding: 35px;
     border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.6);
     text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
 }
 
 /* TEAM SECTION */
-.team-section {
-    width: 90%;
-    margin: 80px auto;
-    text-align: center;
-}
-
 .team-grid {
     display: flex;
     justify-content: center;
@@ -117,54 +97,43 @@ h1, h2 { font-weight: 600; }
 .team-card {
     background: #14171d;
     padding: 25px;
-    width: 230px;
+    width: 240px;
     border-radius: 20px;
     text-align: center;
-    box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    transition: 0.35s ease;
+    transition: 0.3s ease;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
 }
 
-.team-card:hover {
-    transform: translateY(-12px);
-}
+.team-card:hover { transform: translateY(-10px); }
 
-/* AVATARS ---------------------------- */
-
-/* ⭐ Annapurna — COOLEST */
+/* AVATARS */
 .annapurna-avatar {
-    width: 125px;
-    height: 125px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, #00ffe7, #0088ff);
     border-radius: 50%;
     margin: auto;
-    background: radial-gradient(circle, #00ffe7, #0088ff);
     border: 4px solid #73fff6;
-    box-shadow:
-        0 0 30px #00ffe7,
-        0 0 60px #0088ff,
-        inset 0 0 20px rgba(255,255,255,0.4);
+    box-shadow: 0 0 30px #00ffe7, 0 0 60px #0088ff;
     animation: float 3s ease-in-out infinite;
 }
 
-/* 🔵 Akmal */
 .akmal-avatar {
     width: 110px;
     height: 110px;
-    margin: auto;
-    border-radius: 50%;
     background: radial-gradient(circle, #2563eb, #1e3a8a);
+    border-radius: 50%;
+    margin: auto;
     border: 3px solid #60a5fa;
-    box-shadow: 0 0 25px rgba(37,99,235,0.5);
 }
 
-/* 🟣 Amruta */
 .amruta-avatar {
     width: 110px;
     height: 110px;
-    margin: auto;
-    border-radius: 50%;
     background: radial-gradient(circle, #a855f7, #6d28d9);
+    border-radius: 50%;
+    margin: auto;
     border: 3px solid #c084fc;
-    box-shadow: 0 0 25px rgba(168,85,247,0.5);
 }
 
 @keyframes float {
@@ -178,5 +147,4 @@ footer {
     text-align: center;
     padding: 30px;
     opacity: 0.6;
-    margin-top: 60px;
 }
