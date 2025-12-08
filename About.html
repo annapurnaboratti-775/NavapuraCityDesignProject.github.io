@@ -3,48 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Navapura</title>
-
+  <title>About — Navapura Project</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
 
+    body {
+      background-color: #f9f9f9;
+      color: #222;
+      padding: 0 20px;
+    }
+
+    /* Navbar */
+    header {
+      background: white;
+      padding: 15px 40px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+      margin-bottom: 40px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between; /* logo left, buttons right */
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .logo span {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px; /* same spacing as index */
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #333;
+      font-size: 1rem;
+      padding: 8px 15px;
+      border-radius: 6px;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #56a02f; /* green on hover or active */
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 16px;
+      margin-bottom: 40px;
+      color: #555;
+    }
+
+    .team-cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+
+    .card img.profile {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .card p.role {
+      font-size: 14px;
+      margin-bottom: 15px;
+      color: #777;
+    }
+
+    .card .code-btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+
+    .card .code-btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .team-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+      .nav-links {
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
 <body>
 
-<header>
-  <h1 class="logo">🏙️ Navapura</h1>
+  <!-- Navbar with KLE-Tech logo and buttons -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="KLE-Tech-University-Logo.png" alt="KLE Technological University Logo">
+        <span>KLE Technological University</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="course-reflection.html">Course Reflection</a></li>
+        <li><a href="course-project.html">Course Project</a></li>
+        <li><a href="about.html" class="active">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <nav class="menu">
-    <a href="index.html">Home</a>
-    <a href="About.html" class="active">About</a>
-    <a href="Annapurna.html">Annapurna</a>
-    <a href="Akmal.html">Akmal</a>
-    <a href="Amruta.html">Amruta</a>
-  </nav>
-</header>
+  <!-- Page Title -->
+  <h2>The Creators</h2>
+  <p>We built Navapura with love 🩷, logic 🤖, lots of coffee ☕ and code ⌨!!</p>
 
-<section class="hero">
-  <h2 class="hero-title">About Navapura</h2>
-  <p class="hero-sub">A smart, sustainable, future-ready city built for the DAA project.</p>
-</section>
+  <!-- Team Cards -->
+  <div class="team-cards">
+    <!-- Annapurna -->
+    <div class="card">
+      <img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Annapurna" alt="Annapurna" class="profile">
+      <h3>Annapurna</h3>
+      <p class="role">Urban Information & Operations Nerve Centre (UIONC)</p>
+      <a href="Annapurna.html" class="code-btn">View Work</a>
+    </div>
 
-<section class="content">
-  <h2 class="section-title">Our Project</h2>
-  <p>
-    Navapura is a conceptual smart city created by our team as part of the DAA project.  
-    We focused on technology, sustainability, and efficient urban planning.
-  </p>
+    <!-- Amruta -->
+    <div class="card">
+      <img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Amruta" alt="Amruta" class="profile">
+      <h3>Amruta</h3>
+      <p class="role">Smart City Service Automation & Routing System</p>
+      <a href="Amruta.html" class="code-btn">View Work</a>
+    </div>
 
-  <h2 class="section-title">Team Vision</h2>
-  <ul>
-    <li>Sustainable eco-friendly layouts</li>
-    <li>Smart infrastructure planning</li>
-    <li>Transport & mobility optimization</li>
-    <li>Human-centered city design</li>
-  </ul>
-</section>
-
-<footer>© 2025 Navapura · DAA Project</footer>
+    <!-- Akmal -->
+    <div class="card">
+      <img src="https://api.dicebear.com/7.x/fun-emoji/svg?seed=Akmal" alt="Akmal" class="profile">
+      <h3>Akmal</h3>
+      <p class="role">Smart Emergency Response System</p>
+      <a href="Akmal.html" class="code-btn">View Work</a>
+    </div>
+  </div>
 
 </body>
 </html>
