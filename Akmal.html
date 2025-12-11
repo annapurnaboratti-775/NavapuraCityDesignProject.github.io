@@ -1,12 +1,11 @@
-<!-- ============================= -->
-<!-- ⭐ SECTION 1 – BUSINESS IDEAS ⭐ -->
-<!-- ============================= -->
+<!-- SECTION 1 – SMART EMERGENCY RESPONSE SYSTEM -->
 
 <h1>Smart Emergency Response System</h1>
 
 <p class="subtitle">
-  A collection of <span class="highlight">data-structure–driven innovations</span> designed to improve
-  emergency response speed, safety and resilience in the city of Navapura.
+  This page presents a set of <span class="highlight">data-structure–driven business ideas</span> 
+  for building a safer, smarter and more resilient city. Each card highlights a subsystem of the 
+  Smart Emergency Response System (SERS), linked with <span class="highlight">SDGs 3, 9, 11, 13 and 16</span>.
 </p>
 
 <p class="subtitle">
@@ -22,28 +21,32 @@
       <div class="icon-badge">🛰️</div>
     </div>
     <div class="sdg">
-      <span>SDG 3 • Health</span> • <span>SDG 11 • Cities</span>
+      <span>SDG 3 • Good Health</span> • <span>SDG 11 • Sustainable Cities</span>
     </div>
 
     <div class="section">
-      <h3>Implementation Steps</h3>
+      <h3>Implementation Steps (ADS)</h3>
       <ul>
-        <li>Map emergency stations as <strong>graph nodes</strong>.</li>
-        <li>Maintain real-time vehicle data in <strong>hash tables</strong>.</li>
-        <li>Use <strong>priority queues</strong> to dispatch optimal units.</li>
-        <li>Apply <strong>BFS/DFS</strong> to ensure city-wide reachability.</li>
+        <li>Represent emergency units & junctions as <strong>graph nodes</strong>.</li>
+        <li>Use <strong>hash tables</strong> to store live vehicle status.</li>
+        <li>Use <strong>priority queues</strong> to dispatch the best vehicle.</li>
+        <li>Check reachability using <strong>BFS/DFS</strong>.</li>
       </ul>
     </div>
 
     <div class="section">
-      <h3>Algorithms / Data Structures</h3>
+      <h3>Algorithms / Data Structures Used</h3>
       <div class="algo-list">
         <span class="algo-tag">Graph</span>
-        <span class="algo-tag">BFS/DFS</span>
-        <span class="algo-tag">Priority Queue</span>
         <span class="algo-tag">Hash Table</span>
+        <span class="algo-tag">Priority Queue</span>
+        <span class="algo-tag">BFS / DFS</span>
       </div>
     </div>
+
+    <p class="impact">
+      <b>Impact:</b> Ensures the fastest and closest emergency unit is always dispatched.
+    </p>
   </div>
 
   <!-- Card 2 Ambulance -->
@@ -53,17 +56,19 @@
       <div class="icon-badge">🚑</div>
     </div>
     <div class="sdg">
-      <span>SDG 3</span> • <span>SDG 9</span>
+      <span>SDG 3 • Good Health</span> • <span>SDG 9 • Innovation</span>
     </div>
-
     <div class="section">
       <h3>Implementation Steps</h3>
       <ul>
-        <li>Roads represented as <strong>weighted graphs</strong>.</li>
-        <li>Use <strong>Dijkstra</strong> for fastest path computation.</li>
-        <li>Traffic updates adjust weights dynamically.</li>
+        <li>Model roads as <strong>weighted graph</strong> (time-based weights).</li>
+        <li>Use <strong>Dijkstra</strong> for fastest route calculation.</li>
+        <li>Live updates modify weights dynamically.</li>
       </ul>
     </div>
+    <p class="impact">
+      <b>Impact:</b> Provides real-time optimal routing during emergencies.
+    </p>
   </div>
 
   <!-- Card 3 -->
@@ -74,17 +79,21 @@
     </div>
 
     <div class="sdg">
-      <span>SDG 11</span> • <span>SDG 13</span>
+      <span>SDG 11 • Resilience</span> • <span>SDG 13 • Climate Action</span>
     </div>
 
     <div class="section">
       <h3>Implementation Steps</h3>
       <ul>
-        <li>Shelters marked as <strong>safe nodes</strong>.</li>
-        <li>Shortest escape paths computed using <strong>BFS</strong>.</li>
-        <li>Congestion simulated using <strong>multi-source BFS</strong>.</li>
+        <li>Identify shelters as <strong>safe nodes</strong>.</li>
+        <li>Use <strong>BFS</strong> for shortest evacuation paths.</li>
+        <li>Simulate congestion using <strong>multi-source BFS</strong>.</li>
       </ul>
     </div>
+
+    <p class="impact">
+      <b>Impact:</b> Helps create pre-planned evacuation strategies.
+    </p>
   </div>
 
   <!-- Card 4 -->
@@ -95,16 +104,18 @@
     </div>
 
     <div class="sdg">
-      <span>SDG 16</span>
+      <span>SDG 16 • Peace & Justice</span>
     </div>
 
     <div class="section">
       <h3>Implementation Steps</h3>
       <ul>
-        <li>Store incidents in <strong>time-series arrays</strong>.</li>
+        <li>Store crime logs in <strong>time-series arrays</strong>.</li>
         <li>Use <strong>Fenwick/Segment Trees</strong> for hotspot analysis.</li>
       </ul>
     </div>
+
+    <p class="impact"><b>Impact:</b> Enables predictive policing & safer neighbourhoods.</p>
   </div>
 
   <!-- Card 5 -->
@@ -115,197 +126,43 @@
     </div>
 
     <div class="sdg">
-      <span>SDG 11</span> • <span>SDG 13</span>
+      <span>SDG 11 • Infrastructure</span> • <span>SDG 13 • Climate Action</span>
     </div>
 
     <div class="section">
       <h3>Implementation Steps</h3>
       <ul>
-        <li>Sensors managed via <strong>hash maps</strong>.</li>
-        <li>Fire truck routing using <strong>A*</strong>.</li>
-        <li>Historical analytics stored in <strong>AVL trees</strong>.</li>
+        <li>Sensors mapped using <strong>hash maps</strong>.</li>
+        <li>Fire truck routing using <strong>A* or Dijkstra</strong>.</li>
       </ul>
     </div>
-  </div>
 
+    <p class="impact"><b>Impact:</b> Drastically reduces fire response time.</p>
+  </div>
 </div>
 
-<!-- SUMMARY TABLE -->
 <h2 class="summary-title">Summary of Emergency Initiatives</h2>
 
 <table>
   <thead>
     <tr>
       <th>Initiative</th>
+      <th>SDG</th>
       <th>Algorithms</th>
       <th>Data Structures</th>
       <th>Purpose</th>
-      <th>Complexity</th>
+      <th>Efficiency</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>SERCC</td>
-      <td>BFS/DFS</td>
-      <td>Graph, Hash, Heap</td>
-      <td>Unified dispatch & coordination</td>
-      <td>O(V + E)</td>
+      <td>SERCC</td><td>3, 11</td><td>BFS/DFS</td><td>Graph, Hash, Heap</td><td>Dispatch & coordination</td><td>O(V+E)</td>
     </tr>
     <tr>
-      <td>Ambulance Routing</td>
-      <td>Dijkstra</td>
-      <td>Graph + Heap</td>
-      <td>Fastest-time routing</td>
-      <td>O((V + E) log V)</td>
+      <td>Ambulance Routing</td><td>3, 9</td><td>Dijkstra</td><td>Graph, Heap</td><td>Fastest path</td><td>O((V+E) log V)</td>
     </tr>
     <tr>
-      <td>Evacuation Planning</td>
-      <td>Multi-source BFS</td>
-      <td>Graph + Arrays</td>
-      <td>Shortest escape paths</td>
-      <td>O(V + E)</td>
-    </tr>
-    <tr>
-      <td>Crime Hotspots</td>
-      <td>Fenwick/Segment Trees</td>
-      <td>Time-Series + Trees</td>
-      <td>Hotspot prediction</td>
-      <td>O(log n)</td>
-    </tr>
-    <tr>
-      <td>Fire Response</td>
-      <td>A*</td>
-      <td>Graph + AVL</td>
-      <td>Optimal fire routing</td>
-      <td>~O(E)</td>
+      <td>Evacuation Planning</td><td>11, 13</td><td>BFS</td><td>Graph</td><td>Safe routes</td><td>O(V+E)</td>
     </tr>
   </tbody>
 </table>
-
-<!-- ================================= -->
-<!-- ⭐ SECTION 3 – DETAILED BREAKDOWN ⭐ -->
-<!-- ================================= -->
-
-<h1 style="margin-top:60px;">Section 3 – Detailed Breakdown of Business Ideas</h1>
-
-<div class="cards-container" style="margin-top:25px;">
-
-  <!-- Breakdown Card 1 -->
-  <div class="card">
-    <div class="card-header">
-      <h2>1. Smart Emergency Response Control Centre – Breakdown</h2>
-      <div class="icon-badge">🛰️</div>
-    </div>
-
-    <div class="section">
-      <h3>Overview</h3>
-      <p>
-        SERCC integrates ambulances, fire units and police into a unified command centre.
-        It handles requests, assigns vehicles, predicts delays and ensures city-wide accessibility.
-      </p>
-    </div>
-
-    <div class="section">
-      <h3>ADS Mapping</h3>
-      <ul>
-        <li><b>Graphs:</b> Represent road networks + emergency stations.</li>
-        <li><b>Hash Tables:</b> O(1) lookup for vehicle status.</li>
-        <li><b>Priority Queue:</b> Chooses fastest available responder.</li>
-        <li><b>BFS/DFS:</b> Tests city connectivity and reachable zones.</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h3>Efficiency</h3>
-      <p>BFS/DFS → O(V + E) | Priority Queue → O(log n) | Lookup → O(1)</p>
-    </div>
-  </div>
-
-  <!-- Breakdown Card 2 -->
-  <div class="card">
-    <div class="card-header">
-      <h2>2. Intelligent Ambulance Routing – Breakdown</h2>
-      <div class="icon-badge">🚑</div>
-    </div>
-
-    <div class="section">
-      <h3>Overview</h3>
-      <p>Uses time-based graphs to compute the fastest path for ambulances.</p>
-    </div>
-
-    <div class="section">
-      <h3>ADS Mapping</h3>
-      <ul>
-        <li><b>Weighted Graphs:</b> Store road times.</li>
-        <li><b>Dijkstra:</b> Guarantee shortest travel time.</li>
-        <li><b>Heap:</b> Efficient relaxation of edges.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Breakdown Card 3 -->
-  <div class="card">
-    <div class="card-header">
-      <h2>3. Disaster Evacuation Simulation – Breakdown</h2>
-      <div class="icon-badge">🛟</div>
-    </div>
-
-    <div class="section">
-      <h3>Overview</h3>
-      <p>Simulates panic-free evacuation using zone-wise BFS and bottleneck detection.</p>
-    </div>
-
-    <div class="section">
-      <h3>ADS Mapping</h3>
-      <ul>
-        <li><b>Multi-source BFS:</b> Calculates escape time from every locality.</li>
-        <li><b>Segment Tree:</b> Tracks regional risk and severity.</li>
-        <li><b>Grids:</b> Store crowd density.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Breakdown Card 4 -->
-  <div class="card">
-    <div class="card-header">
-      <h2>4. Crime Hotspot System – Breakdown</h2>
-      <div class="icon-badge">🚨</div>
-    </div>
-
-    <div class="section">
-      <h3>Overview</h3>
-      <p>Predicts crime clusters and routes patrol units intelligently.</p>
-    </div>
-
-    <div class="section">
-      <h3>ADS Mapping</h3>
-      <ul>
-        <li><b>Fenwick Tree:</b> Quick crime count range queries.</li>
-        <li><b>Graphs:</b> Patrol route optimisation.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Breakdown Card 5 -->
-  <div class="card">
-    <div class="card-header">
-      <h2>5. Fire Hazard Monitoring – Breakdown</h2>
-      <div class="icon-badge">🔥</div>
-    </div>
-
-    <div class="section">
-      <h3>Overview</h3>
-      <p>Detects fire risks early and routes fire trucks with terrain-aware pathfinding.</p>
-    </div>
-
-    <div class="section">
-      <h3>ADS Mapping</h3>
-      <ul>
-        <li><b>Hash Map:</b> Sensor-to-location mapping.</li>
-        <li><b>A* Search:</b> Quickest constrained path.</li>
-        <li><b>AVL Trees:</b> Historical analysis.</li>
-      </ul>
-    </div>
-  </div>
-
-</div>
