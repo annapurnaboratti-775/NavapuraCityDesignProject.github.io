@@ -560,5 +560,225 @@
       </tr>
     </tbody>
   </table>
+
+<!-- SECTION 3: DETAILED BREAKDOWN OF BUSINESS IDEAS -->
+<h1 style="margin-top:60px;">Section 3 – Detailed Breakdown of Emergency Response Ideas</h1>
+<p class="subtitle">
+  This section provides a deeper analysis of each subsystem in the 
+  <span class="highlight">Smart Emergency Response System (SERS)</span>.  
+  The breakdown explains how algorithms and data structures are used to create a fast, coordinated, 
+  and life-saving emergency infrastructure for Navapura.
+</p>
+
+<div class="cards-container" style="margin-top:25px;">
+
+  <!-- CARD 1: SERCC -->
+  <div class="card">
+    <div class="card-header">
+      <h2>1. Smart Emergency Response Control Centre (SERCC)</h2>
+      <div class="icon-badge">🛰️</div>
+    </div>
+
+    <div class="sdg">City-Wide Command & Control System</div>
+
+    <div class="section">
+      <h3>Problem Overview</h3>
+      <p>
+        Emergency services often work in isolation, causing delays during critical moments. SERCC 
+        brings ambulances, police, and fire units into a unified coordination hub that makes 
+        real-time, data-driven decisions.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>ADS Plan</h3>
+      <ul>
+        <li><strong>Graph</strong> – road network, hospitals, fire/police stations.</li>
+        <li><strong>Hash Table</strong> – instant vehicle status lookup.</li>
+        <li><strong>Priority Queue (Min-Heap)</strong> – selects fastest responder.</li>
+        <li><strong>BFS/DFS</strong> – checks reachability & isolation zones.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Workflow</h3>
+      <p>
+        Emergency arrives → Hash table locates responders → Min-heap prioritizes →  
+        BFS validates route → Vehicle dispatched with live monitoring.
+      </p>
+    </div>
+
+    <p class="impact">
+      <b>Impact:</b> Faster coordination, reduced response time, and better disaster preparedness.
+    </p>
+  </div>
+
+
+  <!-- CARD 2: Ambulance Routing -->
+  <div class="card">
+    <div class="card-header">
+      <h2>2. Intelligent Ambulance Routing Network</h2>
+      <div class="icon-badge">🚑</div>
+    </div>
+
+    <div class="sdg">Real-Time Traffic-Aware Routing</div>
+
+    <div class="section">
+      <h3>Problem Overview</h3>
+      <p>
+        Traditional routing uses distance instead of time. During peak traffic, this becomes 
+        inefficient. We use time-aware routing for life-saving decisions.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>ADS Plan</h3>
+      <ul>
+        <li><strong>Weighted Graph</strong> – travel time, congestion, road width.</li>
+        <li><strong>Dijkstra’s Algorithm</strong> – fastest-time navigation.</li>
+        <li><strong>Min-Heap</strong> – efficient node selection.</li>
+        <li><strong>Arrays</strong> – store coordinates.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Workflow</h3>
+      <p>
+        Live traffic → Dynamic edge weights → Dijkstra computes fastest path →  
+        Auto re-routing if congestion spikes.
+      </p>
+    </div>
+
+    <p class="impact">
+      <b>Impact:</b> Major reduction in ambulance delay and improved survival rates.
+    </p>
+  </div>
+
+
+  <!-- CARD 3: Disaster Evacuation -->
+  <div class="card">
+    <div class="card-header">
+      <h2>3. Disaster Evacuation & Shelter Planning</h2>
+      <div class="icon-badge">🛟</div>
+    </div>
+
+    <div class="sdg">Precomputed Evacuation Strategy</div>
+
+    <div class="section">
+      <h3>Problem Overview</h3>
+      <p>
+        During disasters, confusion and panic cause more harm than the event itself. This system 
+        creates safe, congestion-free evacuation routes ahead of time.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>ADS Plan</h3>
+      <ul>
+        <li><strong>Graph</strong> – zones, shelters, and safe routes.</li>
+        <li><strong>Multi-Source BFS</strong> – compute escape times.</li>
+        <li><strong>Segment Tree</strong> – historic danger-level queries.</li>
+        <li><strong>Grid/Arrays</strong> – population density simulation.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Workflow</h3>
+      <p>
+        All shelters start BFS → Shortest escape paths created → Bottlenecks detected →  
+        Segment tree identifies high-risk zones.
+      </p>
+    </div>
+
+    <p class="impact">
+      <b>Impact:</b> Reduced chaos, smart evacuation planning, and safer disaster response.
+    </p>
+  </div>
+
+
+  <!-- CARD 4: Predictive Policing -->
+  <div class="card">
+    <div class="card-header">
+      <h2>4. Crime Hotspot Detection & Predictive Policing</h2>
+      <div class="icon-badge">🚨</div>
+    </div>
+
+    <div class="sdg">AI-Based Crime Prevention</div>
+
+    <div class="section">
+      <h3>Problem Overview</h3>
+      <p>
+        Crime repeats in patterns. Without analysis, police react slowly. Predictive policing 
+        identifies hotspots and optimises patrol routes.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>ADS Plan</h3>
+      <ul>
+        <li><strong>Time-Series Arrays</strong> – track incidents.</li>
+        <li><strong>Fenwick / Segment Tree</strong> – fast crime frequency queries.</li>
+        <li><strong>Graph</strong> – patrol optimisation.</li>
+        <li><strong>Hash Maps</strong> – regional access.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Workflow</h3>
+      <p>
+        New incident → Update Fenwick tree → Hotspot detected →  
+        Optimised patrol route generated.
+      </p>
+    </div>
+
+    <p class="impact">
+      <b>Impact:</b> Preventive policing reduces crime rates and increases city-wide safety.
+    </p>
+  </div>
+
+
+  <!-- CARD 5: Fire Hazard Response -->
+  <div class="card">
+    <div class="card-header">
+      <h2>5. Integrated Fire Hazard Monitoring & Rapid Response</h2>
+      <div class="icon-badge">🔥</div>
+    </div>
+
+    <div class="sdg">Early Detection + Smart Routing</div>
+
+    <div class="section">
+      <h3>Problem Overview</h3>
+      <p>
+        Fires escalate quickly in dense areas. Early detection and intelligent fire-truck routing 
+        can save lives and reduce property damage.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>ADS Plan</h3>
+      <ul>
+        <li><strong>Hash Map</strong> – sensor → building lookup.</li>
+        <li><strong>Graph</strong> – hydrants, road widths, slopes.</li>
+        <li><strong>A* Algorithm</strong> – heuristic-based quickest route.</li>
+        <li><strong>AVL Tree</strong> – fire-history analytics.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>Workflow</h3>
+      <p>
+        Sensor detects heat → Hash map finds building → A* generates optimal route →  
+        AVL logs incident for future planning.
+      </p>
+    </div>
+
+    <p class="impact">
+      <b>Impact:</b> Faster fire response, fewer casualties, and better long-term safety planning.
+    </p>
+  </div>
+
+</div>
+
+  
 </body>
 </html>
