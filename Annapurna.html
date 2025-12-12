@@ -5,173 +5,160 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Navapura City Initiatives</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
-/* ----------------------------- */
-/* GLOBAL STYLES */
-/* ----------------------------- */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+/* GLOBAL */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif;}
+body{
+  background:#0b0f19;
+  color:#d6e1ff;
+  overflow-x:hidden;
+  padding-bottom:100px;
 }
 
-body {
-  background: #0b0f19;
-  color: #d2d8f3;
-  overflow-x: hidden;
-}
-
-/* ----------------------------- */
 /* NAVBAR */
-/* ----------------------------- */
-nav {
-  width: 100%;
-  padding: 20px 50px;
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(12px);
-  background: rgba(15, 20, 30, 0.6);
+nav{
+  width:100%;
+  padding:20px 50px;
+  display:flex;
+  justify-content:center;
+  gap:50px;
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(15,20,30,0.6);
+  backdrop-filter:blur(12px);
+}
+nav a{
+  color:#cbd6ff;
+  font-size:1.1rem;
+  text-decoration:none;
+  transition:0.3s;
+}
+nav a:hover{
+  color:#58e0ff;
+  text-shadow:0 0 10px #58e0ff;
 }
 
-nav a {
-  color: #cbd6ff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  transition: 0.3s;
+/* HERO */
+.hero{
+  text-align:center;
+  margin-top:60px;
+  padding:40px 20px;
+}
+.hero h1{
+  font-size:3rem;
+  font-weight:900;
+  background:linear-gradient(90deg,#6ab3ff,#58e0ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.hero p{
+  margin-top:10px;
+  font-size:1.2rem;
+  color:#94a2c6;
 }
 
-nav a:hover {
-  color: #58e0ff;
-  text-shadow: 0 0 10px #58e0ff;
+/* CARD GRID */
+.cards-container{
+  margin:50px auto;
+  width:90%;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:25px;
 }
 
-/* ----------------------------- */
-/* HERO SECTION */
-/* ----------------------------- */
-.hero {
-  text-align: center;
-  margin-top: 60px;
-  padding: 50px 20px;
+.card{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  padding:25px;
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  transition:0.4s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 20px rgba(88,224,255,0.3);
+}
+.card h2{
+  color:#77bbff;
+  margin-bottom:12px;
 }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 900;
-  background: linear-gradient(90deg, #6ab3ff, #58e0ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.sdg{
+  display:inline-block;
+  background:#00c8ff22;
+  color:#58e0ff;
+  padding:5px 12px;
+  border-radius:15px;
+  font-size:0.85rem;
+  margin-bottom:15px;
 }
 
-.hero p {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  color: #9aa7c8;
+.section{
+  margin-bottom:15px;
+}
+.section h3{
+  color:#79ffa6;
+  font-size:1rem;
+  margin-bottom:8px;
+}
+.section ul{
+  padding-left:20px;
+  margin-top:5px;
 }
 
-/* ----------------------------- */
-/* GLASS CARD GRID */
-/* ----------------------------- */
-.cards-container {
-  margin: 60px auto;
-  width: 90%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 25px;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  transition: 0.4s;
-  box-shadow: 0 0 0 rgba(0,0,0,0);
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 0 25px rgba(65, 211, 255, 0.2);
-}
-
-.card h2 {
-  color: #6ab3ff;
-  margin-bottom: 10px;
-}
-
-.sdg {
-  background: #00c8ff22;
-  padding: 5px 12px;
-  border-radius: 15px;
-  color: #58e0ff;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 15px;
-}
-
-/* ----------------------------- */
 /* BUTTONS */
-/* ----------------------------- */
-.card a {
-  text-decoration: none;
-  background: #1c9eff;
-  padding: 8px 12px;
-  border-radius: 10px;
-  color: white;
-  font-size: 0.85rem;
-  transition: 0.3s;
+.algo-buttons{
+  margin-top:10px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.algo-buttons a{
+  text-decoration:none;
+  background:#1ca4ff;
+  color:white;
+  padding:8px 12px;
+  border-radius:8px;
+  font-size:0.85rem;
+  transition:0.3s;
+}
+.algo-buttons a:hover{
+  background:#4bc9ff;
+  box-shadow:0 0 10px #4bc9ff;
 }
 
-.card a:hover {
-  background: #42bfff;
-  box-shadow: 0 0 10px #42bfff;
+/* TABLE */
+table{
+  width:90%;
+  margin:60px auto;
+  border-collapse:collapse;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(10px);
+  border-radius:15px;
+  overflow:hidden;
 }
-
-/* ----------------------------- */
-/* LARGE TABLE */
-/* ----------------------------- */
-table {
-  width: 90%;
-  margin: 60px auto;
-  border-collapse: collapse;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-  border-radius: 15px;
-  overflow: hidden;
+th{
+  background:#121b2d;
+  padding:15px;
+  color:#6ab3ff;
+  text-align:left;
 }
-
-th {
-  background: #142033;
-  padding: 15px;
-  color: #71c7ff;
-  text-align: left;
+td{
+  padding:15px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }
-
-td {
-  padding: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  color: #d7e3ff;
+tr:hover{
+  background:rgba(255,255,255,0.05);
 }
-
-tr:hover {
-  background: rgba(255, 255, 255, 0.07);
-}
-
-footer {
-  margin: 60px 0 30px 0;
-  text-align: center;
-  color: #6a7ca1;
+footer{
+  margin-top:50px;
+  text-align:center;
+  color:#7e8fb4;
 }
 </style>
-
 </head>
 <body>
 
@@ -186,102 +173,186 @@ footer {
 <!-- HERO -->
 <div class="hero">
   <h1>Navapura City Initiatives</h1>
-  <p>Futuristic, Sustainable & Algorithm-Driven Urban Planning</p>
+  <p>A smart, sustainable, future-ready city designed for the DAA Project.</p>
 </div>
 
-<!-- CARDS -->
+<!-- ALL 8 CARDS WITH YOUR ORIGINAL FULL CONTENT -->
 <div class="cards-container">
 
 <!-- CARD 1 -->
 <div class="card">
   <h2>1. Urban Waste-to-Resource Hubs</h2>
   <div class="sdg">SDG 11.6</div>
-  <p>Using Dijkstra + heaps for optimized waste routing.</p>
-  <a href="#">Learn More</a>
+
+  <div class="section">
+    <h3>Implementation Steps (ADS)</h3>
+    <ul>
+      <li>Represent waste collection points and processing hubs as graph nodes.</li>
+      <li>Apply Dijkstra’s Algorithm for optimal waste transport routes.</li>
+      <li>Use Heap / Priority Queues to prioritize hazardous waste.</li>
+      <li>Store waste data in Lookup Tables for quick retrieval.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Algorithms Used</h3>
+    <ul>
+      <li>Dijkstra’s Algorithm</li>
+      <li>Heap / Priority Queue</li>
+      <li>Lookup Table</li>
+    </ul>
+  </div>
 </div>
 
 <!-- CARD 2 -->
 <div class="card">
   <h2>2. Neighborhood Water Resilience Centers</h2>
   <div class="sdg">SDG 6</div>
-  <p>Segment Trees + BFS for leak detection and water tracking.</p>
-  <a href="#">Learn More</a>
+
+  <div class="section">
+    <h3>Implementation Steps (ADS)</h3>
+    <ul>
+      <li>Track household water usage using Segment Trees / Fenwick Trees.</li>
+      <li>Model water distribution as graphs and use BFS for leak detection.</li>
+      <li>Store water records using BST.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3>Algorithms Used</h3>
+    <ul>
+      <li>BFS</li>
+      <li>Segment Tree / Fenwick Tree</li>
+      <li>BST</li>
+    </ul>
+  </div>
 </div>
 
 <!-- CARD 3 -->
 <div class="card">
-  <h2>3. Community Microgrids</h2>
+  <h2>3. Community Microgrids for Energy Security</h2>
   <div class="sdg">SDG 7</div>
-  <p>Prim's Algorithm to form MST-based microgrids.</p>
-  <a href="#">Learn More</a>
+
+  <div class="section">
+    <h3>Implementation Steps (ADS)</h3>
+    <ul>
+      <li>Represent energy nodes and microgrids as graph nodes.</li>
+      <li>Use Prim’s Algorithm to design MST for microgrid connections.</li>
+      <li>Use Priority Queues for critical energy loads.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- CARD 4 -->
 <div class="card">
-  <h2>4. Smart Wastewater Monitoring</h2>
+  <h2>4. Smart Wastewater & Sewage Monitoring</h2>
   <div class="sdg">SDG 6 & 11.6</div>
-  <p>Graphs + DFS/BFS for blockage tracking.</p>
-  <a href="#">Learn More</a>
+
+  <div class="section">
+    <h3>Implementation Steps (ADS)</h3>
+    <ul>
+      <li>Model sewage network as graphs.</li>
+      <li>Use DFS/BFS to detect blockages.</li>
+      <li>Store sensor data in Hash Tables.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- CARD 5 -->
 <div class="card">
-  <h2>5. Urban Heat & Climate Mitigation</h2>
+  <h2>5. Urban Heat & Climate Mitigation Networks</h2>
   <div class="sdg">SDG 11.6</div>
-  <p>AVL Trees + Dijkstra for heat analysis & routing.</p>
-  <a href="#">Learn More</a>
+
+  <div class="section">
+    <h3>Implementation Steps (ADS)</h3>
+    <ul>
+      <li>Store temperature data using AVL / 2-3 Trees.</li>
+      <li>Prioritize intervention areas using Priority Queues.</li>
+      <li>Optimize infrastructure routes with Dijkstra.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- CARD 6 -->
 <div class="card">
-  <h2>6. Localized Food Security Units</h2>
+  <h2>6. Localized Food Security & Storage Units</h2>
   <div class="sdg">SDG 2</div>
-  <p>Heaps + Merge Sort for perishables & delivery.</p>
-  <a href="#">Learn More</a>
+
+  <div class="section">
+    <h3>Implementation Steps (ADS)</h3>
+    <ul>
+      <li>Use Priority Queue to manage perishable produce.</li>
+      <li>Sort produce with Quick/Merge Sort.</li>
+      <li>Optimize delivery routes using Dijkstra.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- CARD 7 -->
 <div class="card">
-  <h2>7. Digital Literacy Labs</h2>
+  <h2>7. Citizen Digital Literacy & Civic Engagement Labs</h2>
   <div class="sdg">SDG 4 & 11</div>
-  <p>Trie + Queue + Hashing for digital education systems.</p>
-  <a href="#">Learn More</a>
+
+  <div class="section">
+    <h3>Implementation Steps (ADS)</h3>
+    <ul>
+      <li>Use Trie for search/autocomplete of study materials.</li>
+      <li>Track workshop queues using Queue structure.</li>
+      <li>Store participant records using Hashing.</li>
+    </ul>
+  </div>
 </div>
 
 <!-- CARD 8 -->
 <div class="card">
-  <h2>8. Preventive Health Monitoring</h2>
+  <h2>8. Preventive Health & Lifestyle Monitoring Centers</h2>
   <div class="sdg">SDG 3</div>
-  <p>Segment Trees + Graphs for public health tracking.</p>
-  <a href="#">Learn More</a>
+
+  <div class="section">
+    <h3>Implementation Steps (ADS)</h3>
+    <ul>
+      <li>Maintain patient data using Arrays / Structures.</li>
+      <li>Use BFS / DFS for contact tracing.</li>
+      <li>Track health trends using Fenwick / Segment Tree.</li>
+    </ul>
+  </div>
 </div>
 
 </div>
 
-<!-- TABLE -->
+<!-- TABLE WITH YOUR ORIGINAL CONTENT -->
 <table>
+<thead>
 <tr>
-  <th>Initiative</th>
-  <th>SDG</th>
-  <th>Algorithms</th>
-  <th>Data Structures</th>
-  <th>Purpose</th>
-  <th>Efficiency</th>
+<th>Initiative</th>
+<th>SDG</th>
+<th>Algorithms</th>
+<th>Data Structures</th>
+<th>Purpose / Application</th>
+<th>Efficiency</th>
 </tr>
+</thead>
 
-<tr><td>Waste-to-Resource</td><td>11.6</td><td>Dijkstra</td><td>Graph, Heap</td><td>Optimize waste routes</td><td>O(E log V)</td></tr>
-<tr><td>Water Centers</td><td>6</td><td>BFS, Segment Tree</td><td>Graph, BST</td><td>Leak detection</td><td>O(V+E)</td></tr>
-<tr><td>Energy Microgrids</td><td>7</td><td>Prim</td><td>Graph, Heap</td><td>Energy MST design</td><td>O(E log V)</td></tr>
-<tr><td>Wastewater Monitoring</td><td>6,11.6</td><td>DFS/BFS</td><td>Graph</td><td>Detect blockages</td><td>O(V+E)</td></tr>
-<tr><td>Heat Mitigation</td><td>11.6</td><td>Dijkstra</td><td>AVL Tree</td><td>Climate planning</td><td>O(E log V)</td></tr>
-<tr><td>Food Security</td><td>2</td><td>Merge Sort</td><td>Heap</td><td>Sort perishables</td><td>O(n log n)</td></tr>
-<tr><td>Digital Literacy</td><td>4,11</td><td>Trie, Queue</td><td>Hash Table</td><td>Education mgmt</td><td>O(1)</td></tr>
-<tr><td>Health Monitoring</td><td>3</td><td>Fenwick Tree</td><td>Array</td><td>Health trends</td><td>O(log n)</td></tr>
+<tbody>
+<tr><td>Urban Waste-to-Resource Hubs</td><td>11.6</td><td>Dijkstra</td><td>Graph, Heap</td><td>Optimize waste transport</td><td>O(E log V)</td></tr>
+
+<tr><td>Neighborhood Water Resilience</td><td>6</td><td>BFS, Segment Tree</td><td>Graph, BST</td><td>Track usage & leaks</td><td>O(V+E)</td></tr>
+
+<tr><td>Energy Microgrids</td><td>7</td><td>Prim</td><td>Graph, Heap</td><td>Design MST</td><td>O(E log V)</td></tr>
+
+<tr><td>Wastewater Monitoring</td><td>6, 11.6</td><td>DFS/BFS</td><td>Graph, Hash</td><td>Detect blockages</td><td>O(V+E)</td></tr>
+
+<tr><td>Climate Mitigation</td><td>11.6</td><td>Dijkstra</td><td>AVL / 2-3 Tree</td><td>Heat & route optimization</td><td>O(E log V)</td></tr>
+
+<tr><td>Food Security</td><td>2</td><td>Quick/Merge Sort</td><td>Heap</td><td>Sort perishables</td><td>O(n log n)</td></tr>
+
+<tr><td>Digital Literacy Labs</td><td>4,11</td><td>Trie, Queue, Hash</td><td>Trie, Queue, Hash</td><td>Search & secure records</td><td>O(1)</td></tr>
+
+<tr><td>Health Monitoring</td><td>3</td><td>Fenwick Tree</td><td>Array/Struct</td><td>Track health trends</td><td>O(log n)</td></tr>
+</tbody>
 </table>
 
-<footer>
-  © 2025 Navapura — Smart City Project
-</footer>
+<footer>© 2025 Navapura • DAA Project</footer>
 
 </body>
 </html>
