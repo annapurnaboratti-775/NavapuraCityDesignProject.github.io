@@ -1,73 +1,131 @@
 <!-- SECTION 2: REFLECTION QUESTIONS -->
-<div class="container" style="max-width: 1100px; margin: 60px auto 40px; padding: 0 20px;">
+<h1 style="
+  margin-top:60px;
+  font-size:32px;
+  text-align:center;
+  background:linear-gradient(90deg,#58e0ff,#6ab3ff);
+  -webkit-background-clip:text;
+  color:transparent;
+  font-weight:800;
+  letter-spacing:1px;
+">
+  Section 2 – Course Reflections
+</h1>
 
-  <!-- MAIN HEADING -->
-  <div class="card" style="text-align: center; margin-bottom: 40px;">
-    <h1 style="font-size: 2.2rem; font-weight: 700; background: linear-gradient(90deg, #38bdf8, #a78bfa); -webkit-background-clip: text; color: transparent; letter-spacing: 0.5px;">Section 2 – Course Reflections</h1>
-  </div>
+<div class="cards-container" style="margin-top:25px;">
+
+  <!-- REUSABLE CARD COMPONENT (same UI style as main cards) -->
+  <style>
+    .reflection-card{
+      background:rgba(255,255,255,0.04);
+      border-radius:16px;
+      padding:22px;
+      border:1px solid rgba(255,255,255,0.06);
+      backdrop-filter:blur(10px);
+      box-shadow:0 8px 26px rgba(0,0,0,0.55);
+      transition:transform .28s,box-shadow .28s;
+      position:relative;
+      overflow:hidden;
+    }
+    .reflection-card:hover{
+      transform:translateY(-8px);
+      box-shadow:
+        0 28px 60px rgba(0,0,0,0.6),
+        0 6px 40px rgba(88,224,255,0.08);
+      border-color:rgba(88,224,255,0.25);
+    }
+    .reflection-header{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:10px;
+    }
+    .reflection-header h2{
+      color:#6ab3ff;
+      font-size:20px;
+      margin:0;
+      font-weight:700;
+    }
+    .icon-badge{
+      background:rgba(88,224,255,0.12);
+      border:1px solid rgba(88,224,255,0.18);
+      padding:6px 10px;
+      border-radius:10px;
+      font-size:18px;
+      backdrop-filter:blur(8px);
+    }
+    .reflection-card p{
+      margin:0;
+      margin-top:8px;
+      color:#d9e7ff;
+      line-height:1.5;
+      font-size:15px;
+    }
+  </style>
 
   <!-- Q1 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 12px; box-shadow: 0 0 12px rgba(56, 189, 248, 0.3); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">🌿</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">1. Problems in Nature: Iteration, Recursion & Backtracking</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>1. Problems in Nature: Iteration, Recursion & Backtracking</h2>
+      <div class="icon-badge">🌿</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
+    <p>
       When I began observing natural patterns, I realized something surprising —
-      nature quietly uses the same logic that our algorithms use. Waves repeatedly hitting the shore
-      felt like <strong>iteration</strong>, while tree branches and river splits reflected
-      <strong>recursion</strong>. Even ants exploring paths, failing, and trying again reminded me of
-      <strong>backtracking</strong>. This made algorithms feel less artificial and more inspired by the world around us.
+      nature quietly uses the same logic that our algorithms use. Waves repeatedly hitting
+      the shore felt like <strong>iteration</strong>, while tree branches and river splits
+      reflected <strong>recursion</strong>. Even ants exploring paths, failing, and trying again
+      reminded me of <strong>backtracking</strong>. This made algorithms feel less artificial
+      and more inspired by the world around us.
     </p>
   </div>
 
   <!-- Q2 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: rgba(34, 197, 94, 0.2); border-radius: 12px; padding: 12px; box-shadow: 0 0 12px rgba(34, 197, 94, 0.3); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">⏳</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">2. Space & Time Efficiency – Why They Matter</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>2. Space & Time Efficiency – Why They Matter</h2>
+      <div class="icon-badge">⏳</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
-      Earlier, I only cared whether code "runs." This project made me understand that efficiency
+    <p>
+      Earlier, I only cared whether code “runs.” This project made me understand that efficiency
       decides whether a solution is practical for real-world systems. Time tells us how performance scales;
       space tells us memory cost. Complexities like O(n), O(n log n) or O(n²) suddenly mattered,
-      because an inefficient algorithm at city-scale isn't just slow — it becomes unusable.
+      because an inefficient algorithm at city-scale isn’t just slow — it becomes unusable.
     </p>
   </div>
 
   <!-- Q3 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: rgba(168, 85, 247, 0.2); border-radius: 12px; padding: 12px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">🧩</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">3. Design Principles I Take Forward</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>3. Design Principles I Take Forward</h2>
+      <div class="icon-badge">🧩</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
-      Chapter 2 taught me that any complex problem becomes manageable once it's broken into meaningful
+    <p>
+      Chapter 2 taught me that any complex problem becomes manageable once it’s broken into meaningful
       components. Decomposition, modularity, and abstraction made city-scale problems feel less intimidating.
       I now approach systems—and even personal tasks—by solving one clear part at a time.
     </p>
   </div>
 
   <!-- Q4 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 12px; box-shadow: 0 0 12px rgba(56, 189, 248, 0.3); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">🌲</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">4. How Trees Optimise Data</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>4. How Trees Optimise Data</h2>
+      <div class="icon-badge">🌲</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
+    <p>
       Trees helped me understand structured thinking. BSTs offer fast searching; AVL/2-3 trees maintain balance;
       heaps allow priority-based decisions; tries make searching text effortless.
-      For our project, trees didn't just store data — they organised it with elegance and clarity.
+      For our project, trees didn’t just store data — they organised it with elegance and clarity.
     </p>
   </div>
 
   <!-- Q5 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: rgba(34, 197, 94, 0.2); border-radius: 12px; padding: 12px; box-shadow: 0 0 12px rgba(34, 197, 94, 0.3); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">📊</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">5. Why Segment Trees / Fenwick Trees?</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>5. Why Segment Trees / Fenwick Trees?</h2>
+      <div class="icon-badge">📊</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
+    <p>
       When dealing with massive data updates and queries, basic approaches are too slow.
       Segment and Fenwick trees transformed repeated queries from painfully long processes
       into fast, logarithmic operations. Realising this felt like unlocking a cheat code for efficiency.
@@ -75,12 +133,12 @@
   </div>
 
   <!-- Q6 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: rgba(56, 189, 248, 0.2); border-radius: 12px; padding: 12px; box-shadow: 0 0 12px rgba(56, 189, 248, 0.3); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">🗺</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">6. Trees vs Graphs – A Shift in Perspective</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>6. Trees vs Graphs – A Shift in Perspective</h2>
+      <div class="icon-badge">🗺</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
+    <p>
       I now see cities as graphs instead of maps. Trees help structure data; graphs help map complex relationships.
       BFS/DFS lets us explore systems; shortest path algorithms give life-saving navigation.
       These ideas changed how I move through and understand physical spaces.
@@ -88,12 +146,12 @@
   </div>
 
   <!-- Q7 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: rgba(245, 158, 11, 0.2); border-radius: 12px; padding: 12px; box-shadow: 0 0 12px rgba(245, 158, 11, 0.3); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">🔍</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">7. Sorting & Searching – Real-World Importance</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>7. Sorting & Searching – Real-World Importance</h2>
+      <div class="icon-badge">🔍</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
+    <p>
       Sorting and searching felt simple until I saw how they silently power everything:
       emergency ranking systems, location lookups, ordering routes.
       These algorithms are invisible engines — always running, always helping.
@@ -101,12 +159,12 @@
   </div>
 
   <!-- Q8 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: rgba(168, 85, 247, 0.2); border-radius: 12px; padding: 12px; box-shadow: 0 0 12px rgba(168, 85, 247, 0.3); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">🔗</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">8. Graph Algorithms – Why They Matter</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>8. Graph Algorithms – Why They Matter</h2>
+      <div class="icon-badge">🔗</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
+    <p>
       Graph algorithms are the nervous system of a city. MSTs design low-cost networks,
       Dijkstra routes ambulances, BFS simulates evacuations.
       They turned our city design from a sketch into a living, intelligent system.
@@ -114,12 +172,12 @@
   </div>
 
   <!-- Q9 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: rgba(34, 197, 94, 0.2); border-radius: 12px; padding: 12px; box-shadow: 0 0 12px rgba(34, 197, 94, 0.3); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">🧠</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">9. Algorithm Design Insights</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>9. Algorithm Design Insights</h2>
+      <div class="icon-badge">🧠</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
+    <p>
       Each technique felt like a mindset: brute force for honesty, greedy for fast choices,
       divide-and-conquer for organised progress, backtracking for trying again,
       and dynamic programming for learning from the past.
@@ -128,48 +186,17 @@
   </div>
 
   <!-- Q10 -->
-  <div class="card">
-    <div style="display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px;">
-      <div class="icon-badge" style="font-size: 1.8rem; background: linear-gradient(135deg, #38bdf8, #a78bfa); border-radius: 12px; padding: 12px; box-shadow: 0 0 15px rgba(56, 189, 248, 0.5); min-width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">💡</div>
-      <h2 style="font-size: 1.6rem; font-weight: 700; color: #a5b4fc; margin: 0;">10. How This Project Changed Me</h2>
+  <div class="reflection-card">
+    <div class="reflection-header">
+      <h2>10. How This Project Changed Me</h2>
+      <div class="icon-badge">💡</div>
     </div>
-    <p style="color: #d1d5db; line-height: 1.8; font-size: 1.05rem;">
+    <p>
       This project made algorithms feel meaningful.  
       For the first time, I saw how a shortest path could save a life
       or how a graph can keep a city calm during disaster.
-      I felt that coding isn't just logic — it is empathy and responsibility.
+      I felt that coding isn’t just logic — it is empathy and responsibility.
       I want to carry this mindset into every project I build.
     </p>
   </div>
-
 </div>
-
-<style>
-/* Ensure these styles are added to your main stylesheet or head */
-.card {
-  background: rgba(30, 41, 59, 0.55);
-  border: 1px solid rgba(148, 163, 184, 0.3);
-  border-radius: 20px;
-  padding: 28px;
-  margin-bottom: 30px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-  transition: 0.25s ease;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(56, 189, 248, 0.55);
-  box-shadow: 0 18px 50px rgba(0,0,0,0.55);
-}
-
-@media (max-width: 750px) {
-  .container {
-    padding: 0 15px;
-  }
-  
-  .card {
-    padding: 20px;
-  }
-}
-</style>
