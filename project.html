@@ -1,1 +1,290 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navapura – Smart City Project (Akmal)</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: #e5e7eb;
+      padding: 24px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 0.04em;
+      color: #a5b4fc;
+      text-transform: uppercase;
+    }
+
+    /* ---------- CITY INTRO SECTION ---------- */
+
+    .city-container {
+      max-width: 850px;
+      margin: 0 auto 40px auto;
+      padding: 26px;
+      background: radial-gradient(circle at top left, #1f2937, #020617);
+      border-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.3);
+      box-shadow: 0 16px 40px rgba(15,23,42,0.8);
+    }
+
+    .city-text {
+      font-size: 1rem;
+      color: #cbd5f5;
+      line-height: 1.7;
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(148,163,184,0.4);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      transition: 0.25s ease;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.02);
+      border-color: #38bdf8;
+      box-shadow: 0 12px 28px rgba(56,189,248,0.35);
+    }
+
+    .github-btn {
+      display: block;
+      width: max-content;
+      margin: 30px auto 0;
+      padding: 10px 22px;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #0b1120;
+      font-weight: 600;
+      font-size: 1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: 0.25s ease;
+      border: 1px solid rgba(34,197,94,0.6);
+    }
+
+    .github-btn:hover {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(34,197,94,0.45);
+    }
+
+    /* ---------- YOUR ORIGINAL SERS CSS BELOW ---------- */
+
+    .subtitle {
+      text-align: center;
+      max-width: 780px;
+      margin: 0 auto 40px auto;
+      font-size: 0.95rem;
+      color: #cbd5f5;
+      line-height: 1.6;
+    }
+
+    .highlight { color: #38bdf8; font-weight: 600; }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.75rem;
+      color: #cbd5f5;
+      margin-top: 4px;
+    }
+
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #1f2937, #020617);
+      border-radius: 18px;
+      padding: 20px 22px;
+      box-shadow: 0 16px 40px rgba(15,23,42,0.85);
+      border: 1px solid rgba(148,163,184,0.3);
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.01);
+      border-color: rgba(56,189,248,0.6);
+      box-shadow: 0 22px 50px rgba(15,23,42,0.95);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .icon-badge {
+      width: 36px; height: 36px;
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #22c55e, #16a34a);
+      font-size: 1.2rem;
+      box-shadow: 0 0 16px rgba(34,197,94,0.5);
+    }
+
+    .sdg {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(56,189,248,0.13);
+      color: #7dd3fc;
+      font-weight: 500;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      margin: 4px 0 10px;
+      border: 1px solid rgba(56,189,248,0.5);
+    }
+
+    .section h3 {
+      color: #a5b4fc;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .section p, .section ul li {
+      font-size: 0.86rem;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    .algo-tag {
+      background: rgba(79,70,229,0.2);
+      color: #c7d2fe;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(129,140,248,0.5);
+    }
+
+    .algo-buttons a {
+      text-decoration: none;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: #0b1120;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      border: 1px solid rgba(34,197,94,0.7);
+      transition: 0.2s ease;
+    }
+
+    .algo-buttons a:hover {
+      background: linear-gradient(135deg, #4ade80, #22c55e);
+      transform: translateY(-1px);
+    }
+
+    .info-box, .warning-box {
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+
+    .info-box {
+      background: rgba(34,197,94,0.1);
+      border-left: 3px solid #22c55e;
+    }
+
+    .warning-box {
+      background: rgba(251,191,36,0.1);
+      border-left: 3px solid #fbbf24;
+    }
+
+    .summary-title {
+      margin: 18px 0 10px 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    thead { background: linear-gradient(90deg, #22c55e, #0ea5e9); }
+    th { color: #0b1120; font-weight: 700; }
+    th, td {
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      border-bottom: 1px solid rgba(55,65,81,0.8);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Navapura </h1>
+
+  <!-- CITY INTRO -->
+  <div class="city-container">
+    <p class="city-text">
+      Navapura is a vibrant, future-ready city that blends culture with modern
+      technology. From its smart roads and green spaces to advanced security
+      systems, Navapura represents the next generation of sustainable urban design.
+      This project highlights how data structures and innovative algorithms make
+      the city safer, faster and more efficient.
+    </p>
+
+    <div class="image-grid">
+      <img src="city1.jpg" alt="City Image 1" />
+      <img src="city2.jpg" alt="City Image 2" />
+    </div>
+
+    <a href="https://github.com/YOUR_GITHUB" target="_blank" class="github-btn">
+      Visit My GitHub
+    </a>
+  </div>
+
+  <!-- --- YOUR FULL SERS PROJECT CARDS REMAIN BELOW (UNTOUCHED) --- -->
+  
+  <!-- Place ALL your cards/content (SERCC, Ambulance, etc.) under this line -->
+  
+  <!-- Your full SERS content goes here exactly the same as your previous code -->
+  <!-- (I can paste it all here if you want) -->
+
+</body>
+</html>
