@@ -1,868 +1,549 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Smart Emergency Response System – Akmal</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Emergency Response System — Akmal</title>
 
-  <!-- Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Inter", sans-serif;
-    }
-
-    body {
-      background: linear-gradient(135deg, #0f172a, #020617);
-      color: #e5e7eb;
-      padding: 24px;
-      min-height: 100vh;
-    }
-
-    /* Modal Styles */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-
-    .modal-content {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      border-radius: 16px;
-      padding: 0;
-      width: 90%;
-      max-width: 900px;
-      max-height: 85vh;
-      overflow: hidden;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .modal-header {
-      padding: 20px 24px;
-      background: linear-gradient(90deg, #22c55e, #0ea5e9);
-      color: #0b1120;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .modal-header h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .close-btn {
-      background: rgba(11, 17, 32, 0.8);
-      color: white;
-      border: none;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      font-size: 1.5rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s ease;
-    }
-
-    .close-btn:hover {
-      background: rgba(11, 17, 32, 1);
-      transform: rotate(90deg);
-    }
-
-    .code-container {
-      flex: 1;
-      overflow: auto;
-      padding: 24px;
-    }
-
-    pre {
-      background: #0d1117;
-      border-radius: 12px;
-      padding: 24px;
-      margin: 0;
-      overflow-x: auto;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-    }
-
-    code {
-      font-family: 'Courier New', monospace;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      color: #e6edf3;
-    }
-
-    .keyword {
-      color: #ff7b72;
-    }
-
-    .function {
-      color: #d2a8ff;
-    }
-
-    .comment {
-      color: #8b949e;
-    }
-
-    .string {
-      color: #a5d6ff;
-    }
-
-    .number {
-      color: #79c0ff;
-    }
-
-    .type {
-      color: #ffa657;
-    }
-
-    .algorithm-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 16px 0;
-    }
-
-    .algorithm-tag {
-      background: rgba(56, 189, 248, 0.15);
-      color: #7dd3fc;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-    }
-
-    /* Existing styles remain the same, with minor additions */
-    h1 {
-      text-align: center;
-      margin-bottom: 32px;
-      font-weight: 700;
-      font-size: 2rem;
-      letter-spacing: 0.04em;
-      color: #a5b4fc;
-      text-transform: uppercase;
-    }
-
-    .subtitle {
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto 40px auto;
-      font-size: 0.95rem;
-      color: #cbd5f5;
-      line-height: 1.6;
-    }
-
-    .highlight {
-      color: #38bdf8;
-      font-weight: 600;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.75rem;
-      color: #cbd5f5;
-      margin-top: 4px;
-    }
-
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 20px;
-      margin-bottom: 40px;
-    }
-
-    .card {
-      background: radial-gradient(circle at top left, #1f2937, #020617);
-      border-radius: 18px;
-      padding: 20px 22px;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      transition: 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-        circle at top right,
-        rgba(56, 189, 248, 0.16),
-        transparent 55%
-      );
-      opacity: 0;
-      transition: 0.25s ease;
-    }
-
-    .card:hover::before {
-      opacity: 1;
-    }
-
-    .card:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
-      border-color: rgba(56, 189, 248, 0.6);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .card h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #e5e7eb;
-      max-width: 80%;
-    }
-
-    .icon-badge {
-      width: 36px;
-      height: 36px;
-      border-radius: 999px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(circle at top, #22c55e, #16a34a);
-      font-size: 1.2rem;
-      box-shadow: 0 0 16px rgba(34, 197, 94, 0.5);
-    }
-
-    .sdg {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(56, 189, 248, 0.13);
-      color: #7dd3fc;
-      font-weight: 500;
-      padding: 4px 11px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      margin: 4px 0 10px;
-      border: 1px solid rgba(56, 189, 248, 0.5);
-    }
-
-    .sdg span {
-      font-size: 0.78rem;
-    }
-
-    .section {
-      margin-bottom: 10px;
-    }
-
-    .section h3 {
-      color: #a5b4fc;
-      font-size: 0.95rem;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    .section p {
-      font-size: 0.86rem;
-      color: #d1d5db;
-      line-height: 1.6;
-      margin-bottom: 4px;
-    }
-
-    .section ul {
-      padding-left: 20px;
-      list-style: disc;
-      margin-top: 4px;
-    }
-
-    .section ul li {
-      font-size: 0.83rem;
-      line-height: 1.5;
-      margin-bottom: 4px;
-      color: #e5e7eb;
-    }
-
-    .algo-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 4px;
-    }
-
-    .algo-tag {
-      font-size: 0.75rem;
-      padding: 3px 9px;
-      border-radius: 999px;
-      background: rgba(79, 70, 229, 0.2);
-      color: #c7d2fe;
-      border: 1px solid rgba(129, 140, 248, 0.5);
-    }
-
-    .algo-buttons {
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .algo-buttons a {
-      text-decoration: none;
-      background: linear-gradient(135deg, #22c55e, #16a34a);
-      color: #0b1120;
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 600;
-      transition: 0.2s ease;
-      border: 1px solid rgba(34, 197, 94, 0.7);
-      cursor: pointer;
-    }
-
-    .algo-buttons a:hover {
-      background: linear-gradient(135deg, #4ade80, #22c55e);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 18px rgba(22, 163, 74, 0.48);
-    }
-
-    .impact {
-      margin-top: 6px;
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    .impact b {
-      color: #e5e7eb;
-    }
-
-    .info-box {
-      background: rgba(34, 197, 94, 0.1);
-      border-left: 3px solid #22c55e;
-      padding: 12px 16px;
-      margin: 12px 0;
-      border-radius: 8px;
-    }
-
-    .info-box h4 {
-      color: #22c55e;
-      font-size: 0.85rem;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    .info-box p {
-      font-size: 0.8rem;
-      color: #d1d5db;
-      line-height: 1.5;
-    }
-
-    .warning-box {
-      background: rgba(251, 191, 36, 0.1);
-      border-left: 3px solid #fbbf24;
-      padding: 12px 16px;
-      margin: 12px 0;
-      border-radius: 8px;
-    }
-
-    .warning-box h4 {
-      color: #fbbf24;
-      font-size: 0.85rem;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    .warning-box p {
-      font-size: 0.8rem;
-      color: #d1d5db;
-      line-height: 1.5;
-    }
-
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 10px;
-      margin: 12px 0;
-    }
-
-    .metric-card {
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      border-radius: 10px;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .metric-value {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #7dd3fc;
-      display: block;
-    }
-
-    .metric-label {
-      font-size: 0.7rem;
-      color: #cbd5f5;
-      margin-top: 4px;
-    }
-
-    /* Summary table */
-    .summary-title {
-      margin: 18px 0 10px 0;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #e5e7eb;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      background: radial-gradient(circle at top left, #111827, #020617);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
-    }
-
-    thead {
-      background: linear-gradient(90deg, #22c55e, #0ea5e9);
-    }
-
-    th,
-    td {
-      padding: 10px 12px;
-      border-bottom: 1px solid rgba(55, 65, 81, 0.8);
-      font-size: 0.8rem;
-      text-align: left;
-    }
-
-    th {
-      color: #0b1120;
-      font-weight: 700;
-    }
-
-    tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    tbody tr:hover {
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .sdg-chip {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(56, 189, 248, 0.2);
-      color: #7dd3fc;
-      font-size: 0.75rem;
-      font-weight: 500;
-    }
-
-    .full-width-section {
-      background: radial-gradient(circle at top left, #1f2937, #020617);
-      border-radius: 18px;
-      padding: 24px 28px;
-      margin: 30px 0;
-      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 16px;
-      }
-
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      .subtitle {
-        font-size: 0.85rem;
-      }
-
-      .modal-content {
-        width: 95%;
-        max-height: 90vh;
-      }
-
-      .modal-header h2 {
-        font-size: 1.1rem;
-      }
-    }
+  /* CSS COMES IN PART 2 */
   </style>
 </head>
+
 <body>
-  <!-- Modal for displaying algorithm code -->
-  <div id="codeModal" class="modal-overlay">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 id="modalTitle">Algorithm Implementation</h2>
-        <button class="close-btn" id="closeModal">&times;</button>
-      </div>
-      <div class="code-container">
-        <div class="algorithm-tags" id="algorithmTags"></div>
-        <pre><code id="algorithmCode"></code></pre>
-      </div>
+
+<!-- ================= MODAL ================= -->
+<div id="codeModal" class="modal-overlay">
+  <div class="modal-content scale-in">
+    <div class="modal-header">
+      <h2 id="modalTitle">Algorithm Code</h2>
+      <button class="close-btn" id="closeModal">&times;</button>
+    </div>
+    <div class="code-container">
+      <div id="algorithmTags" class="algorithm-tags"></div>
+      <pre><code id="algorithmCode"></code></pre>
     </div>
   </div>
+</div>
 
-  <h1>Smart Emergency Response System</h1>
-  <p class="subtitle">
-    This page presents a set of <span class="highlight">data-structure–driven business ideas</span> 
-    for building a safer, smarter and more resilient city. Each card highlights a subsystem of the 
-    Smart Emergency Response System (SERS), linked with <span class="highlight">SDGs 3, 9, 11, 13 and 16</span>.
+<!-- ================= TITLE ================= -->
+<h1 class="fade-up">Smart Emergency Response System</h1>
+<p class="subtitle fade-up">
+  A <span class="highlight">data-structure–powered emergency platform</span> designed for Navapura City.
+</p>
+<p class="subtitle fade-up">
+  <span class="pill">City: Navapura • Designed by: Akmal</span>
+</p>
+
+<!-- ================= EXECUTIVE SUMMARY ================= -->
+<div class="full-width-section fade-up">
+  <h2 class="section-title">📊 Executive Summary</h2>
+  <p>
+    The Smart Emergency Response System (SERS) combines real-time routing, predictive analytics,
+    and integrated emergency coordination to reduce response times across police, ambulance,
+    and fire services.
   </p>
-  <p class="subtitle">
-    <span class="pill">City: Navapura &nbsp;•&nbsp; Designed by: Akmal</span>
-  </p>
 
-  <!-- EXECUTIVE SUMMARY -->
-  <div class="full-width-section">
-    <h2 style="color: #a5b4fc; font-size: 1.2rem; margin-bottom: 16px;">📊 Executive Summary</h2>
-    <p style="font-size: 0.9rem; line-height: 1.7; color: #d1d5db; margin-bottom: 12px;">
-      The Smart Emergency Response System (SERS) is a comprehensive, data-driven platform designed to revolutionize 
-      emergency management in Navapura. By leveraging advanced algorithms and data structures, SERS reduces response 
-      times by an estimated 40-60%, potentially saving thousands of lives annually while optimizing resource allocation 
-      across police, fire, and medical services.
-    </p>
-    
-    <div class="metric-grid">
-      <div class="metric-card">
-        <span class="metric-value">40-60%</span>
-        <span class="metric-label">Response Time Reduction</span>
-      </div>
-      <div class="metric-card">
-        <span class="metric-value">5</span>
-        <span class="metric-label">Integrated Systems</span>
-      </div>
-      <div class="metric-card">
-        <span class="metric-value">24/7</span>
-        <span class="metric-label">Real-Time Monitoring</span>
-      </div>
-      <div class="metric-card">
-        <span class="metric-value">1000+</span>
-        <span class="metric-label">Daily Emergency Calls</span>
-      </div>
-    </div>
-
-    <div class="info-box" style="margin-top: 16px;">
-      <h4>💡 Why This Matters</h4>
-      <p>
-        In emergency situations, every second counts. Traditional emergency response systems often suffer from fragmented 
-        communication, inefficient routing, and delayed decision-making. SERS addresses these challenges through intelligent 
-        automation, predictive analytics, and unified command-and-control infrastructure, creating a safer city for all residents.
-      </p>
-    </div>
+  <div class="metric-grid">
+    <div class="metric-card"><span class="metric-value">40–60%</span><span class="metric-label">Faster Responses</span></div>
+    <div class="metric-card"><span class="metric-value">5</span><span class="metric-label">Systems Integrated</span></div>
+    <div class="metric-card"><span class="metric-value">24/7</span><span class="metric-label">Monitoring</span></div>
+    <div class="metric-card"><span class="metric-value">1000+</span><span class="metric-label">Daily Calls</span></div>
   </div>
-
-  <div class="cards-container">
-    <!-- Card 1: SERCC -->
-    <div class="card">
-      <div class="card-header">
-        <h2>1. Smart Emergency Response Control Centre (SERCC)</h2>
-        <div class="icon-badge">🛰️</div>
-      </div>
-      <div class="sdg">
-        <span>SDG 3 • Good Health</span> • <span>SDG 11 • Sustainable Cities</span>
-      </div>
-
-      <div class="section">
-        <h3>System Overview</h3>
-        <p>
-          SERCC acts as the central nervous system for all emergency operations in Navapura. It integrates ambulance, 
-          fire, and police services into a single unified platform that monitors, coordinates, and dispatches resources 
-          in real-time. The system processes over 1,000 emergency calls daily, managing a fleet of 150+ emergency vehicles.
-        </p>
-      </div>
-
-      <div class="section">
-        <h3>Implementation Steps (ADS)</h3>
-        <ul>
-          <li>Model all junctions, hospitals, fire & police stations as <strong>nodes in a weighted graph</strong>, where edges represent road connections with weights indicating distance, travel time, and road capacity.</li>
-          <li>Store live status of each vehicle (free/busy, location, crew availability) in <strong>hash tables</strong> for O(1) lookup time, enabling instant resource availability checks.</li>
-          <li>Use <strong>priority queues (min-heap)</strong> to decide which vehicle should be dispatched first based on proximity, availability, and emergency severity level.</li>
-          <li>Run <strong>graph traversals (BFS/DFS)</strong> to ensure all critical regions are reachable from at least one station, identifying coverage gaps and planning new station locations.</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h3>Algorithms / Data Structures Used</h3>
-        <div class="algo-list">
-          <span class="algo-tag">Graph (Adjacency List)</span>
-          <span class="algo-tag">Hash Table</span>
-          <span class="algo-tag">Priority Queue (Heap)</span>
-          <span class="algo-tag">BFS / DFS</span>
-        </div>
-        <div class="algo-buttons">
-  <a onclick="showAlgorithm('Graph', 'Graph')">Graph Representation</a>
-  <a onclick="showAlgorithm('HashTable', 'HashTable')">Hash Tables</a>
-  <a onclick="showAlgorithm('MinHeap', 'MinHeap')">Priority Queue</a>
 </div>
 
-      </div>
+<!-- ================= CARDS ================= -->
+<div class="cards-container fade-up">
 
-      <div class="info-box">
-        <h4>🎯 Real-World Impact</h4>
-        <p>
-          Similar systems deployed in Barcelona and Singapore have demonstrated 35-45% reduction in average response times. 
-          For medical emergencies, this translates to a 20% improvement in survival rates for cardiac arrest patients.
-        </p>
-      </div>
-
-      <p class="impact">
-        <b>Impact:</b> Enables unified monitoring of ambulances, fire trucks and patrol units, ensuring that the nearest available
-        resource is dispatched with minimal delay. Expected ROI: 300% over 5 years through improved outcomes and resource efficiency.
-      </p>
+  <!-- CARD 1 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>1. Smart Emergency Response Control Centre</h2>
+      <div class="icon-badge">🛰️</div>
     </div>
 
-    <!-- Card 2: Ambulance Routing -->
-    <div class="card">
-      <div class="card-header">
-        <h2>2. Intelligent Ambulance Routing Network</h2>
-        <div class="icon-badge">🚑</div>
+    <div class="section">
+      <h3>Algorithms / Data Structures Used</h3>
+      <div class="algo-list">
+        <span class="algo-tag">Graph</span>
+        <span class="algo-tag">Hash Table</span>
+        <span class="algo-tag">Priority Queue</span>
       </div>
-      <div class="sdg">
-        <span>SDG 3 • Good Health</span> • <span>SDG 9 • Industry & Innovation</span>
-      </div>
-
-      <div class="section">
-        <h3>System Overview</h3>
-        <p>
-          The Intelligent Ambulance Routing Network transforms emergency medical response through dynamic, 
-          traffic-aware pathfinding. Unlike traditional GPS systems that optimize for distance, this system 
-          considers real-time traffic congestion, road closures, traffic signal patterns, and historical 
-          travel time data to compute the truly fastest route to save lives.
-        </p>
-      </div>
-
-      <div class="section">
-        <h3>Implementation Steps (ADS)</h3>
-        <ul>
-          <li>Maintain a road network as a <strong>weighted graph</strong> where weights capture travel time and congestion. Edge weights are dynamically updated every 10 seconds using IoT sensors and traffic cameras.</li>
-          <li>Use <strong>Dijkstra's Algorithm</strong> with a min-heap to compute the fastest path from ambulance to patient, processing 500+ nodes in under 100 milliseconds.</li>
-          <li>Continuously update edge weights using live traffic inputs from municipal traffic management systems and crowd-sourced data.</li>
-          <li>Trigger <strong>automatic re-routing</strong> when an accident, road closure or unusual congestion (>30% slowdown) is detected on the current path.</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h3>Algorithms / Data Structures Used</h3>
-        <div class="algo-list">
-          <span class="algo-tag">Dijkstra</span>
-          <span class="algo-tag">Min-Heap</span>
-          <span class="algo-tag">Graph</span>
-          <span class="algo-tag">Arrays / Structs</span>
-        </div>
-        <div class="algo-buttons">
-  <a onclick="showAlgorithm('Dijkstra', 'Dijkstra')">Dijkstra Implementation</a>
-  <a onclick="showAlgorithm('MinHeap', 'MinHeap')">Min-Heap</a>
-</div>
-
-      </div>
-
-      <div class="info-box">
-        <h4>📈 Performance Metrics</h4>
-        <p>
-          Pilot testing in Navapura's downtown district showed: Average response time reduced from 9.2 minutes to 5.8 minutes 
-          (37% improvement). 89% of emergencies reached within critical 8-minute window vs. 62% previously. Traffic signal 
-          preemption saved an average of 45 seconds per response.
-        </p>
-      </div>
-
-      <p class="impact">
-        <b>Impact:</b> Reduces average ambulance response time by prioritising time-efficient routes instead of only distance-based routes. 
-        Studies show each minute saved in cardiac arrest response increases survival probability by 7-10%.
-      </p>
-    </div>
-
-        <!-- Card 3: Disaster Evacuation -->
-    <div class="card">
-      <div class="card-header">
-        <h2>3. Disaster Evacuation & Safe Shelter Planning</h2>
-        <div class="icon-badge">🛟</div>
-      </div>
-      <div class="sdg">
-        <span>SDG 11 • Resilient Cities</span> • <span>SDG 13 • Climate Action</span>
-      </div>
-
-      <div class="section">
-        <h3>System Overview</h3>
-        <p>
-          As climate change increases the frequency of natural disasters, Navapura needs a proactive evacuation system. 
-          This module pre-computes optimal evacuation routes for every neighborhood, identifies bottleneck points, 
-          and ensures equitable access to safe shelters. The system can coordinate evacuation for 500,000+ residents 
-          within 4-6 hours during emergencies like floods, earthquakes, or chemical spills.
-        </p>
-      </div>
-
-      <div class="section">
-        <h3>Implementation Steps (ADS)</h3>
-        <ul>
-          <li>Mark all shelters, schools and open grounds as <strong>safe nodes</strong> in the city graph. Currently mapped: 85 designated shelters with capacity for 600,000 people.</li>
-          <li>Use <strong>BFS</strong> to find all shelters reachable from a locality within a given time limit (15, 30, 60 minutes), accounting for population density and mobility constraints.</li>
-          <li>Simulate evacuation scenarios using <strong>multi-source BFS</strong> to detect congestion points where bottlenecks could form, enabling pre-positioning of traffic control.</li>
-          <li>Store historical disaster data in <strong>segment trees</strong> for quick regional risk queries, allowing instant retrieval of flood-prone, earthquake-vulnerable, or fire-risk areas.</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h3>Algorithms / Data Structures Used</h3>
-        <div class="algo-list">
-          <span class="algo-tag">BFS</span>
-          <span class="algo-tag">Multi-source BFS</span>
-          <span class="algo-tag">Segment Tree (Analytics)</span>
-          <span class="algo-tag">Graph</span>
-        </div>
-        <div class="algo-buttons">
-  <a onclick="showAlgorithm('BFS', 'BFS')">BFS Implementation</a>
-  <a onclick="showAlgorithm('SegmentTree', 'SegmentTree')">Segment Tree</a>
-</div>
-
-      </div>
-
-      <p class="impact">
-        <b>Impact:</b> Helps the city prepare evacuation plans before disasters occur, minimising chaos and saving vulnerable populations. 
-        Computer simulations show properly executed plans could reduce disaster casualties by 60-80%.
-      </p>
-    </div>
-
-    <!-- Card 4: Crime Hotspot & Policing -->
-    <div class="card">
-      <div class="card-header">
-        <h2>4. Crime Hotspot Detection & Predictive Policing</h2>
-        <div class="icon-badge">🚨</div>
-      </div>
-      <div class="sdg">
-        <span>SDG 16 • Peace, Justice & Strong Institutions</span>
-      </div>
-
-      <div class="section">
-        <h3>System Overview</h3>
-        <p>
-          Moving from reactive to proactive policing, this system analyzes 5+ years of crime data (200,000+ incidents) 
-          to identify patterns, predict future hotspots, and optimize patrol routes. By focusing resources on 
-          high-probability areas during high-risk times, police can prevent crimes before they occur while maintaining 
-          ethical standards and avoiding bias in predictive models.
-        </p>
-      </div>
-
-      <div class="section">
-        <h3>Implementation Steps (ADS)</h3>
-        <ul>
-          <li>Store emergency call logs in <strong>time-series arrays</strong> indexed by region, time of day, day of week, and crime type. Data granularity: 500m grid cells across the entire city.</li>
-          <li>Use <strong>Fenwick Trees / Segment Trees</strong> to answer queries like "incidents in this area this month" in O(log n) time, enabling instant crime statistics for any geographic region.</li>
-          <li>Identify hotspots using statistical clustering algorithms (DBSCAN) and map them on the city graph with probability heatmaps updated hourly.</li>
-          <li>Plan patrol paths using <strong>shortest path algorithms</strong> that cover multiple hotspots efficiently, optimizing the traveling salesman problem across 20-30 daily patrol waypoints.</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h3>Algorithms / Data Structures Used</h3>
-        <div class="algo-list">
-          <span class="algo-tag">Fenwick Tree</span>
-          <span class="algo-tag">Segment Tree</span>
-          <span class="algo-tag">Shortest Path (Dijkstra/BFS)</span>
-          <span class="algo-tag">Hashing</span>
-        </div>
-
-       <div class="algo-buttons">
-  <a onclick="showAlgorithm('FenwickTree', 'FenwickTree')">Fenwick Tree</a>
-  <a onclick="showAlgorithm('Dijkstra', 'Dijkstra')">Crime Route Planning</a>
-</div>
-
-      </div>
-
-      <div class="info-box">
-        <h4>📊 Statistical Insight</h4>
-        <p style="font-size:0.85rem; color:#d1d5db; margin-top:6px;">
-          Recurrent hotspots show a 23% reduction in incidents after optimized patrol routing was deployed.
-        </p>
+      <div class="algo-buttons">
+        <a onclick="showAlgorithm('Graph')">Graph Representation</a>
+        <a onclick="showAlgorithm('HashTable')">Hash Table</a>
+        <a onclick="showAlgorithm('MinHeap')">Min Heap</a>
       </div>
     </div>
   </div>
 
-  <!-- SUMMARY TABLE -->
-  <h2 class="summary-title">Summary of Emergency Response Initiatives</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Initiative</th>
-        <th>SDG</th>
-        <th>Core Algorithms</th>
-        <th>Core Data Structures</th>
-        <th>Purpose / Application</th>
-        <th>Efficiency (Big-O)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Smart Emergency Response Control Centre</td>
-        <td><span class="sdg-chip">SDG 3, 11</span></td>
-        <td>BFS / DFS</td>
-        <td>Graph, Hash Table, Heap</td>
-        <td>Coordinate all emergency vehicles & ensure reachability</td>
-        <td>BFS/DFS: O(V + E), Lookup: ~O(1)</td>
-      </tr>
-      <tr>
-        <td>Intelligent Ambulance Routing Network</td>
-        <td><span class="sdg-chip">SDG 3, 9</span></td>
-        <td>Dijkstra</td>
-        <td>Graph, Min-Heap, Arrays</td>
-        <td>Find fastest path from ambulance to patient</td>
-        <td>O((V + E) log V)</td>
-      </tr>
-      <tr>
-        <td>Disaster Evacuation & Shelter Planning</td>
-        <td><span class="sdg-chip">SDG 11, 13</span></td>
-        <td>BFS, Multi-source BFS</td>
-        <td>Graph, Segment Tree</td>
-        <td>Compute safe routes and analyse bottlenecks</td>
-        <td>BFS: O(V + E), Segment Tree: O(log n)</td>
-      </tr>
-      <tr>
-        <td>Crime Hotspot Detection & Predictive Policing</td>
-        <td><span class="sdg-chip">SDG 16</span></td>
-        <td>Fenwick / Segment Tree, Shortest Path</td>
-        <td>Time-Series Array, Trees, Graph</td>
-        <td>Identify hotspots & optimise patrol routes</td>
-        <td>Fenwick: O(log n), Routing: O((V + E) log V)</td>
-      </tr>
-      <tr>
-        <td>Fire Hazard Monitoring & Rapid Response</td>
-        <td><span class="sdg-chip">SDG 11, 13</span></td>
-        <td>Dijkstra / A*</td>
-        <td>Graph, Hash Map, AVL/Red-Black Tree</td>
-        <td>Route fire trucks quickly & analyse high-risk zones</td>
-        <td>Dijkstra: O((V + E) log V), Tree ops: O(log n)</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>2. Intelligent Ambulance Routing Network</h2>
+      <div class="icon-badge">🚑</div>
+    </div>
+
+    <div class="section">
+      <h3>Algorithms / Data Structures Used</h3>
+      <div class="algo-list">
+        <span class="algo-tag">Dijkstra</span>
+        <span class="algo-tag">Min Heap</span>
+      </div>
+
+      <div class="algo-buttons">
+        <a onclick="showAlgorithm('Dijkstra')">Dijkstra</a>
+        <a onclick="showAlgorithm('MinHeap')">Min Heap</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>3. Disaster Evacuation & Shelter Planning</h2>
+      <div class="icon-badge">🛟</div>
+    </div>
+
+    <div class="section">
+      <h3>Algorithms / Data Structures Used</h3>
+      <div class="algo-list">
+        <span class="algo-tag">BFS</span>
+        <span class="algo-tag">Segment Tree</span>
+      </div>
+
+      <div class="algo-buttons">
+        <a onclick="showAlgorithm('BFS')">BFS</a>
+        <a onclick="showAlgorithm('SegmentTree')">Segment Tree</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card">
+    <div class="card-header">
+      <h2>4. Crime Hotspot Detection & Predictive Policing</h2>
+      <div class="icon-badge">🚨</div>
+    </div>
+
+    <div class="section">
+      <h3>Algorithms / Data Structures Used</h3>
+      <div class="algo-list">
+        <span class="algo-tag">Fenwick Tree</span>
+        <span class="algo-tag">Dijkstra</span>
+      </div>
+
+      <div class="algo-buttons">
+        <a onclick="showAlgorithm('FenwickTree')">Fenwick Tree</a>
+        <a onclick="showAlgorithm('Dijkstra')">Crime Route Planning</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= SUMMARY TABLE ================= -->
+<h2 class="summary-title fade-up">Summary of Emergency Response Initiatives</h2>
+
+<table class="fade-up">
+  <thead>
+    <tr>
+      <th>Initiative</th>
+      <th>SDG</th>
+      <th>Algorithms</th>
+      <th>Data Structures</th>
+      <th>Purpose</th>
+      <th>Efficiency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>SERCC</td><td>3,11</td><td>BFS/DFS</td><td>Graph, Hash</td><td>Coordination</td><td>O(V+E)</td></tr>
+    <tr><td>Ambulance Routing</td><td>3,9</td><td>Dijkstra</td><td>Graph, Heap</td><td>Fast Routing</td><td>O((V+E)logV)</td></tr>
+    <tr><td>Evacuation Planning</td><td>11,13</td><td>BFS</td><td>Graph, SegTree</td><td>Safe Routes</td><td>O(V+E)</td></tr>
+    <tr><td>Predictive Policing</td><td>16</td><td>Fenwick, Dijkstra</td><td>BIT, Graph</td><td>Hotspot Analysis</td><td>O(log n)</td></tr>
+  </tbody>
+</table>
+
+<!-- SCRIPT WILL COME IN PART 3 -->
+<script>
+</script>
+
+</body>
+</html>
 
 
-  <script>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+/* MAIN PAGE THEME */
+body {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #e5e7eb;
+  padding: 24px;
+  min-height: 100vh;
+}
+
+/* ---------------- MODAL ---------------- */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.modal-content {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border-radius: 16px;
+  padding: 0;
+  width: 90%;
+  max-width: 900px;
+  max-height: 85vh;
+  overflow: hidden;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  padding: 20px 24px;
+  background: linear-gradient(90deg, #22c55e, #0ea5e9);
+  color: #0b1120;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.close-btn {
+  background: rgba(11, 17, 32, 0.8);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(11, 17, 32, 1);
+  transform: rotate(90deg);
+}
+
+/* CODE INSIDE MODAL */
+.code-container {
+  flex: 1;
+  overflow: auto;
+  padding: 24px;
+}
+
+pre {
+  background: #0d1117;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e6edf3;
+}
+
+.algorithm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.algorithm-tag {
+  background: rgba(56, 189, 248, 0.15);
+  color: #7dd3fc;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* ---------------- PAGE HEADINGS ---------------- */
+h1 {
+  text-align: center;
+  margin-bottom: 32px;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
+  color: #a5b4fc;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 40px auto;
+  font-size: 0.95rem;
+  color: #cbd5f5;
+  line-height: 1.6;
+}
+
+.highlight {
+  color: #38bdf8;
+  font-weight: 600;
+}
+
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  font-size: 0.75rem;
+  color: #cbd5f5;
+  margin-top: 4px;
+}
+
+/* ---------------- CARDS ---------------- */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.card {
+  background: radial-gradient(circle at top left, #1f2937, #020617);
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  transition: 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(56, 189, 248, 0.16),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
+  border-color: rgba(56, 189, 248, 0.6);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e5e7eb;
+  max-width: 80%;
+}
+
+.icon-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #22c55e, #16a34a);
+  font-size: 1.2rem;
+  box-shadow: 0 0 16px rgba(34, 197, 94, 0.5);
+}
+
+/* ---------------- SECTIONS ---------------- */
+.section {
+  margin-bottom: 10px;
+}
+
+.section h3 {
+  color: #a5b4fc;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.section p {
+  font-size: 0.86rem;
+  color: #d1d5db;
+  line-height: 1.6;
+  margin-bottom: 4px;
+}
+
+.section ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.section ul li {
+  font-size: 0.83rem;
+  margin-bottom: 4px;
+  color: #e5e7eb;
+}
+
+.algo-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.algo-tag {
+  font-size: 0.75rem;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(79, 70, 229, 0.2);
+  color: #c7d2fe;
+  border: 1px solid rgba(129, 140, 248, 0.5);
+}
+
+.algo-buttons {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.algo-buttons a {
+  text-decoration: none;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #0b1120;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: 0.2s ease;
+  border: 1px solid rgba(34, 197, 94, 0.7);
+  cursor: pointer;
+}
+
+.algo-buttons a:hover {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  transform: translateY(-1px);
+}
+
+/* ---------------- INFO BOXES ---------------- */
+.info-box {
+  background: rgba(34, 197, 94, 0.1);
+  border-left: 3px solid #22c55e;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+}
+
+/* ---------------- SUMMARY TABLE ---------------- */
+.summary-title {
+  margin: 18px 0 10px 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: radial-gradient(circle at top left, #111827, #020617);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+}
+
+thead {
+  background: linear-gradient(90deg, #22c55e, #0ea5e9);
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(55, 65, 81, 0.8);
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+th {
+  color: #0b1120;
+  font-weight: 700;
+}
+
+tbody tr:hover {
+  background: rgba(15, 23, 42, 0.9);
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-height: 90vh;
+  }
+}
+
+
+
+
+<script>
+/* ========================================================
+   ALGORITHM LIBRARY — ALL C++ CODES STORED HERE
+   ======================================================== */
 const algorithmLibrary = {
 
-  /* ---------------------------------- DIJKSTRA ---------------------------------- */
   Dijkstra: {
     title: "Dijkstra's Algorithm (Shortest Path)",
     tags: ["Graph", "Min Heap", "Shortest Path"],
@@ -890,13 +571,11 @@ vector<int> dijkstra(int n, vector<vector<pair<int,int>>> &adj, int src) {
             }
         }
     }
-
     return dist;
 }
 `
   },
 
-  /* ---------------------------------- BFS ---------------------------------- */
   BFS: {
     title: "Breadth-First Search (BFS)",
     tags: ["Graph Traversal", "Shortest Path (Unweighted)"],
@@ -927,7 +606,6 @@ void bfs(int start, vector<vector<int>> &adj) {
 `
   },
 
-  /* --------------------------- MULTI-SOURCE BFS ---------------------------- */
   MultiSourceBFS: {
     title: "Multi-Source BFS (Evacuation Simulation)",
     tags: ["Graph", "Evacuation Model"],
@@ -955,13 +633,11 @@ vector<int> multiSourceBFS(int n, vector<vector<int>> &adj, vector<int> &sources
             }
         }
     }
-
     return dist;
 }
 `
   },
 
-  /* ---------------------------------- SEGMENT TREE ---------------------------------- */
   SegmentTree: {
     title: "Segment Tree (Range Query)",
     tags: ["Tree", "Range Query", "O(log n)"],
@@ -1001,7 +677,6 @@ struct SegTree {
 `
   },
 
-  /* ---------------------------------- FENWICK TREE ---------------------------------- */
   FenwickTree: {
     title: "Fenwick Tree (Binary Indexed Tree)",
     tags: ["Tree", "Prefix Query", "O(log n)"],
@@ -1034,7 +709,6 @@ struct Fenwick {
 `
   },
 
-  /* ---------------------------------- MIN HEAP ---------------------------------- */
   MinHeap: {
     title: "Min-Heap (Priority Queue)",
     tags: ["Heap", "Greedy Algorithms"],
@@ -1058,7 +732,6 @@ int main() {
 `
   },
 
-  /* ---------------------------------- HASH TABLE ---------------------------------- */
   HashTable: {
     title: "Hash Table (Emergency Lookup)",
     tags: ["Hashing", "O(1) Lookup"],
@@ -1078,7 +751,6 @@ int main() {
 `
   },
 
-  /* ---------------------------------- GRAPH REP ---------------------------------- */
   Graph: {
     title: "Graph Representation (Adjacency List)",
     tags: ["Graph", "Road Network"],
@@ -1105,34 +777,42 @@ int main() {
   }
 };
 
+/* ========================================================
+   FIXED MAPPING (Ensures every button works)
+   ======================================================== */
+const alternateKeys = {
+  graph: "Graph",
+  heap: "MinHeap",
+  hashing: "HashTable",
+  tree: "SegmentTree",
+  BFS: "BFS",
+  SegmentTree: "SegmentTree",
+  FenwickTree: "FenwickTree",
+  Dijkstra: "Dijkstra",
+  MinHeap: "MinHeap",
+  MultiSourceBFS: "MultiSourceBFS"
+};
 
-/* --------------------------- MODAL FUNCTIONS ---------------------------- */
-
+/* ========================================================
+   MASTER FUNCTION — SHOW ALGORITHM IN MODAL
+   ======================================================== */
 function showAlgorithm(name, key) {
   const modal = document.getElementById("codeModal");
   const title = document.getElementById("modalTitle");
   const tagBox = document.getElementById("algorithmTags");
   const codeBox = document.getElementById("algorithmCode");
 
-  // pick library key using either provided name or fallback
-  let data = algorithmLibrary[name] || algorithmLibrary[key] || null;
-
-  if (!data) {
-    // fallback: if name not found, try some known mappings
-    const mapping = {
-      'hashing': 'HashTable',
-      'heap': 'MinHeap',
-      'graph': 'Graph',
-      'tree': 'SegmentTree'
-    };
-    const mapped = mapping[key];
-    data = algorithmLibrary[mapped] || null;
-  }
+  let data =
+    algorithmLibrary[name] ||
+    algorithmLibrary[key] ||
+    algorithmLibrary[alternateKeys[name]] ||
+    algorithmLibrary[alternateKeys[key]] ||
+    null;
 
   if (!data) {
     title.textContent = "Algorithm Not Found";
     tagBox.innerHTML = "";
-    codeBox.textContent = "// Sorry, this algorithm snippet is not available.";
+    codeBox.textContent = "// No code available.";
     modal.style.display = "flex";
     return;
   }
@@ -1140,7 +820,7 @@ function showAlgorithm(name, key) {
   title.textContent = data.title;
 
   tagBox.innerHTML = "";
-  (data.tags || []).forEach(t => {
+  data.tags.forEach(t => {
     const span = document.createElement("span");
     span.className = "algorithm-tag";
     span.textContent = t;
@@ -1152,18 +832,15 @@ function showAlgorithm(name, key) {
   modal.style.display = "flex";
 }
 
+/* ========================================================
+   CLOSE MODAL
+   ======================================================== */
 document.getElementById("closeModal").onclick = function () {
   document.getElementById("codeModal").style.display = "none";
 };
 
-window.onclick = function (event) {
+window.onclick = function (e) {
   const modal = document.getElementById("codeModal");
-  if (event.target === modal) modal.style.display = "none";
+  if (e.target === modal) modal.style.display = "none";
 };
 </script>
-
-
-
-  
-</body>
-</html>
