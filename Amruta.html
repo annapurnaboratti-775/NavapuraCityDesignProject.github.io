@@ -8,424 +8,444 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:'Inter', sans-serif; }
-  body { background:#f5f8fa; padding:25px; color:#333; }
-
-  h1 { 
-    text-align:center; 
-    margin-bottom:40px; 
-    font-weight:700; 
-    color:#1abc9c;
-    font-size:2.4rem;
-  }
-
-  /* System Overview + Conclusion special full-width cards */
-  .big-card {
-    width:100%;
-    background:#fff;
-    border-radius:16px;
-    padding:25px;
-    margin-bottom:30px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-  }
-
-  .big-card h2 {
-    color:#16a085;
-    font-size:1.7rem;
-    margin-bottom:12px;
-  }
-
-  /* Grid Cards Layout (3 per row) */
-  .cards-container {
-    width:100%;
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:22px;
-    margin-bottom:35px;
-  }
-
-  .card {
-    background:#fff;
-    border-radius:16px;
-    padding:25px;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    transition:0.25s;
-  }
-
-  .card:hover {
-    transform:translateY(-6px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.15);
-  }
-
-  .card h2 {
-    color:#16a085;
-    font-size:1.45rem;
-    margin-bottom:10px;
-  }
-
-  .tag {
-    display:inline-block;
-    background:#1abc9c;
-    color:#fff;
-    font-weight:600;
-    padding:4px 12px;
-    border-radius:10px;
-    font-size:0.85rem;
-    margin-bottom:15px;
-  }
-
-  .section-title {
-    color:#27ae60;
-    font-size:1rem;
-    margin-top:15px;
-    margin-bottom:8px;
-    font-weight:600;
-  }
-
-  ul { padding-left:20px; margin-bottom:10px; }
-  ul li { margin-bottom:6px; }
-
-  /* Table */
-  table {
-    width:100%;
-    border-collapse:collapse;
-    margin-top:45px;
-    background:#fff;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 8px 20px rgba(0,0,0,0.08);
-  }
-  th, td {
-    padding:14px 16px;
-    border-bottom:1px solid #ddd;
-    text-align:left;
-  }
-  th {
-    background:#1abc9c;
-    color:#fff;
-    font-size:1rem;
-  }
-  tr:hover { background:#f1f1f1; }
-
-  /* Responsive */
-  @media(max-width:900px){
-    .cards-container {
-      grid-template-columns:1fr;
-    }
-  }
-  .table-spacing {
-  margin-bottom: 40px; /* adds space after table before conclusion */
+:root{
+  --bg:#0f1a2b;
+  --panel:rgba(255,255,255,0.05);
+  --glass-border:rgba(255,255,255,0.1);
+  --muted:#a3b9e0;
+  --accent:#3ad7ff;
+  --accent-2:#6ab3ff;
+  --neon:#00f6ff;
+  --card-radius:16px;
+  --max-width:1200px;
 }
 
-.button-group {
-  margin-top: 10px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+*{box-sizing:border-box;}
+body, html{
+  margin:0;
+  height:100%;
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  background: linear-gradient(180deg,#0f1a2b,#1a2e4c);
+  color:#d9e7ff;
 }
 
-.button-group button {
-  background-color: #1abc9c;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  padding: 8px 14px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.wrap{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:28px 18px 80px;
 }
 
-.button-group button:hover {
-  background-color: #159f87;
+/* NAVIGATION */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:36px;
+  padding:12px;
+  border-radius:28px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.05);
+  backdrop-filter:blur(8px);
+  margin-bottom:22px;
 }
-.navbar {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  margin-bottom: 40px;
-  background: #1abc9c;
-  padding: 12px 0;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(26, 188, 156, 0.4);
+nav a{
+  color:#cfe6ff;
+  text-decoration:none;
+  font-weight:600;
+  transition:color .18s;
 }
-
-.navbar a {
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-  font-size: 1.1rem;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: background-color 0.3s;
-}
-
-.navbar a:hover {
-  background-color: #159f87;
+nav a:hover{
+  color:var(--accent);
+  text-shadow:0 6px 26px rgba(58,215,255,0.2);
 }
 
+/* HERO */
+.hero{
+  text-align:center;
+  margin-bottom:30px;
+}
+.hero h1{
+  font-size:34px;
+  font-weight:800;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;
+  color:transparent;
+  margin:6px 0;
+}
+.hero p{
+  color:var(--muted);
+  margin:6px 0 18px;
+}
+
+/* CARDS */
+.cards-container{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-bottom:38px;
+}
+.card{
+  background:var(--panel);
+  border-radius:var(--card-radius);
+  padding:18px;
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(10px);
+  transition:transform .28s,box-shadow .28s;
+  box-shadow:0 8px 26px rgba(0,0,0,0.55);
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 28px 60px rgba(0,0,0,0.6),0 6px 40px rgba(58,215,255,0.1);
+}
+.card h2{
+  color:var(--accent-2);
+  font-size:18px;
+  margin:0 0 8px;
+}
+.section-title{
+  color:#9dfcbd;
+  font-weight:700;
+  margin:10px 0 6px;
+}
+.section ul{
+  padding-left:18px;
+  color:#d7e5ff;
+}
+.section ul li{
+  margin-bottom:8px;
+  line-height:1.45;
+}
+.button-group{
+  margin-top:10px;
+}
+.button-group button{
+  margin:4px;
+  padding:6px 12px;
+  border:none;
+  border-radius:8px;
+  background:var(--accent);
+  color:#0b0f15;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .2s;
+}
+.button-group button:hover{
+  background:var(--accent-2);
+  color:#fff;
+}
+
+/* BIG CARD */
+.big-card{
+  background:var(--panel);
+  border-radius:var(--card-radius);
+  padding:20px;
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(12px);
+  margin-bottom:30px;
+}
+
+/* TABLE */
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:40px;
+}
+th, td{
+  border:1px solid rgba(255,255,255,0.1);
+  padding:10px;
+  text-align:left;
+}
+th{
+  background:rgba(58,215,255,0.1);
+}
+td{
+  background:rgba(255,255,255,0.03);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  color:#93a7cd;
+  margin-top:36px;
+}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .cards-container{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+@media(max-width:720px){
+  .hero h1{font-size:26px;}
+  nav{gap:18px; padding:10px;}
+  .cards-container{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
 
 <body>
+<div class="wrap">
 
-<h1>Smart City Services Dashboard</h1>
-<nav class="navbar">
-  <a href="#h">Hospital</a>
-  <a href="#w">Waste Collection</a>
-  <a href="#u">Water & Electricity</a>
-  <a href="#p">Parking</a>
-  <a href="#s">Salt Production</a>
-  <a href="#f">Feedback</a>
-</nav>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Smart City Services Dashboard</h1>
+    <p>Manage hospitals, waste, utilities, parking, salt production, and citizen feedback efficiently.</p>
+  </div>
 
+  <!-- NAV -->
+  <nav>
+    <a href="#h">Hospital</a>
+    <a href="#w">Waste Collection</a>
+    <a href="#u">Water & Electricity</a>
+    <a href="#p">Parking</a>
+    <a href="#s">Salt Production</a>
+    <a href="#f">Feedback</a>
+  </nav>
 
-<!-- SYSTEM OVERVIEW -->
-<div class="big-card">
-  <h2>System Overview</h2>
-  <p>
-    A unified platform managing hospitals, waste collection, utilities, parking,
-    salt production, and citizen feedback. 
-    It integrates graph-based routing, dynamic allocation, and priority-driven logic
-    to enhance real-time decision-making across the city.
-  </p>
-</div>
+  <!-- SYSTEM OVERVIEW -->
+  <div class="big-card">
+    <h2>System Overview</h2>
+    <p>
+      A unified platform managing hospitals, waste collection, utilities, parking,
+      salt production, and citizen feedback. It integrates graph-based routing, dynamic allocation, 
+      and priority-driven logic to enhance real-time decision-making across the city.
+    </p>
+  </div>
 
-<!-- MODULES: ALWAYS 3 PER ROW -->
-<div class="cards-container">
+  <!-- BUSINESS IDEAS CARDS (FIRST ROW) -->
+  <div class="cards-container">
+    <div class="card" id="h">
+      <h2>🏥 Hospital Management</h2>
+      <div class="section-title">Implementation Steps</div>
+      <ul>
+        <li>Store patient profiles using Hash Maps.</li>
+        <li>Push emergency cases into a Priority Queue.</li>
+        <li>Assign doctors based on patient urgency.</li>
+        <li>Track bed availability with boolean arrays.</li>
+      </ul>
+      <div class="section-title">Algorithms / DSA</div>
+      <ul>
+        <li>Priority Queue</li>
+        <li>Hash Map</li>
+      </ul>
+      <div class="button-group">
+        <button>Learn Priority Queue</button>
+        <button>Learn Hash Map</button>
+      </div>
+    </div>
 
-  <!-- Hospital -->
-  <div class="card" id="h">
-    <h2>🏥 Hospital Management</h2>
-    <span class="tag">Critical Services</span>
+    <div class="card" id="w">
+      <h2>♻️ Waste Collection</h2>
+      <div class="section-title">Implementation Steps</div>
+      <ul>
+        <li>Represent city routes as a graph.</li>
+        <li>Use DFS to find reachable collection points.</li>
+        <li>Use Dijkstra to find shortest paths between bins.</li>
+      </ul>
+      <div class="section-title">Algorithms / DSA</div>
+      <ul>
+        <li>DFS</li>
+        <li>Dijkstra</li>
+        <li>Graph</li>    
+      </ul>
+      <div class="button-group">
+        <button>Learn DFS</button>
+        <button>Learn Dijkstra</button>
+        <button>Learn Graph</button>
+      </div>
+    </div>
 
-    <div class="section-title">Implementation Steps (ADS)</div>
-    <ul>
-      <li>Store patient profiles using <strong>Hash Maps</strong>.</li>
-      <li>Push emergency cases into a <strong>Priority Queue</strong>.</li>
-      <li>Assign doctors based on patient urgency.</li>
-      <li>Track bed availability with boolean arrays.</li>
-    </ul>
+    <div class="card" id="u">
+      <h2>💡💧 Water & Electricity</h2>
+      <div class="section-title">Implementation Steps</div>
+      <ul>
+        <li>Model supply grid as a graph.</li>
+        <li>Use MST (Prim/Kruskal) to design minimal cost network.</li>
+        <li>Track high-demand nodes with Priority Queue / Min-Heap.</li>
+        <li>Apply dynamic allocation to adapt supply during peak hours.</li>
+      </ul>
+      <div class="section-title">Algorithms / DSA</div>
+      <ul>
+        <li>MST (Prim/Kruskal)</li>
+        <li>Graphs</li>
+        <li>Priority Queue / Min-Heap</li>
+        <li>Dynamic Allocation</li>
+      </ul>
+      <div class="button-group">
+        <button>Learn MST</button>
+        <button>Learn Graphs</button>
+        <button>Learn Priority Queue</button>
+        <button>Learn Dynamic Allocation</button>
+      </div>
+    </div>
+  </div>
 
-    <div class="section-title">Algorithms / DSA Used</div>
-    <ul>
-      <li>Priority Queue</li>
-      <li>Hash Map</li>
-    </ul>
+  <!-- ALGORITHM CARDS (SECOND ROW) -->
+  <div class="cards-container">
+    <div class="card" id="p">
+      <h2>🅿️ Parking</h2>
+      <div class="section-title">Implementation Steps</div>
+      <ul>
+        <li>Check slot availability using Hash Map.</li>
+        <li>Use BFS to locate nearest free slot.</li>
+        <li>Store station distances in a Min Heap.</li>
+        <li>Provide shortest route to driver.</li>
+      </ul>
+      <div class="section-title">Algorithms / DSA</div>
+      <ul>
+        <li>BFS</li>
+        <li>Min Heap</li>
+        <li>Hash Map</li>
+      </ul>
+      <div class="button-group">
+        <button>Learn BFS</button>
+        <button>Learn Min Heap</button>
+        <button>Learn Hash Map</button>
+      </div>
+    </div>
 
-    <div class="button-group">
-    <button>Learn Priority Queue</button>
-    <button>Learn Hash Map</button>
-  </div>
-  </div>
-  <!-- Waste -->
-  <div class="card" id="w">
-    <h2>♻️ Waste Collection Optimization</h2>
-    <span class="tag">Routing</span>
-    <div class="section-title">Implementation Steps (ADS)</div>
-    <ul>
-      <li>Represent city routes as a <strong>graph</strong>.</li>
-      <li>Use <strong>DFS</strong> to find reachable collection points.</li>
-      <li>Use <strong>Dijkstra</strong> to find shortest paths between bins.</li>
-    </ul>
-    <div class="section-title">Algorithms / Data Structures</div>
-    <ul>
-      <li>DFS </li>
-      <li>Dijkstra</li>
-      <li>Graph</li>    
-    </ul>
-    <div class="button-group">
-    <button>Learn DFS</button>
-    <button>Learn Dijkstra</button>
-    <button>Learn Graph</button>
-  </div>
-  </div>
-  <!-- Utilities -->
- <div class="card" id="u">
-    <h2>💡💧 Water & Electricity</h2>
-    <span class="tag">Utilities</span>
-    <div class="section-title">Implementation Steps (ADS)</div>
-    <ul>
-      <li>Model supply grid as a <strong>graph</strong>.</li>
-      <li>Use <strong>MST (Prim/Kruskal)</strong> to design minimal cost network.</li>
-      <li>Track high-demand nodes with <strong>Priority Queue / Min-Heap</strong>.</li>
-      <li>Apply dynamic allocation to adapt supply during peak hours.</li>
-    </ul>
-    <div class="section-title">Algorithms / Data Structures</div>
-    <ul>
-      <li>MST (Prim’s or Kruskal’s Algorithm) </li>
-      <li>Graphs </li>
-      <li>Priority Queue / Min-Heap </li>
-      <li>Dynamic Allocation </li>
-    </ul>
-    <div class="button-group">
-    <button>Learn MST</button>
-    <button>Learn Graphs</button>
-    <button>Learn Priority Queue</button>
-    <button>Learn Dynamic Allocation</button>
-  </div>
-  </div>
-  <!-- Parking -->
-  <div class="card" id="p">
-    <h2>🅿️ Parking & Fuel Services</h2>
-    <span class="tag">Transport</span>
-    <div class="section-title">Implementation Steps (ADS)</div>
-    <ul>
-      <li>Check slot availability using <strong>Hash Map</strong>.</li>
-      <li>Use <strong>BFS</strong> to locate nearest free slot.</li>
-      <li>Store station distances in a <strong>Min Heap</strong>.</li>
-      <li>Provide shortest route to driver.</li>
-    </ul>
-    <div class="section-title">Algorithms / DSA</div>
-    <ul>
-      <li>BFS</li>
-      <li>Min Heap</li>
-      <li>Hash Map</li>
-    </ul>
-     <div class="button-group">
-    <button>Learn BFS</button>
-    <button>Learn Min Heap</button>
-    <button>Learn Hash Map</button>
-  </div>
-  </div>
-  <!-- Salt -->
- <div class="card" id="s">
-    <h2>🧂 Salt Production</h2>
-    <span class="tag">Industry</span>
-    <div class="section-title">Implementation Steps (ADS)</div>
-    <ul>
-      <li>Store salt pan outputs in a <strong>Max Heap</strong>.</li>
-      <li>Pick highest-yield pans first.</li>
-      <li>Plan shortest distribution routes to storage using <strong>Graph / Dijkstra</strong>.</li>
-      <li>Manage trucks and deliveries with <strong>Priority Queue</strong>.</li>
-      <li>Store pan data (yield, status) in <strong>Hash Map</strong>.</li>
-    </ul>
-    <div class="section-title">Algorithms / Data Structures</div>
-    <ul>
-      <li>Max-Heap </li>
-      <li>Graph / Dijkstra</li>
-      <li>Priority Queue </li>
-      <li>Hash Map / Lookup Table</li>
-    </ul>
-     <div class="button-group">
-    <button>Learn Max Heap</button>
-    <button>Learn Graph</button>
-    <button>Learn Dijkstra</button>
-    <button>Learn Priority Queue</button>
-    <button>Learn Hash Map</button>
-  </div>
-  </div>
-  <!-- Feedback -->
-  <div class="card" id="f">
-    <h2>📝 Citizen Feedback</h2>
-    <span class="tag">Public Interaction</span>
+    <div class="card" id="s">
+      <h2>🧂 Salt Production</h2>
+      <div class="section-title">Implementation Steps</div>
+      <ul>
+        <li>Store salt pan outputs in a Max Heap.</li>
+        <li>Pick highest-yield pans first.</li>
+        <li>Plan shortest distribution routes using Graph/Dijkstra.</li>
+        <li>Manage trucks with Priority Queue.</li>
+        <li>Store pan data in Hash Map.</li>
+      </ul>
+      <div class="section-title">Algorithms / DSA</div>
+      <ul>
+        <li>Max Heap</li>
+        <li>Graph / Dijkstra</li>
+        <li>Priority Queue</li>
+        <li>Hash Map</li>
+      </ul>
+      <div class="button-group">
+        <button>Learn Max Heap</button>
+        <button>Learn Graph</button>
+        <button>Learn Dijkstra</button>
+        <button>Learn Priority Queue</button>
+        <button>Learn Hash Map</button>
+      </div>
+    </div>
 
-    <div class="section-title">Implementation Steps (ADS)</div>
-    <ul>
-      <li>Store feedback entries in <strong>Hash Maps</strong>.</li>
-      <li>Push urgent complaints into <strong>Priority Queue</strong>.</li>
-      <li>Route issues to nearest team using <strong>Graph</strong>.</li>
-      <li>Notify citizens once resolved.</li>
-    </ul>
+    <div class="card" id="f">
+      <h2>📝 Feedback System</h2>
+      <div class="section-title">Implementation Steps</div>
+      <ul>
+        <li>Store feedback entries in Hash Maps.</li>
+        <li>Push urgent complaints into Priority Queue.</li>
+        <li>Route issues to nearest team using Graph.</li>
+        <li>Notify citizens once resolved.</li>
+      </ul>
+      <div class="section-title">Algorithms / DSA</div>
+      <ul>
+        <li>Priority Queue</li>
+        <li>Hash Map</li>
+        <li>Graph Routing</li>
+      </ul>
+      <div class="button-group">
+        <button>Learn Priority Queue</button>
+        <button>Learn Hash Map</button>
+        <button>Learn Graph Routing</button>
+      </div>
+    </div>
+  </div>
 
-    <div class="section-title">Algorithms / DSA</div>
-    <ul>
-      <li>Priority Queue</li>
-      <li>Hash Map</li>
-      <li>Graph Routing</li>
-    </ul>
-    <div class="button-group" >
-    <button>Learn Priority Queue</button>
-    <button>Learn Hash Map</button>
-    <button>Learn Graph Routing</button>
-  </div>
-  </div>
-  <!-- Complexity -->
-  <div class="car">
+  <!-- COMPLEXITY -->
+  <div class="big-card">
     <h2>📊 Complexity Analysis</h2>
     <div class="section-title">Time Complexities</div>
     <ul>
       <li>Priority Queue → O(log n)</li>
-    <li>Max Heap / Min Heap → O(log n)</li>
-    <li>Hash Map / Lookup Table → O(1)</li>
-    <li>DFS / BFS → O(V + E)</li>
-    <li>Dijkstra → O(E log V) using Min Heap</li>
-    <li>MST (Prim/Kruskal) → O(E log V)</li>
-    <li>Graph Traversal / Routing → O(V + E)</li>
+      <li>Max Heap / Min Heap → O(log n)</li>
+      <li>Hash Map / Lookup Table → O(1)</li>
+      <li>DFS / BFS → O(V + E)</li>
+      <li>Dijkstra → O(E log V)</li>
+      <li>MST (Prim/Kruskal) → O(E log V)</li>
+      <li>Graph Traversal / Routing → O(V + E)</li>
     </ul>
   </div>
-</div>
-<!-- SUMMARY TABLE -->
+
   <!-- SUMMARY TABLE -->
-<h2>Summary Table</h2>
-<table class="table-spacing">
-<thead>
-<tr>
-<th>Service</th>
-<th>Algorithms</th>
-<th>Data Structures</th>
-<th>Purpose</th>
-<th>Efficiency</th>
-<th>SDGs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Hospital</td>
-<td>Priority Queue</td>
-<td>Hash Map, Boolean Array</td>
-<td>Emergency prioritization, bed management</td>
-<td>O(log n), O(1)</td>
-<td>Good Health & Well-being (SDG 3)</td>
-</tr>
-<tr>
-<td>Waste Collection</td>
-<td>DFS, Dijkstra</td>
-<td>Graph</td>
-<td>Route optimization for bin collection</td>
-<td>O(V+E), O(E log V)</td>
-<td>Clean Water & Sanitation (SDG 6), Sustainable Cities (SDG 11)</td>
-</tr>
-<tr>
-<td>Water & Electricity</td>
-<td>MST (Prim/Kruskal), Priority Queue / Min-Heap, Dynamic Allocation</td>
-<td>Graph, Heap</td>
-<td>Optimal supply network, high-demand tracking</td>
-<td>O(E log V), O(log n)</td>
-<td>Affordable & Clean Energy (SDG 7)</td>
-</tr>
-<tr>
-<td>Parking</td>
-<td>BFS, Min Heap</td>
-<td>Graph, Hash Map</td>
-<td>Locate nearest free slot efficiently</td>
-<td>O(V+E), O(log n)</td>
-<td>Sustainable Cities (SDG 11)</td>
-</tr>
-<tr>
-<td>Salt Production</td>
-<td>Max Heap, Dijkstra</td>
-<td>Heap, Graph, Priority Queue, Hash Map</td>
-<td>High-yield prioritization and distribution</td>
-<td>O(log n), O(E log V)</td>
-<td>Decent Work & Economic Growth (SDG 8)</td>
-</tr>
-<tr>
-<td>Feedback System</td>
-<td>Priority Queue, Graph Routing</td>
-<td>Hash Map</td>
-<td>Urgent complaint handling, routing issues</td>
-<td>O(log n), O(V+E)</td>
-<td>Peace, Justice & Strong Institutions (SDG 16)</td>
-</tr>
-</tbody>
-</table>
-<!-- CONCLUSION -->
-<div class="big-card">
-  <h2>Conclusion</h2>
-  <p>
-   “The system leverages advanced algorithms and data structures to optimize city services such as hospitals, waste collection, utilities, parking, salt production, and citizen feedback. By enabling automation, prioritization, and real-time decision-making, it improves service delivery, enhances efficiency and scalability, and contributes to better quality of life for citizens.”
-  </p>
+  <h2>Summary Table</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Algorithms</th>
+        <th>Data Structures</th>
+        <th>Purpose</th>
+        <th>Efficiency</th>
+        <th>SDGs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hospital</td>
+        <td>Priority Queue</td>
+        <td>Hash Map, Boolean Array</td>
+        <td>Emergency prioritization, bed management</td>
+        <td>O(log n), O(1)</td>
+        <td>SDG 3</td>
+      </tr>
+      <tr>
+        <td>Waste Collection</td>
+        <td>DFS, Dijkstra</td>
+        <td>Graph</td>
+        <td>Route optimization for bin collection</td>
+        <td>O(V+E), O(E log V)</td>
+        <td>SDG 6, SDG 11</td>
+      </tr>
+      <tr>
+        <td>Water & Electricity</td>
+        <td>MST, Priority Queue / Min-Heap, Dynamic Allocation</td>
+        <td>Graph, Heap</td>
+        <td>Optimal supply network, high-demand tracking</td>
+        <td>O(E log V), O(log n)</td>
+        <td>SDG 7</td>
+      </tr>
+      <tr>
+        <td>Parking</td>
+        <td>BFS, Min Heap</td>
+        <td>Graph, Hash Map</td>
+        <td>Locate nearest free slot efficiently</td>
+        <td>O(V+E), O(log n)</td>
+        <td>SDG 11</td>
+      </tr>
+      <tr>
+        <td>Salt Production</td>
+        <td>Max Heap, Dijkstra</td>
+        <td>Heap, Graph, Priority Queue, Hash Map</td>
+        <td>High-yield prioritization and distribution</td>
+        <td>O(log n), O(E log V)</td>
+        <td>SDG 8</td>
+      </tr>
+      <tr>
+        <td>Feedback System</td>
+        <td>Priority Queue, Graph Routing</td>
+        <td>Hash Map</td>
+        <td>Urgent complaint handling, routing issues</td>
+        <td>O(log n), O(V+E)</td>
+        <td>SDG 16</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- CONCLUSION -->
+  <div class="big-card">
+    <h2>Conclusion</h2>
+    <p>
+      The system leverages advanced algorithms and data structures to optimize city services such as hospitals, waste collection, utilities, parking, salt production, and citizen feedback. By enabling automation, prioritization, and real-time decision-making, it improves service delivery, enhances efficiency and scalability, and contributes to better quality of life for citizens.
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 Smart City Dashboard
+  </footer>
+
 </div>
 </body>
 </html>
