@@ -1,4 +1,214 @@
-<!-- ======================= NAVBAR (Dark Neon Theme) ======================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KLE Technological University – DAA Portfolio</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: #e5e7eb;
+      overflow-x: hidden;
+    }
+
+    /* ================= NAVBAR ================= */
+    header {
+      width: 100%;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 23, 42, 0.5);
+      padding: 18px 50px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 45px;
+      filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.4));
+    }
+
+    .logo span {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #a5b4fc;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      padding: 8px 14px;
+      border-radius: 999px;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      background: rgba(56, 189, 248, 0.18);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+      color: #7dd3fc;
+    }
+
+    .nav-links a.active {
+      color: #22c55e;
+      background: rgba(34, 197, 94, 0.18);
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.45);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      text-align: center;
+      padding: 90px 20px 60px;
+    }
+
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #38bdf8, #a78bfa);
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.7;
+      font-size: 1.1rem;
+    }
+
+    /* ================= GLASS CARDS ================= */
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.55);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+    }
+
+    .card h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #a5b4fc;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #d1d5db;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* PROFESSOR SECTION */
+    .prof-sec {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      margin-top: 25px;
+    }
+
+    .prof-img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid rgba(56, 189, 248, 0.4);
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    .prof-details h3 {
+      color: #38bdf8;
+      margin-bottom: 6px;
+    }
+
+    /* TABLE */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(15, 23, 42, 0.6);
+      border-radius: 15px;
+      overflow: hidden;
+      margin-top: 20px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.5);
+    }
+
+    th {
+      background: linear-gradient(90deg, #22c55e, #0ea5e9);
+      padding: 14px;
+      font-size: 1rem;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    td {
+      padding: 12px;
+      border-bottom: 1px solid rgba(148, 163,184,0.2);
+      color: #e5e7eb;
+    }
+
+    tr:hover {
+      background: rgba(56, 189, 248, 0.1);
+    }
+
+    @media (max-width: 750px) {
+      .prof-sec {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
 <header>
   <nav class="navbar">
     <div class="logo">
@@ -7,7 +217,7 @@
     </div>
 
     <ul class="nav-links">
-      <li><a href="index.html" class="active">Home</a></li>
+      <li><a class="active" href="index.html">Home</a></li>
       <li><a href="course-reflection.html">Course Reflection</a></li>
       <li><a href="project.html">Course Project</a></li>
       <li><a href="About.html">About Us</a></li>
@@ -15,101 +225,73 @@
   </nav>
 </header>
 
-<style>
-  /* GLOBAL FONT */
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-  body {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #0f172a, #020617);
-    color: #e5e7eb;
-  }
+<!-- HERO -->
+<section class="hero">
+  <h1>Design & Analysis of Algorithms</h1>
+  <p>
+    A structured journey into computational thinking, efficiency analysis,  
+    and problem-solving through powerful algorithms and elegant data structures.
+  </p>
+</section>
 
-  /* NAVBAR WRAPPER */
-  header {
-    width: 100%;
-    backdrop-filter: blur(14px);
-    background: rgba(15, 23, 42, 0.6);
-    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-  }
 
-  /* NAVBAR CONTAINER */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 50px;
-  }
+<!-- CONTENT CARDS -->
+<div class="container">
 
-  /* LOGO */
-  .logo {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
+  <!-- INTRO CARD -->
+  <div class="card">
+    <h2>Introduction</h2>
+    <p>
+      The Design and Analysis of Algorithms (DAA) course builds the foundations of 
+      efficient computing by teaching structured approaches for problem solving, 
+      performance analysis, and algorithm design patterns such as greedy strategies, 
+      dynamic programming, divide-and-conquer, and graph algorithms.
+    </p>
+  </div>
 
-  .logo img {
-    height: 45px;
-    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.4));
-  }
+  <!-- PROFESSOR CARD -->
+  <div class="card">
+    <h2>Course Instructor</h2>
 
-  .logo span {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: #a5b4fc;
-    letter-spacing: 0.5px;
-  }
+    <div class="prof-sec">
+      <img class="prof-img" src="professor-photo.jpg" alt="Professor">
+      <div class="prof-details">
+        <h3>[Professor Name]</h3>
+        <p>Department of Computer Science & Engineering</p>
+        <p>Email: [professor-email]@kletech.ac.in</p>
+      </div>
+    </div>
+  </div>
 
-  /* NAV LINKS */
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 35px;
-    margin: 0;
-    padding: 0;
-  }
+  <!-- COURSE INFO -->
+  <div class="card">
+    <h2>Course Information</h2>
 
-  .nav-links li a {
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.98rem;
-    color: #cbd5e1;
-    padding: 8px 14px;
-    border-radius: 10px;
-    transition: 0.25s ease;
-  }
+    <table>
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Course Code</th>
+          <th>Credits</th>
+          <th>Semester</th>
+          <th>Instructor</th>
+        </tr>
+      </thead>
 
-  /* Hover glow effect */
-  .nav-links li a:hover {
-    color: #38bdf8;
-    background: rgba(56, 189, 248, 0.15);
-    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
-  }
+      <tbody>
+        <tr>
+          <td>[Course Name]</td>
+          <td>[Course Code]</td>
+          <td>[Credits]</td>
+          <td>[Semester]</td>
+          <td>[Professor Name]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  /* Active Page Highlight */
-  .nav-links li a.active {
-    color: #22c55e;
-    background: rgba(34, 197, 94, 0.18);
-    box-shadow: 0 0 14px rgba(34, 197, 94, 0.45);
-  }
+</div>
 
-  /* Responsive */
-  @media (max-width: 720px) {
-    .navbar {
-      flex-direction: column;
-      gap: 15px;
-      padding: 18px 20px;
-    }
-
-    .nav-links {
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 22px;
-    }
-  }
-</style>
+</body>
+</html>
