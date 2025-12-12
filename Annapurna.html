@@ -6,13 +6,12 @@
 <title>Navapura City Initiatives</title>
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- Vanilla Tilt (3D card tilt) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
-/* ---------- GLOBAL ---------- */
+/* ----------------------------- */
+/* GLOBAL STYLES */
+/* ----------------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -22,244 +21,267 @@
 
 body {
   background: #0b0f19;
-  color: #e4e6eb;
-  padding: 40px;
+  color: #d2d8f3;
   overflow-x: hidden;
 }
 
-/* ---------- NAVIGATION ---------- */
+/* ----------------------------- */
+/* NAVBAR */
+/* ----------------------------- */
 nav {
   width: 100%;
+  padding: 20px 50px;
   display: flex;
   justify-content: center;
-  gap: 40px;
-  margin-bottom: 40px;
-  padding: 20px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
+  gap: 50px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  background: rgba(15, 20, 30, 0.6);
 }
 
 nav a {
-  color: #9bbcff;
-  font-weight: 600;
+  color: #cbd6ff;
   text-decoration: none;
   font-size: 1.1rem;
-  position: relative;
+  transition: 0.3s;
 }
 
 nav a:hover {
-  color: #5ab0ff;
+  color: #58e0ff;
+  text-shadow: 0 0 10px #58e0ff;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 3px;
-  background: #00eaff;
-  left: 0;
-  bottom: -5px;
-  transition: 0.3s;
-  border-radius: 10px;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ---------- HERO ---------- */
-h1 {
+/* ----------------------------- */
+/* HERO SECTION */
+/* ----------------------------- */
+.hero {
   text-align: center;
+  margin-top: 60px;
+  padding: 50px 20px;
+}
+
+.hero h1 {
   font-size: 3rem;
-  margin-bottom: 40px;
-  font-weight: 700;
-  background: linear-gradient(90deg, #68eaff, #7f7fff, #00ffc6);
+  font-weight: 900;
+  background: linear-gradient(90deg, #6ab3ff, #58e0ff);
   -webkit-background-clip: text;
-  color: transparent;
+  -webkit-text-fill-color: transparent;
 }
 
-.hero-sub {
-  text-align: center;
+.hero p {
+  margin-top: 15px;
   font-size: 1.2rem;
-  color: #9bbcff;
-  margin-bottom: 50px;
+  color: #9aa7c8;
 }
 
-/* ---------- CARDS ---------- */
+/* ----------------------------- */
+/* GLASS CARD GRID */
+/* ----------------------------- */
 .cards-container {
+  margin: 60px auto;
+  width: 90%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 35px;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 25px;
 }
 
 .card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 25px;
-  background: rgba(255,255,255,0.05);
   border-radius: 20px;
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 10px 35px rgba(0,0,0,0.35);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  backdrop-filter: blur(10px);
+  transition: 0.4s;
+  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 40px rgba(0,255,255,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(65, 211, 255, 0.2);
 }
 
 .card h2 {
-  font-size: 1.6rem;
+  color: #6ab3ff;
   margin-bottom: 10px;
-  background: linear-gradient(90deg, #68eaff, #b57bff);
-  -webkit-background-clip: text;
-  color: transparent;
 }
 
 .sdg {
-  display: inline-block;
+  background: #00c8ff22;
   padding: 5px 12px;
-  background: linear-gradient(90deg, #00c3ff, #4d91ff);
-  color: #fff;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  font-size: 0.9rem;
-}
-
-.section {
-  margin-bottom: 20px;
-}
-
-.section h3 {
-  color: #88c8ff;
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  border-radius: 15px;
+  color: #58e0ff;
   font-weight: 600;
+  display: inline-block;
+  margin-bottom: 15px;
 }
 
-.section ul {
-  margin-left: 20px;
-  opacity: 0.9;
-}
-
-.section ul li {
-  margin-bottom: 8px;
-}
-
-/* Buttons inside cards */
-.algo-buttons a {
-  background: linear-gradient(90deg, #00eaff, #846bff);
+/* ----------------------------- */
+/* BUTTONS */
+/* ----------------------------- */
+.card a {
+  text-decoration: none;
+  background: #1c9eff;
   padding: 8px 12px;
   border-radius: 10px;
-  text-decoration: none;
-  margin-right: 10px;
-  display: inline-block;
   color: white;
   font-size: 0.85rem;
   transition: 0.3s;
 }
 
-.algo-buttons a:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(90deg, #6dffea, #9d7bff);
+.card a:hover {
+  background: #42bfff;
+  box-shadow: 0 0 10px #42bfff;
 }
 
-/* ---------- TABLE ---------- */
+/* ----------------------------- */
+/* LARGE TABLE */
+/* ----------------------------- */
 table {
-  width: 100%;
-  margin-top: 40px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 20px;
+  width: 90%;
+  margin: 60px auto;
   border-collapse: collapse;
-  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  border-radius: 15px;
+  overflow: hidden;
 }
 
 th {
+  background: #142033;
   padding: 15px;
-  background: rgba(0, 200, 255, 0.25);
-  color: white;
+  color: #71c7ff;
+  text-align: left;
 }
 
 td {
-  padding: 12px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #d7e3ff;
 }
 
 tr:hover {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.07);
 }
 
-/* Fade-in animation */
-.fadein {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+footer {
+  margin: 60px 0 30px 0;
+  text-align: center;
+  color: #6a7ca1;
 }
 </style>
-</head>
 
+</head>
 <body>
 
-<nav class="fadein">
+<!-- NAVBAR -->
+<nav>
   <a href="#">Overview</a>
   <a href="#">Team</a>
   <a href="#">Maps</a>
   <a href="#">Contact</a>
 </nav>
 
-<h1 class="fadein" style="animation-delay:0.2s;">Navapura City Initiatives</h1>
-<p class="hero-sub fadein" style="animation-delay:0.4s;">
-  Futuristic, Sustainable & Algorithm-Driven Urban Planning
-</p>
+<!-- HERO -->
+<div class="hero">
+  <h1>Navapura City Initiatives</h1>
+  <p>Futuristic, Sustainable & Algorithm-Driven Urban Planning</p>
+</div>
 
-<div class="cards-container fadein" style="animation-delay:0.6s;">
-  <!-- ALL YOUR CARDS ARE EXACTLY AS YOU WROTE — ONLY STYLING CHANGED -->
-  <!-- You can paste the same content here without modification -->
-  <!-- (cards unchanged for brevity) -->
-  
-  <!-- PASTE ALL 8 CARDS YOU PROVIDED EARLIER HERE (unchanged). -->
+<!-- CARDS -->
+<div class="cards-container">
+
+<!-- CARD 1 -->
+<div class="card">
+  <h2>1. Urban Waste-to-Resource Hubs</h2>
+  <div class="sdg">SDG 11.6</div>
+  <p>Using Dijkstra + heaps for optimized waste routing.</p>
+  <a href="#">Learn More</a>
+</div>
+
+<!-- CARD 2 -->
+<div class="card">
+  <h2>2. Neighborhood Water Resilience Centers</h2>
+  <div class="sdg">SDG 6</div>
+  <p>Segment Trees + BFS for leak detection and water tracking.</p>
+  <a href="#">Learn More</a>
+</div>
+
+<!-- CARD 3 -->
+<div class="card">
+  <h2>3. Community Microgrids</h2>
+  <div class="sdg">SDG 7</div>
+  <p>Prim's Algorithm to form MST-based microgrids.</p>
+  <a href="#">Learn More</a>
+</div>
+
+<!-- CARD 4 -->
+<div class="card">
+  <h2>4. Smart Wastewater Monitoring</h2>
+  <div class="sdg">SDG 6 & 11.6</div>
+  <p>Graphs + DFS/BFS for blockage tracking.</p>
+  <a href="#">Learn More</a>
+</div>
+
+<!-- CARD 5 -->
+<div class="card">
+  <h2>5. Urban Heat & Climate Mitigation</h2>
+  <div class="sdg">SDG 11.6</div>
+  <p>AVL Trees + Dijkstra for heat analysis & routing.</p>
+  <a href="#">Learn More</a>
+</div>
+
+<!-- CARD 6 -->
+<div class="card">
+  <h2>6. Localized Food Security Units</h2>
+  <div class="sdg">SDG 2</div>
+  <p>Heaps + Merge Sort for perishables & delivery.</p>
+  <a href="#">Learn More</a>
+</div>
+
+<!-- CARD 7 -->
+<div class="card">
+  <h2>7. Digital Literacy Labs</h2>
+  <div class="sdg">SDG 4 & 11</div>
+  <p>Trie + Queue + Hashing for digital education systems.</p>
+  <a href="#">Learn More</a>
+</div>
+
+<!-- CARD 8 -->
+<div class="card">
+  <h2>8. Preventive Health Monitoring</h2>
+  <div class="sdg">SDG 3</div>
+  <p>Segment Trees + Graphs for public health tracking.</p>
+  <a href="#">Learn More</a>
+</div>
 
 </div>
 
-<!-- Summary Table -->
-<div class="fadein" style="animation-delay:1s;">
+<!-- TABLE -->
 <table>
-<thead>
 <tr>
-<th>Initiative</th>
-<th>SDG</th>
-<th>Algorithms</th>
-<th>Data Structures</th>
-<th>Purpose / Application</th>
-<th>Efficiency</th>
+  <th>Initiative</th>
+  <th>SDG</th>
+  <th>Algorithms</th>
+  <th>Data Structures</th>
+  <th>Purpose</th>
+  <th>Efficiency</th>
 </tr>
-</thead>
 
-<!-- Keep your table rows unchanged -->
-<tbody>
-<!-- paste your existing rows -->
-</tbody>
+<tr><td>Waste-to-Resource</td><td>11.6</td><td>Dijkstra</td><td>Graph, Heap</td><td>Optimize waste routes</td><td>O(E log V)</td></tr>
+<tr><td>Water Centers</td><td>6</td><td>BFS, Segment Tree</td><td>Graph, BST</td><td>Leak detection</td><td>O(V+E)</td></tr>
+<tr><td>Energy Microgrids</td><td>7</td><td>Prim</td><td>Graph, Heap</td><td>Energy MST design</td><td>O(E log V)</td></tr>
+<tr><td>Wastewater Monitoring</td><td>6,11.6</td><td>DFS/BFS</td><td>Graph</td><td>Detect blockages</td><td>O(V+E)</td></tr>
+<tr><td>Heat Mitigation</td><td>11.6</td><td>Dijkstra</td><td>AVL Tree</td><td>Climate planning</td><td>O(E log V)</td></tr>
+<tr><td>Food Security</td><td>2</td><td>Merge Sort</td><td>Heap</td><td>Sort perishables</td><td>O(n log n)</td></tr>
+<tr><td>Digital Literacy</td><td>4,11</td><td>Trie, Queue</td><td>Hash Table</td><td>Education mgmt</td><td>O(1)</td></tr>
+<tr><td>Health Monitoring</td><td>3</td><td>Fenwick Tree</td><td>Array</td><td>Health trends</td><td>O(log n)</td></tr>
 </table>
-</div>
 
-<script>
-// Apply 3D tilt to every card
-VanillaTilt.init(document.querySelectorAll(".card"), {
-    max: 15,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.3
-});
-</script>
+<footer>
+  © 2025 Navapura — Smart City Project
+</footer>
 
 </body>
 </html>
