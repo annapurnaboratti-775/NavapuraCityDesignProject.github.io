@@ -1,358 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Navapura City Initiatives</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
-/* GLOBAL */
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif;}
-body{
-  background:#0b0f19;
-  color:#d6e1ff;
-  overflow-x:hidden;
-  padding-bottom:100px;
-}
+  /* ---------------- Global ---------------- */
+  :root{
+    --bg: #080b10;
+    --panel: rgba(255,255,255,0.05);
+    --glass-border: rgba(255,255,255,0.08);
+    --muted: #94a3c4;
+    --accent: #58e0ff;
+    --accent-2: #6ab3ff;
+    --neon: #00f6ff;
+    --card-radius: 18px;
+    --max-width: 1200px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg,#06070a 0%, #0b0f15 100%);
+    color:#d9e7ff;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    padding:28px 18px 80px;
+  }
 
-/* NAVBAR */
-nav{
-  width:100%;
-  padding:20px 50px;
-  display:flex;
-  justify-content:center;
-  gap:50px;
-  position:sticky;
-  top:0;
-  z-index:50;
-  background:rgba(15,20,30,0.6);
-  backdrop-filter:blur(12px);
-}
-nav a{
-  color:#cbd6ff;
-  font-size:1.1rem;
-  text-decoration:none;
-  transition:0.3s;
-}
-nav a:hover{
-  color:#58e0ff;
-  text-shadow:0 0 10px #58e0ff;
-}
+  .centered {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
 
-/* HERO */
-.hero{
-  text-align:center;
-  margin-top:60px;
-  padding:40px 20px;
-}
-.hero h1{
-  font-size:3rem;
-  font-weight:900;
-  background:linear-gradient(90deg,#6ab3ff,#58e0ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero p{
-  margin-top:10px;
-  font-size:1.2rem;
-  color:#94a2c6;
-}
+  /* ---------------- Navbar ---------------- */
+  nav {
+    display:flex;
+    justify-content:center;
+    gap:44px;
+    align-items:center;
+    margin-bottom:28px;
+    padding:12px 18px;
+    border-radius:30px;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.02);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  }
+  nav a{
+    color: #cfe6ff;
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:.2px;
+    transition: color .18s ease, text-shadow .18s ease;
+  }
+  nav a:hover{ color: var(--accent); text-shadow: 0 4px 22px rgba(88,224,255,0.12); }
 
-/* CARD GRID */
-.cards-container{
-  margin:50px auto;
-  width:90%;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
-  gap:25px;
-}
+  /* ---------------- Hero ---------------- */
+  .hero {
+    text-align:center;
+    padding:36px 18px;
+    margin-bottom:28px;
+  }
+  .hero h1{
+    font-size:40px;
+    line-height:1.02;
+    margin-bottom:8px;
+    font-weight:800;
+    background: linear-gradient(90deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;
+    color: transparent;
+  }
+  .hero p{ color: var(--muted); margin: 8px 0 0; font-size:16px; }
 
-.card{
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.12);
-  padding:25px;
-  border-radius:20px;
-  backdrop-filter:blur(10px);
-  transition:0.4s;
-}
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 20px rgba(88,224,255,0.3);
-}
-.card h2{
-  color:#77bbff;
-  margin-bottom:12px;
-}
+  /* ---------------- Cards Grid ---------------- */
+  .cards-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap:22px;
+    margin:36px 0;
+  }
+  .card{
+    position:relative;
+    background: var(--panel);
+    border-radius: var(--card-radius);
+    border: 1px solid var(--glass-border);
+    padding:20px;
+    transition: transform .28s cubic-bezier(.16,.84,.3,1), box-shadow .28s;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.55);
+    overflow:visible;
+  }
+  .card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 28px 60px rgba(0,0,0,0.6), 0 6px 40px rgba(88,224,255,0.03);
+  }
+  .card h2{
+    font-size:20px;
+    margin:0 0 8px 0;
+    color: var(--accent-2);
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
 
-.sdg{
-  display:inline-block;
-  background:#00c8ff22;
-  color:#58e0ff;
-  padding:5px 12px;
-  border-radius:15px;
-  font-size:0.85rem;
-  margin-bottom:15px;
-}
+  .sdg {
+    display:inline-block;
+    margin-bottom:12px;
+    background: rgba(0,200,255,0.08);
+    color: var(--accent);
+    padding:6px 10px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:13px;
+  }
 
-.section{
-  margin-bottom:15px;
-}
-.section h3{
-  color:#79ffa6;
-  font-size:1rem;
-  margin-bottom:8px;
-}
-.section ul{
-  padding-left:20px;
-  margin-top:5px;
-}
+  .section-title { color:#9dfcbd; font-weight:700; margin-top:8px; }
+  .card ul{ margin-top:10px; padding-left:18px; color:#d7e5ff; }
+  .card ul li{ margin-bottom:8px; line-height:1.45; }
 
-/* BUTTONS */
-.algo-buttons{
-  margin-top:10px;
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-.algo-buttons a{
-  text-decoration:none;
-  background:#1ca4ff;
-  color:white;
-  padding:8px 12px;
-  border-radius:8px;
-  font-size:0.85rem;
-  transition:0.3s;
-}
-.algo-buttons a:hover{
-  background:#4bc9ff;
-  box-shadow:0 0 10px #4bc9ff;
-}
+  /* ---------------- Dropdown button (floating) ---------------- */
+  .alg-btn {
+    margin-left: auto;
+    background: linear-gradient(90deg,var(--neon),#3bf3ff);
+    color:#002026;
+    border: none;
+    padding:8px 12px;
+    border-radius: 10px;
+    cursor:pointer;
+    font-weight:700;
+    box-shadow: 0 8px 26px rgba(0,246,255,0.06);
+    transition: transform .12s ease, box-shadow .12s ease;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+  }
+  .alg-btn:active{ transform: translateY(1px) }
 
-/* TABLE */
-table{
-  width:90%;
-  margin:60px auto;
-  border-collapse:collapse;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(10px);
-  border-radius:15px;
-  overflow:hidden;
-}
-th{
-  background:#121b2d;
-  padding:15px;
-  color:#6ab3ff;
-  text-align:left;
-}
-td{
-  padding:15px;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-}
-tr:hover{
-  background:rgba(255,255,255,0.05);
-}
-footer{
-  margin-top:50px;
-  text-align:center;
-  color:#7e8fb4;
-}
+  /* container inside card header to align title + button */
+  .card-header {
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+
+  /* floating dropdown menu */
+  .dropdown-menu {
+    position:absolute;
+    z-index:120;
+    min-width:220px;
+    right:20px;
+    top:52px;
+    background: rgba(6,10,14,0.95);
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 6px 30px rgba(0,246,255,0.03);
+    padding:8px;
+    transform-origin: top right;
+    animation: pop .14s cubic-bezier(.16,.84,.3,1);
+  }
+  @keyframes pop { from{opacity:0; transform:scale(.96) translateY(-6px)} to{opacity:1; transform:scale(1) translateY(0)} }
+
+  .dropdown-menu a {
+    display:block;
+    text-decoration:none;
+    color: #cfeeff;
+    padding:9px 12px;
+    border-radius:8px;
+    font-weight:600;
+    transition: background .12s, color .12s;
+    font-size:14px;
+  }
+  .dropdown-menu a:hover {
+    background: linear-gradient(90deg, rgba(88,224,255,0.06), rgba(106,179,255,0.035));
+    color: var(--accent-2);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  }
+
+  /* small caret icon */
+  .caret {
+    width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid rgba(0,0,0,0.12);
+    position:absolute; right:28px; top:44px; transform: translateY(-10px) rotate(0deg); filter: blur(.2px);
+  }
+
+  /* ---------------- Table ---------------- */
+  .summary-table {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 36px auto 12px;
+    border-radius: 14px;
+    overflow: hidden;
+    border:1px solid rgba(255,255,255,0.04);
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+  }
+  .summary-table table{
+    width:100%;
+    border-collapse:collapse;
+  }
+  .summary-table th, .summary-table td{ padding:14px 16px; text-align:left; font-size:14px; color:#d9eaff; }
+  .summary-table thead th{ background: linear-gradient(90deg,#0f2330, #0c1a2a); color: var(--accent-2); font-weight:700; }
+  .summary-table tbody tr:nth-child(even){ background: rgba(255,255,255,0.01); }
+
+  /* ---------------- Footer ---------------- */
+  footer { text-align:center; margin-top:36px; color: #9fb2d9; opacity:.9; }
+
+  /* Responsive tweaks */
+  @media (max-width:900px){
+    .dropdown-menu{ right:12px; left:12px; top:56px; min-width: auto; }
+    .alg-btn{ padding:7px 10px; font-size:13px; }
+    .card-header{flex-direction:column;align-items:flex-start;gap:8px}
+  }
 </style>
 </head>
+
 <body>
+  <div class="centered">
 
-<!-- NAVBAR -->
-<nav>
-  <a href="#">Overview</a>
-  <a href="#">Team</a>
-  <a href="#">Maps</a>
-  <a href="#">Contact</a>
-</nav>
+    <!-- NAV -->
+    <nav>
+      <a href="#overview">Overview</a>
+      <a href="#team">Team</a>
+      <a href="#maps">Maps</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Navapura City Initiatives</h1>
-  <p>A smart, sustainable, future-ready city designed for the DAA Project.</p>
-</div>
+    <!-- HERO -->
+    <section class="hero" id="overview">
+      <h1>Navapura City Initiatives</h1>
+      <p>A smart, sustainable, future-ready city designed for the DAA Project.</p>
+    </section>
 
-<!-- ALL 8 CARDS WITH YOUR ORIGINAL FULL CONTENT -->
-<div class="cards-container">
+    <!-- CARDS: each card includes a floating dropdown button that reveals algorithm links -->
+    <section class="cards-container" id="cards">
 
-<!-- CARD 1 -->
-<div class="card">
-  <h2>1. Urban Waste-to-Resource Hubs</h2>
-  <div class="sdg">SDG 11.6</div>
+      <!-- CARD 1 -->
+      <article class="card" id="card-1">
+        <div class="card-header">
+          <h2>1. Urban Waste-to-Resource Hubs</h2>
+          <button class="alg-btn" aria-haspopup="menu" aria-expanded="false" data-target="menu-1">Algorithms ▾</button>
+        </div>
+        <div class="sdg">SDG 11.6</div>
 
-  <div class="section">
-    <h3>Implementation Steps (ADS)</h3>
-    <ul>
-      <li>Represent waste collection points and processing hubs as graph nodes.</li>
-      <li>Apply Dijkstra’s Algorithm for optimal waste transport routes.</li>
-      <li>Use Heap / Priority Queues to prioritize hazardous waste.</li>
-      <li>Store waste data in Lookup Tables for quick retrieval.</li>
-    </ul>
+        <div class="section">
+          <h3 class="section-title">Implementation Steps (ADS)</h3>
+          <ul>
+            <li>Represent waste collection points and processing hubs as <strong>graph nodes</strong>.</li>
+            <li>Apply <strong>Dijkstra’s Algorithm</strong> for optimal waste transport routes.</li>
+            <li>Use <strong>Heap / Priority Queues</strong> to prioritize hazardous waste.</li>
+            <li>Store waste data in <strong>Lookup Tables</strong> for quick retrieval.</li>
+          </ul>
+        </div>
+
+        <div id="menu-1" class="dropdown-menu" role="menu" aria-hidden="true" style="display:none;">
+          <a href="https://github.com/your-repo/Dijkstra" target="_blank" rel="noopener">Dijkstra’s Algorithm</a>
+          <a href="https://github.com/your-repo/Heap-PriorityQueue" target="_blank" rel="noopener">Heap / Priority Queue</a>
+          <a href="https://github.com/your-repo/Lookup-Table" target="_blank" rel="noopener">Lookup Table</a>
+        </div>
+      </article>
+
+      <!-- CARD 2 -->
+      <article class="card" id="card-2">
+        <div class="card-header">
+          <h2>2. Neighborhood Water Resilience Centers</h2>
+          <button class="alg-btn" aria-haspopup="menu" aria-expanded="false" data-target="menu-2">Algorithms ▾</button>
+        </div>
+        <div class="sdg">SDG 6</div>
+
+        <div class="section">
+          <h3 class="section-title">Implementation Steps (ADS)</h3>
+          <ul>
+            <li>Track household water usage using <strong>Segment Trees / Fenwick Trees</strong>.</li>
+            <li>Model water distribution as a <strong>graph</strong> and use <strong>BFS</strong> for connectivity and leak detection.</li>
+            <li>Store household/facility data in <strong>Binary Search Trees</strong>.</li>
+          </ul>
+        </div>
+
+        <div id="menu-2" class="dropdown-menu" role="menu" aria-hidden="true" style="display:none;">
+          <a href="https://github.com/your-repo/BFS" target="_blank" rel="noopener">BFS</a>
+          <a href="https://github.com/your-repo/Segment-Fenwick" target="_blank" rel="noopener">Segment Tree / Fenwick Tree</a>
+          <a href="https://github.com/your-repo/BST" target="_blank" rel="noopener">Binary Search Tree (BST)</a>
+        </div>
+      </article>
+
+      <!-- CARD 3 -->
+      <article class="card" id="card-3">
+        <div class="card-header">
+          <h2>3. Community Microgrids for Energy Security</h2>
+          <button class="alg-btn" aria-haspopup="menu" aria-expanded="false" data-target="menu-3">Algorithms ▾</button>
+        </div>
+        <div class="sdg">SDG 7</div>
+
+        <div class="section">
+          <h3 class="section-title">Implementation Steps (ADS)</h3>
+          <ul>
+            <li>Represent energy nodes and microgrids as <strong>graph nodes</strong>.</li>
+            <li>Use <strong>Prim’s Algorithm</strong> to design MST for microgrid connections.</li>
+            <li>Apply <strong>Heap / Priority Queues</strong> to prioritize critical energy loads.</li>
+          </ul>
+        </div>
+
+        <div id="menu-3" class="dropdown-menu" role="menu" aria-hidden="true" style="display:none;">
+          <a href="https://github.com/your-repo/Prims" target="_blank" rel="noopener">Prim’s Algorithm</a>
+          <a href="https://github.com/your-repo/Heap-PriorityQueue" target="_blank" rel="noopener">Heap / Priority Queue</a>
+        </div>
+      </article>
+
+      <!-- CARD 4 -->
+      <article class="card" id="card-4">
+        <div class="card-header">
+          <h2>4. Smart Wastewater & Sewage Monitoring</h2>
+          <button class="alg-btn" aria-haspopup="menu" aria-expanded="false" data-target="menu-4">Algorithms ▾</button>
+        </div>
+        <div class="sdg">SDG 6 &amp; 11.6</div>
+
+        <div class="section">
+          <h3 class="section-title">Implementation Steps (ADS)</h3>
+          <ul>
+            <li>Model sewage network as <strong>graphs</strong>.</li>
+            <li>Use <strong>DFS / BFS</strong> to detect blockages or disconnected nodes.</li>
+            <li>Store sensor data in <strong>Hash Tables</strong> for fast retrieval.</li>
+          </ul>
+        </div>
+
+        <div id="menu-4" class="dropdown-menu" role="menu" aria-hidden="true" style="display:none;">
+          <a href="https://github.com/your-repo/DFS-BFS" target="_blank" rel="noopener">DFS / BFS</a>
+          <a href="https://github.com/your-repo/HashTable" target="_blank" rel="noopener">Hash Table</a>
+        </div>
+      </article>
+
+      <!-- CARD 5 -->
+      <article class="card" id="card-5">
+        <div class="card-header">
+          <h2>5. Urban Heat & Climate Mitigation Networks</h2>
+          <button class="alg-btn" aria-haspopup="menu" aria-expanded="false" data-target="menu-5">Algorithms ▾</button>
+        </div>
+        <div class="sdg">SDG 11.6</div>
+
+        <div class="section">
+          <h3 class="section-title">Implementation Steps (ADS)</h3>
+          <ul>
+            <li>Store temperature data using <strong>AVL / 2-3 Trees</strong>.</li>
+            <li>Prioritize intervention areas with <strong>Heap / Priority Queues</strong>.</li>
+            <li>Map infrastructure as <strong>graph</strong> and optimize routes using <strong>Dijkstra</strong>.</li>
+          </ul>
+        </div>
+
+        <div id="menu-5" class="dropdown-menu" role="menu" aria-hidden="true" style="display:none;">
+          <a href="https://github.com/your-repo/AVL-2-3" target="_blank" rel="noopener">AVL / 2-3 Trees</a>
+          <a href="https://github.com/your-repo/Heap-PriorityQueue" target="_blank" rel="noopener">Heap / Priority Queue</a>
+          <a href="https://github.com/your-repo/Dijkstra" target="_blank" rel="noopener">Dijkstra</a>
+        </div>
+      </article>
+
+      <!-- CARD 6 -->
+      <article class="card" id="card-6">
+        <div class="card-header">
+          <h2>6. Localized Food Security & Storage Units</h2>
+          <button class="alg-btn" aria-haspopup="menu" aria-expanded="false" data-target="menu-6">Algorithms ▾</button>
+        </div>
+        <div class="sdg">SDG 2</div>
+
+        <div class="section">
+          <h3 class="section-title">Implementation Steps (ADS)</h3>
+          <ul>
+            <li>Use <strong>Heap / Priority Queues</strong> to manage perishable produce.</li>
+            <li>Sort produce by shelf-life with <strong>Quick / Merge Sort</strong>.</li>
+            <li>Optimize delivery routes as <strong>graph</strong> using <strong>Dijkstra</strong>.</li>
+          </ul>
+        </div>
+
+        <div id="menu-6" class="dropdown-menu" role="menu" aria-hidden="true" style="display:none;">
+          <a href="https://github.com/your-repo/Heap-PriorityQueue" target="_blank" rel="noopener">Heap / Priority Queue</a>
+          <a href="https://github.com/your-repo/Quick-Merge-Sort" target="_blank" rel="noopener">Quick / Merge Sort</a>
+          <a href="https://github.com/your-repo/Dijkstra" target="_blank" rel="noopener">Dijkstra</a>
+        </div>
+      </article>
+
+      <!-- CARD 7 -->
+      <article class="card" id="card-7">
+        <div class="card-header">
+          <h2>7. Citizen Digital Literacy & Civic Engagement Labs</h2>
+          <button class="alg-btn" aria-haspopup="menu" aria-expanded="false" data-target="menu-7">Algorithms ▾</button>
+        </div>
+        <div class="sdg">SDG 4 &amp; 11</div>
+
+        <div class="section">
+          <h3 class="section-title">Implementation Steps (ADS)</h3>
+          <ul>
+            <li>Store course materials in <strong>Trie</strong> for search/autocomplete.</li>
+            <li>Schedule workshops using <strong>Queue</strong>.</li>
+            <li>Secure participant records with <strong>Hashing</strong>.</li>
+          </ul>
+        </div>
+
+        <div id="menu-7" class="dropdown-menu" role="menu" aria-hidden="true" style="display:none;">
+          <a href="https://github.com/your-repo/Trie" target="_blank" rel="noopener">Trie</a>
+          <a href="https://github.com/your-repo/Queue" target="_blank" rel="noopener">Queue</a>
+          <a href="https://github.com/your-repo/Hashing" target="_blank" rel="noopener">Hashing</a>
+        </div>
+      </article>
+
+      <!-- CARD 8 -->
+      <article class="card" id="card-8">
+        <div class="card-header">
+          <h2>8. Preventive Health & Lifestyle Monitoring Centers</h2>
+          <button class="alg-btn" aria-haspopup="menu" aria-expanded="false" data-target="menu-8">Algorithms ▾</button>
+        </div>
+        <div class="sdg">SDG 3</div>
+
+        <div class="section">
+          <h3 class="section-title">Implementation Steps (ADS)</h3>
+          <ul>
+            <li>Maintain patient data in <strong>Arrays / Structures</strong>.</li>
+            <li>Use <strong>BFS / DFS</strong> for movement tracking or contact tracing.</li>
+            <li>Monitor trends with <strong>Fenwick / Segment Tree</strong>.</li>
+          </ul>
+        </div>
+
+        <div id="menu-8" class="dropdown-menu" role="menu" aria-hidden="true" style="display:none;">
+          <a href="https://github.com/your-repo/Arrays-Structures" target="_blank" rel="noopener">Arrays / Structures</a>
+          <a href="https://github.com/your-repo/BFS-DFS" target="_blank" rel="noopener">BFS / DFS</a>
+          <a href="https://github.com/your-repo/Fenwick-Segment" target="_blank" rel="noopener">Fenwick / Segment Tree</a>
+        </div>
+      </article>
+
+    </section>
+
+    <!-- Summary Table (keeps original data) -->
+    <div class="summary-table" role="region" aria-label="Initiative summary table">
+      <table>
+        <thead>
+          <tr>
+            <th>Initiative</th>
+            <th>SDG</th>
+            <th>Algorithms</th>
+            <th>Data Structures</th>
+            <th>Purpose / Application</th>
+            <th>Efficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Urban Waste-to-Resource Hubs</td><td>SDG 11.6</td><td>Dijkstra</td><td>Graph, Heap</td><td>Optimize waste transport & prioritize high-impact waste</td><td>O(|E| log |V|)</td></tr>
+          <tr><td>Neighborhood Water Resilience</td><td>SDG 6</td><td>BFS, Segment Tree</td><td>Graph, BST</td><td>Track water usage & detect leaks</td><td>O(V+E), O(log n)</td></tr>
+          <tr><td>Community Microgrids</td><td>SDG 7</td><td>Prim’s Algorithm</td><td>Graph, Heap</td><td>Design MST & prioritize critical loads</td><td>O(|E| log |V|)</td></tr>
+          <tr><td>Smart Wastewater Monitoring</td><td>SDG 6, 11.6</td><td>DFS/BFS</td><td>Graph, Hash Table</td><td>Detect network issues & store sensor data</td><td>O(V+E)</td></tr>
+          <tr><td>Urban Heat & Climate Mitigation</td><td>SDG 11.6</td><td>Dijkstra</td><td>AVL / 2-3 Trees, Heap</td><td>Optimize green infrastructure deployment</td><td>O(|E| log |V|)</td></tr>
+          <tr><td>Localized Food Security</td><td>SDG 2</td><td>Dijkstra, Quick/Merge Sort</td><td>Graph, Heap</td><td>Optimize food delivery & manage perishables</td><td>O(|E| log |V|), O(n log n)</td></tr>
+          <tr><td>Citizen Digital Literacy</td><td>SDG 4,11</td><td>Trie, Queue, Hashing</td><td>Trie, Queue, Hash Table</td><td>Manage resources, workshops & secure data</td><td>O(L), O(1)</td></tr>
+          <tr><td>Preventive Health Monitoring</td><td>SDG 3</td><td>BFS/DFS, Fenwick</td><td>Graph, Array</td><td>Track health trends & patient data</td><td>O(V+E), O(log n)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <footer>© 2025 Navapura • DAA Project</footer>
   </div>
 
-  <div class="section">
-    <h3>Algorithms Used</h3>
-    <ul>
-      <li>Dijkstra’s Algorithm</li>
-      <li>Heap / Priority Queue</li>
-      <li>Lookup Table</li>
-    </ul>
-  </div>
-</div>
+<script>
+/*
+  Dropdown behaviour:
+  - Buttons have data-target which matches the menu id
+  - Clicking toggles the floating menu
+  - Clicking outside or pressing Escape closes all menus
+  - Menu items are normal links (open in new tab)
+*/
 
-<!-- CARD 2 -->
-<div class="card">
-  <h2>2. Neighborhood Water Resilience Centers</h2>
-  <div class="sdg">SDG 6</div>
+(function(){
+  const buttons = Array.from(document.querySelectorAll('.alg-btn'));
+  let openMenu = null;
 
-  <div class="section">
-    <h3>Implementation Steps (ADS)</h3>
-    <ul>
-      <li>Track household water usage using Segment Trees / Fenwick Trees.</li>
-      <li>Model water distribution as graphs and use BFS for leak detection.</li>
-      <li>Store water records using BST.</li>
-    </ul>
-  </div>
+  function openDropdown(btn) {
+    const menuId = btn.dataset.target;
+    const menu = document.getElementById(menuId);
+    if(!menu) return;
+    // position: ensure menu stays inside viewport horizontally
+    menu.style.display = 'block';
+    menu.setAttribute('aria-hidden','false');
+    btn.setAttribute('aria-expanded','true');
+    openMenu = {btn, menu};
+    // small reflow to trigger animation if needed
+    requestAnimationFrame(()=>{ menu.classList.add('visible'); });
+  }
 
-  <div class="section">
-    <h3>Algorithms Used</h3>
-    <ul>
-      <li>BFS</li>
-      <li>Segment Tree / Fenwick Tree</li>
-      <li>BST</li>
-    </ul>
-  </div>
-</div>
+  function closeDropdown(current) {
+    if(!current) return;
+    const { btn, menu } = current;
+    menu.style.display = 'none';
+    menu.setAttribute('aria-hidden','true');
+    btn.setAttribute('aria-expanded','false');
+    openMenu = null;
+  }
 
-<!-- CARD 3 -->
-<div class="card">
-  <h2>3. Community Microgrids for Energy Security</h2>
-  <div class="sdg">SDG 7</div>
+  // Toggle on click
+  buttons.forEach(btn => {
+    btn.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      const targetId = btn.dataset.target;
+      const menu = document.getElementById(targetId);
+      if(!menu) return;
+      // close others
+      if(openMenu && openMenu.menu !== menu) closeDropdown(openMenu);
+      if(menu.style.display === 'block') {
+        closeDropdown({btn,menu});
+      } else {
+        // position the menu (floating to the right of button by default)
+        // compute bounding to avoid overflow (simple: shift left if would overflow)
+        const rect = btn.getBoundingClientRect();
+        const menuWidth = 240;
+        const viewportW = window.innerWidth;
+        // place menu absolute relative to page: right: 20px as CSS default;
+        // update top to be just below button (we already use CSS top relative to card).
+        // For improved placement, compute page coords:
+        const menuLeft = Math.min(viewportW - menuWidth - 12, rect.right - menuWidth + 20);
+        // compute top: place below btn
+        const menuTop = rect.bottom + window.scrollY + 8;
+        menu.style.left = (menuLeft) + 'px';
+        menu.style.top = (menuTop) + 'px';
+        menu.style.right = 'auto';
+        openDropdown(btn);
+      }
+    });
+  });
 
-  <div class="section">
-    <h3>Implementation Steps (ADS)</h3>
-    <ul>
-      <li>Represent energy nodes and microgrids as graph nodes.</li>
-      <li>Use Prim’s Algorithm to design MST for microgrid connections.</li>
-      <li>Use Priority Queues for critical energy loads.</li>
-    </ul>
-  </div>
-</div>
+  // Close on outside click
+  document.addEventListener('click', (e)=>{
+    if(openMenu){
+      // if click inside open menu or button, ignore
+      if(openMenu.menu.contains(e.target) || openMenu.btn.contains(e.target)) return;
+      closeDropdown(openMenu);
+    }
+  });
 
-<!-- CARD 4 -->
-<div class="card">
-  <h2>4. Smart Wastewater & Sewage Monitoring</h2>
-  <div class="sdg">SDG 6 & 11.6</div>
+  // Close on Escape
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && openMenu) closeDropdown(openMenu);
+  });
 
-  <div class="section">
-    <h3>Implementation Steps (ADS)</h3>
-    <ul>
-      <li>Model sewage network as graphs.</li>
-      <li>Use DFS/BFS to detect blockages.</li>
-      <li>Store sensor data in Hash Tables.</li>
-    </ul>
-  </div>
-</div>
+  // reposition menus on resize (close them)
+  window.addEventListener('resize', ()=> { if(openMenu) closeDropdown(openMenu); });
 
-<!-- CARD 5 -->
-<div class="card">
-  <h2>5. Urban Heat & Climate Mitigation Networks</h2>
-  <div class="sdg">SDG 11.6</div>
+  // Accessibility: close all menus when a menu link is clicked (they open new tab)
+  const menuLinks = document.querySelectorAll('.dropdown-menu a');
+  menuLinks.forEach(a => a.addEventListener('click', ()=> { if(openMenu) closeDropdown(openMenu); }));
 
-  <div class="section">
-    <h3>Implementation Steps (ADS)</h3>
-    <ul>
-      <li>Store temperature data using AVL / 2-3 Trees.</li>
-      <li>Prioritize intervention areas using Priority Queues.</li>
-      <li>Optimize infrastructure routes with Dijkstra.</li>
-    </ul>
-  </div>
-</div>
-
-<!-- CARD 6 -->
-<div class="card">
-  <h2>6. Localized Food Security & Storage Units</h2>
-  <div class="sdg">SDG 2</div>
-
-  <div class="section">
-    <h3>Implementation Steps (ADS)</h3>
-    <ul>
-      <li>Use Priority Queue to manage perishable produce.</li>
-      <li>Sort produce with Quick/Merge Sort.</li>
-      <li>Optimize delivery routes using Dijkstra.</li>
-    </ul>
-  </div>
-</div>
-
-<!-- CARD 7 -->
-<div class="card">
-  <h2>7. Citizen Digital Literacy & Civic Engagement Labs</h2>
-  <div class="sdg">SDG 4 & 11</div>
-
-  <div class="section">
-    <h3>Implementation Steps (ADS)</h3>
-    <ul>
-      <li>Use Trie for search/autocomplete of study materials.</li>
-      <li>Track workshop queues using Queue structure.</li>
-      <li>Store participant records using Hashing.</li>
-    </ul>
-  </div>
-</div>
-
-<!-- CARD 8 -->
-<div class="card">
-  <h2>8. Preventive Health & Lifestyle Monitoring Centers</h2>
-  <div class="sdg">SDG 3</div>
-
-  <div class="section">
-    <h3>Implementation Steps (ADS)</h3>
-    <ul>
-      <li>Maintain patient data using Arrays / Structures.</li>
-      <li>Use BFS / DFS for contact tracing.</li>
-      <li>Track health trends using Fenwick / Segment Tree.</li>
-    </ul>
-  </div>
-</div>
-
-</div>
-
-<!-- TABLE WITH YOUR ORIGINAL CONTENT -->
-<table>
-<thead>
-<tr>
-<th>Initiative</th>
-<th>SDG</th>
-<th>Algorithms</th>
-<th>Data Structures</th>
-<th>Purpose / Application</th>
-<th>Efficiency</th>
-</tr>
-</thead>
-
-<tbody>
-<tr><td>Urban Waste-to-Resource Hubs</td><td>11.6</td><td>Dijkstra</td><td>Graph, Heap</td><td>Optimize waste transport</td><td>O(E log V)</td></tr>
-
-<tr><td>Neighborhood Water Resilience</td><td>6</td><td>BFS, Segment Tree</td><td>Graph, BST</td><td>Track usage & leaks</td><td>O(V+E)</td></tr>
-
-<tr><td>Energy Microgrids</td><td>7</td><td>Prim</td><td>Graph, Heap</td><td>Design MST</td><td>O(E log V)</td></tr>
-
-<tr><td>Wastewater Monitoring</td><td>6, 11.6</td><td>DFS/BFS</td><td>Graph, Hash</td><td>Detect blockages</td><td>O(V+E)</td></tr>
-
-<tr><td>Climate Mitigation</td><td>11.6</td><td>Dijkstra</td><td>AVL / 2-3 Tree</td><td>Heat & route optimization</td><td>O(E log V)</td></tr>
-
-<tr><td>Food Security</td><td>2</td><td>Quick/Merge Sort</td><td>Heap</td><td>Sort perishables</td><td>O(n log n)</td></tr>
-
-<tr><td>Digital Literacy Labs</td><td>4,11</td><td>Trie, Queue, Hash</td><td>Trie, Queue, Hash</td><td>Search & secure records</td><td>O(1)</td></tr>
-
-<tr><td>Health Monitoring</td><td>3</td><td>Fenwick Tree</td><td>Array/Struct</td><td>Track health trends</td><td>O(log n)</td></tr>
-</tbody>
-</table>
-
-<footer>© 2025 Navapura • DAA Project</footer>
-
+  // place default menus hidden; they already are display:none
+})();
+</script>
 </body>
 </html>
