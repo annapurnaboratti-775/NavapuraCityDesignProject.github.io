@@ -1,138 +1,128 @@
-<!-- ================= SECTION 2: COURSE REFLECTION ================= -->
-<section class="reflection-container" style="max-width:1100px; margin:50px auto; padding:20px;">
+<!-- ======================= SECTION 2: COURSE REFLECTION ======================= -->
 
-  <h1 style="
-    text-align:center; 
-    font-size:2.2rem; 
-    font-weight:700; 
-    background:linear-gradient(90deg,#38bdf8,#a78bfa); 
-    -webkit-background-clip:text; 
-    color:transparent;
-    margin-bottom:35px;">
-    Section 2 – Course Reflection
-  </h1>
+<h1 style="
+  text-align:center;
+  margin-top:60px;
+  margin-bottom:20px;
+  font-weight:700;
+  font-size:2rem;
+  letter-spacing:0.04em;
+  background:linear-gradient(90deg,#38bdf8,#a78bfa);
+  -webkit-background-clip:text;
+  color:transparent;">
+  Section 2 – Course Reflection
+</h1>
 
-  <!-- Reflection Card 1 -->
-  <div class="reflection-card" style="
-    background:rgba(30,41,59,0.55);
-    border:1px solid rgba(148,163,184,0.3);
+<p class="subtitle" style="text-align:center; max-width:780px; margin:auto; margin-bottom:40px; color:#cbd5f5; line-height:1.6;">
+  These reflections summarize my learning experience throughout the Design & Analysis of Algorithms course.  
+  Each response represents how my understanding evolved as we progressed from foundations to applying algorithms in our Smart City project.
+</p>
+
+<div class="cards-container" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:20px; margin-bottom:40px;">
+
+  <!-- CARD 1 -->
+  <div class="card" style="
+    background:radial-gradient(circle at top left,#1f2937,#020617);
     border-radius:18px;
-    padding:25px;
-    margin-bottom:25px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.45);
-    transition:0.25s;">
+    padding:22px;
+    border:1px solid rgba(148,163,184,0.3);
+    box-shadow:0 16px 40px rgba(15,23,42,0.85);
+    transition:0.25s ease;">
     
-    <h2 style="color:#a5b4fc; font-size:1.4rem; margin-bottom:10px;">1. What was the most impactful concept you learned in this course?</h2>
-    <p style="color:#d1d5db; line-height:1.7;">
-      The most impactful concept for me was understanding how the choice of data structure directly affects 
-      the efficiency of an algorithm. Earlier, I only focused on writing code that “works,” but this course 
-      helped me see the importance of writing code that works <strong>efficiently</strong>.  
-      Learning how graphs, priority queues, and hashing influence real-world systems completely changed the 
-      way I approach problem-solving.
+    <h2 style="font-size:1.15rem; font-weight:600; color:#e5e7eb;">1. Most Impactful Concept Learned</h2>
+    <p style="color:#d1d5db; margin-top:8px; font-size:0.9rem; line-height:1.6;">
+      The most impactful concept for me was understanding how <strong>time and space complexity</strong>
+      influence real-world performance.  
+      Earlier I focused only on writing code that works, but this course showed me why an efficient solution 
+      matters far more in real applications.  
+      Choosing the right data structure can change an algorithm from slow to lightning-fast.
     </p>
   </div>
 
-  <!-- Reflection Card 2 -->
-  <div class="reflection-card" style="
-    background:rgba(30,41,59,0.55);
-    border:1px solid rgba(148,163,184,0.3);
+  <!-- CARD 2 -->
+  <div class="card" style="
+    background:radial-gradient(circle at top left,#1f2937,#020617);
     border-radius:18px;
-    padding:25px;
-    margin-bottom:25px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.45);
-    transition:0.25s;">
-    
-    <h2 style="color:#a5b4fc; font-size:1.4rem; margin-bottom:10px;">2. How did your perspective on algorithms evolve during the course?</h2>
-    <p style="color:#d1d5db; line-height:1.7;">
-      Initially, I saw algorithms as lengthy code templates to memorize. But through assignments, project work, 
-      and class discussions, I realized algorithms are actually <strong>strategies for thinking</strong>.  
-      Every algorithm starts with a question—“What is the most optimal way to do this?”  
-      This mindset shift helped me appreciate why the same problem can be solved in multiple ways but only 
-      one approach is truly efficient.
+    padding:22px;
+    border:1px solid rgba(148,163,184,0.3);
+    box-shadow:0 16px 40px rgba(15,23,42,0.85);
+    transition:0.25s ease;">
+
+    <h2 style="font-size:1.15rem; font-weight:600; color:#e5e7eb;">2. How My Perspective on Algorithms Evolved</h2>
+    <p style="color:#d1d5db; margin-top:8px; font-size:0.9rem; line-height:1.6;">
+      At the beginning, algorithms felt like complicated procedures to memorize.  
+      But as the course progressed, I realized that algorithms are really <strong>structured ways of thinking</strong>.  
+      They help break large problems into logical steps and guide efficient decision-making.  
+      This mindset shift changed the way I solve any technical problem now.
     </p>
   </div>
 
-  <!-- Reflection Card 3 -->
-  <div class="reflection-card" style="
-    background:rgba(30,41,59,0.55);
-    border:1px solid rgba(148,163,184,0.3);
+  <!-- CARD 3 -->
+  <div class="card" style="
+    background:radial-gradient(circle at top left,#1f2937,#020617);
     border-radius:18px;
-    padding:25px;
-    margin-bottom:25px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.45);
-    transition:0.25s;">
-    
-    <h2 style="color:#a5b4fc; font-size:1.4rem; margin-bottom:10px;">3. What challenges did you face while applying algorithms in your project?</h2>
-    <p style="color:#d1d5db; line-height:1.7;">
-      One of the main challenges was selecting the <strong>appropriate algorithm</strong> for each real-world scenario 
-      in our Smart Emergency Response System.  
-      We had to justify why Dijkstra was better than BFS for routing, or why segment trees made more sense for 
-      time-based queries. This made me think deeper and understand the “why” behind each choice, not just the “how.”
+    padding:22px;
+    border:1px solid rgba(148,163,184,0.3);
+    box-shadow:0 16px 40px rgba(15,23,42,0.85);
+    transition:0.25s ease;">
+
+    <h2 style="font-size:1.15rem; font-weight:600; color:#e5e7eb;">3. Challenges Faced During the Project</h2>
+    <p style="color:#d1d5db; margin-top:8px; font-size:0.9rem; line-height:1.6;">
+      The biggest challenge was selecting the <strong>right algorithm</strong> for each subsystem of our Smart Emergency Response System.  
+      We constantly compared BFS, Dijkstra, Segment Trees, and hashing to justify every choice.  
+      This forced me not just to use algorithms but to truly understand their purpose and their efficiency.
     </p>
   </div>
 
-  <!-- Reflection Card 4 -->
-  <div class="reflection-card" style="
-    background:rgba(30,41,59,0.55);
-    border:1px solid rgba(148,163,184,0.3);
+  <!-- CARD 4 -->
+  <div class="card" style="
+    background:radial-gradient(circle at top left,#1f2937,#020617);
     border-radius:18px;
-    padding:25px;
-    margin-bottom:25px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.45);
-    transition:0.25s;">
-    
-    <h2 style="color:#a5b4fc; font-size:1.4rem; margin-bottom:10px;">4. How did the team project help reinforce your learning?</h2>
-    <p style="color:#d1d5db; line-height:1.7;">
-      Working as a team helped me understand how different people interpret the same problem differently.  
-      When discussing algorithms like BFS, hashing, or priority queues, we often debated which method gives the 
-      best efficiency.  
-      This collaboration made the learning environment more realistic—similar to how real software engineering 
-      teams make decisions.
+    padding:22px;
+    border:1px solid rgba(148,163,184,0.3);
+    box-shadow:0 16px 40px rgba(15,23,42,0.85);
+    transition:0.25s ease;">
+
+    <h2 style="font-size:1.15rem; font-weight:600; color:#e5e7eb;">4. How the Team Project Strengthened My Learning</h2>
+    <p style="color:#d1d5db; margin-top:8px; font-size:0.9rem; line-height:1.6;">
+      Working in a team gave me a deeper understanding of algorithmic problem-solving.  
+      Everyone had different ideas, and discussing them made concepts clearer.  
+      We evaluated trade-offs, efficiency, and feasibility — exactly how real engineering teams operate.
     </p>
   </div>
 
-  <!-- Reflection Card 5 -->
-  <div class="reflection-card" style="
-    background:rgba(30,41,59,0.55);
-    border:1px solid rgba(148,163,184,0.3);
+  <!-- CARD 5 -->
+  <div class="card" style="
+    background:radial-gradient(circle at top left,#1f2937,#020617);
     border-radius:18px;
-    padding:25px;
-    margin-bottom:25px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.45);
-    transition:0.25s;">
-    
-    <h2 style="color:#a5b4fc; font-size:1.4rem; margin-bottom:10px;">5. What was one concept you struggled with but eventually understood?</h2>
-    <p style="color:#d1d5db; line-height:1.7;">
-      I struggled the most with <strong>Segment Trees</strong> initially.  
-      The idea of dividing an array into ranges and building a tree on top of it seemed confusing.  
-      But after implementing it, I realized how powerful it is for fast range queries.  
-      It also made me appreciate how much thought goes into designing efficient data structures.
+    padding:22px;
+    border:1px solid rgba(148,163,184,0.3);
+    box-shadow:0 16px 40px rgba(15,23,42,0.85);
+    transition:0.25s ease;">
+
+    <h2 style="font-size:1.15rem; font-weight:600; color:#e5e7eb;">5. A Concept I Initially Struggled With</h2>
+    <p style="color:#d1d5db; margin-top:8px; font-size:0.9rem; line-height:1.6;">
+      I initially struggled with <strong>segment trees</strong>, especially how queries and updates work in logarithmic time.  
+      But once I implemented them and linked the idea to real-world systems (like crime frequency queries),  
+      it became one of my favorite concepts from the course.
     </p>
   </div>
 
-  <!-- Additional Custom Question -->
-  <div class="reflection-card" style="
-    background:rgba(30,41,59,0.55);
-    border:1px solid rgba(148,163,184,0.3);
+  <!-- CARD 6 -->
+  <div class="card" style="
+    background:radial-gradient(circle at top left,#1f2937,#020617);
     border-radius:18px;
-    padding:25px;
-    margin-bottom:25px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.45);
-    transition:0.25s;">
-    
-    <h2 style="color:#a5b4fc; font-size:1.4rem; margin-bottom:10px;">6. What is one skill you gained that will help you in the future?</h2>
-    <p style="color:#d1d5db; line-height:1.7;">
-      The biggest skill I gained is the ability to <strong>break a large real-world problem into smaller algorithmic steps</strong>.  
-      Whether it's routing emergency vehicles, predicting hotspots, or building intelligent systems —  
-      I now feel confident analyzing the problem, choosing the right algorithm, and validating efficiency.  
-      This analytical thinking will help me in development, interviews, and any technical project I take on.
+    padding:22px;
+    border:1px solid rgba(148,163,184,0.3);
+    box-shadow:0 16px 40px rgba(15,23,42,0.85);
+    transition:0.25s ease;">
+
+    <h2 style="font-size:1.15rem; font-weight:600; color:#e5e7eb;">6. Skills I Gained From This Course</h2>
+    <p style="color:#d1d5db; margin-top:8px; font-size:0.9rem; line-height:1.6;">
+      The most valuable skill I gained is the ability to <strong>analyze and justify algorithmic choices</strong>.  
+      I can now evaluate time complexity, consider constraints, and design solutions that scale.  
+      This analytical thinking will help me not only in academics but also in interviews, projects, and real software development.
     </p>
   </div>
 
-</section>
+</div>
