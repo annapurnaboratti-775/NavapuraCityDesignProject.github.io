@@ -23,8 +23,136 @@
       background: linear-gradient(135deg, #0f172a, #020617);
       color: #e5e7eb;
       padding: 24px;
+      min-height: 100vh;
     }
 
+    /* Modal Styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+      border-radius: 16px;
+      padding: 0;
+      width: 90%;
+      max-width: 900px;
+      max-height: 85vh;
+      overflow: hidden;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      background: linear-gradient(90deg, #22c55e, #0ea5e9);
+      color: #0b1120;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .close-btn {
+      background: rgba(11, 17, 32, 0.8);
+      color: white;
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s ease;
+    }
+
+    .close-btn:hover {
+      background: rgba(11, 17, 32, 1);
+      transform: rotate(90deg);
+    }
+
+    .code-container {
+      flex: 1;
+      overflow: auto;
+      padding: 24px;
+    }
+
+    pre {
+      background: #0d1117;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 0;
+      overflow-x: auto;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+    }
+
+    code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #e6edf3;
+    }
+
+    .keyword {
+      color: #ff7b72;
+    }
+
+    .function {
+      color: #d2a8ff;
+    }
+
+    .comment {
+      color: #8b949e;
+    }
+
+    .string {
+      color: #a5d6ff;
+    }
+
+    .number {
+      color: #79c0ff;
+    }
+
+    .type {
+      color: #ffa657;
+    }
+
+    .algorithm-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0;
+    }
+
+    .algorithm-tag {
+      background: rgba(56, 189, 248, 0.15);
+      color: #7dd3fc;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    /* Existing styles remain the same, with minor additions */
     h1 {
       text-align: center;
       margin-bottom: 32px;
@@ -208,6 +336,7 @@
       font-weight: 600;
       transition: 0.2s ease;
       border: 1px solid rgba(34, 197, 94, 0.7);
+      cursor: pointer;
     }
 
     .algo-buttons a:hover {
@@ -370,10 +499,33 @@
       .subtitle {
         font-size: 0.85rem;
       }
+
+      .modal-content {
+        width: 95%;
+        max-height: 90vh;
+      }
+
+      .modal-header h2 {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- Modal for displaying algorithm code -->
+  <div id="codeModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Algorithm Implementation</h2>
+        <button class="close-btn" id="closeModal">&times;</button>
+      </div>
+      <div class="code-container">
+        <div class="algorithm-tags" id="algorithmTags"></div>
+        <pre><code id="algorithmCode"></code></pre>
+      </div>
+    </div>
+  </div>
+
   <h1>Smart Emergency Response System</h1>
   <p class="subtitle">
     This page presents a set of <span class="highlight">data-structure–driven business ideas</span> 
@@ -454,16 +606,6 @@
       </div>
 
       <div class="section">
-        <h3>Technical Architecture</h3>
-        <p>
-          The system maintains a distributed architecture with edge computing nodes at each emergency station. 
-          Real-time GPS data from all vehicles is processed through a message queue system, updating the central 
-          graph database every 5 seconds. Machine learning models predict future demand patterns based on historical 
-          data, weather conditions, and city events.
-        </p>
-      </div>
-
-      <div class="section">
         <h3>Algorithms / Data Structures Used</h3>
         <div class="algo-list">
           <span class="algo-tag">Graph (Adjacency List)</span>
@@ -472,9 +614,9 @@
           <span class="algo-tag">BFS / DFS</span>
         </div>
         <div class="algo-buttons">
-          <a href="https://github.com/your-repo/Graph-AdjacencyList" target="_blank">Graph Representation</a>
-          <a href="https://github.com/your-repo/Hashing" target="_blank">Hash Tables</a>
-          <a href="https://github.com/your-repo/Heap-PriorityQueue" target="_blank">Priority Queue</a>
+          <a onclick="showAlgorithm('Graph', 'graph')">Graph Representation</a>
+          <a onclick="showAlgorithm('HashTable', 'hashing')">Hash Tables</a>
+          <a onclick="showAlgorithm('MinHeap', 'heap')">Priority Queue</a>
         </div>
       </div>
 
@@ -483,14 +625,6 @@
         <p>
           Similar systems deployed in Barcelona and Singapore have demonstrated 35-45% reduction in average response times. 
           For medical emergencies, this translates to a 20% improvement in survival rates for cardiac arrest patients.
-        </p>
-      </div>
-
-      <div class="warning-box">
-        <h4>⚠️ Implementation Challenge</h4>
-        <p>
-          Requires integration with existing CAD (Computer-Aided Dispatch) systems and training for dispatch operators. 
-          Initial deployment phase estimated at 6-8 months with phased rollout across city zones.
         </p>
       </div>
 
@@ -531,16 +665,6 @@
       </div>
 
       <div class="section">
-        <h3>Advanced Features</h3>
-        <ul>
-          <li><strong>Traffic Signal Preemption:</strong> System communicates with smart traffic lights to provide green corridors for ambulances, reducing intersection delay by 75%.</li>
-          <li><strong>Multi-Patient Optimization:</strong> When multiple emergencies occur, the system optimally assigns ambulances to minimize total response time across all incidents.</li>
-          <li><strong>Hospital Load Balancing:</strong> Routes patients to hospitals based on current ER capacity, specialized equipment availability, and doctor expertise.</li>
-          <li><strong>Predictive Positioning:</strong> ML models reposition idle ambulances to high-probability demand zones during peak hours.</li>
-        </ul>
-      </div>
-
-      <div class="section">
         <h3>Algorithms / Data Structures Used</h3>
         <div class="algo-list">
           <span class="algo-tag">Dijkstra</span>
@@ -549,8 +673,8 @@
           <span class="algo-tag">Arrays / Structs</span>
         </div>
         <div class="algo-buttons">
-          <a href="https://github.com/your-repo/Dijkstra" target="_blank">Dijkstra Implementation</a>
-          <a href="https://github.com/your-repo/MinHeap" target="_blank">Min-Heap</a>
+          <a onclick="showAlgorithm('Dijkstra', 'graph')">Dijkstra Implementation</a>
+          <a onclick="showAlgorithm('MinHeap', 'heap')">Min-Heap</a>
         </div>
       </div>
 
@@ -600,25 +724,6 @@
       </div>
 
       <div class="section">
-        <h3>Disaster Scenarios Covered</h3>
-        <ul>
-          <li><strong>Flooding:</strong> Pre-mapped evacuation zones for 100-year and 500-year flood levels using topographical data and drainage system models.</li>
-          <li><strong>Earthquakes:</strong> Structural vulnerability assessment of all buildings >3 stories, with prioritized evacuation for high-risk structures.</li>
-          <li><strong>Industrial Accidents:</strong> Chemical plant hazard zones with 500m, 1km, and 3km evacuation radii pre-computed for 12 major facilities.</li>
-          <li><strong>Wildfires:</strong> Wind pattern modeling to predict fire spread direction with evacuation routes updated every 15 minutes during active fires.</li>
-        </ul>
-      </div>
-
-      <div class="section">
-        <h3>Vulnerable Population Support</h3>
-        <p>
-          Special consideration for elderly, disabled, and hospital-bound residents. Database maintains 15,000+ records 
-          of individuals requiring evacuation assistance, with ambulances and special transport automatically allocated 
-          during emergencies. Pet-friendly shelter identification ensures families don't delay evacuation due to pets.
-        </p>
-      </div>
-
-      <div class="section">
         <h3>Algorithms / Data Structures Used</h3>
         <div class="algo-list">
           <span class="algo-tag">BFS</span>
@@ -627,18 +732,9 @@
           <span class="algo-tag">Graph</span>
         </div>
         <div class="algo-buttons">
-          <a href="https://github.com/your-repo/BFS" target="_blank">BFS Implementation</a>
-          <a href="https://github.com/your-repo/SegmentTree" target="_blank">Segment Tree</a>
+          <a onclick="showAlgorithm('BFS', 'graph')">BFS Implementation</a>
+          <a onclick="showAlgorithm('SegmentTree', 'tree')">Segment Tree</a>
         </div>
-      </div>
-
-      <div class="warning-box">
-        <h4>⚠️ Critical Success Factors</h4>
-        <p>
-          Requires extensive public education campaigns. Annual evacuation drills show current compliance rate of only 35%. 
-          Target: 80% compliance through SMS alerts, mobile app notifications, and community engagement programs. 
-          Integration with weather forecasting systems for 48-hour advance warnings.
-        </p>
       </div>
 
       <p class="impact">
@@ -677,57 +773,30 @@
         </ul>
       </div>
 
-     <div class="section">
-  <h3>Crime Categories Analyzed</h3>
-  <ul>
-    <li><strong>Property Crimes:</strong> Burglary, theft, vehicle break-ins (40% of total incidents)</li>
-    <li><strong>Violent Crimes:</strong> Assault, robbery, domestic violence (15% of incidents)</li>
-    <li><strong>Drug-Related:</strong> Possession, dealing, public intoxication (20% of incidents)</li>
-    <li><strong>Traffic Violations:</strong> DUI, reckless driving, hit-and-run (25% of incidents)</li>
-  </ul>
-</div>
+      <div class="section">
+        <h3>Algorithms / Data Structures Used</h3>
+        <div class="algo-list">
+          <span class="algo-tag">Fenwick Tree</span>
+          <span class="algo-tag">Segment Tree</span>
+          <span class="algo-tag">Shortest Path (Dijkstra/BFS)</span>
+          <span class="algo-tag">Hashing</span>
+        </div>
 
-<div class="section">
-  <h3>Ethical Safeguards</h3>
-  <p>
-    To prevent algorithmic bias, the system includes:  
-    (1) Location-only data usage (no demographic profiling).  
-    (2) Quarterly audits by independent ethics board.  
-    (3) Transparent enforcement reporting dashboards.  
-    (4) Citizen participation in defining hotspots.  
-    (5) A prevention-focused model, not surveillance profiling.
-  </p>
-</div>
+        <div class="algo-buttons">
+          <a onclick="showAlgorithm('FenwickTree', 'tree')">Fenwick Tree</a>
+          <a onclick="showAlgorithm('Dijkstra', 'graph')">Crime Route Planning</a>
+        </div>
+      </div>
 
-<div class="section">
-  <h3>Algorithms / Data Structures Used</h3>
-  <div class="algo-list">
-    <span class="algo-tag">Fenwick Tree</span>
-    <span class="algo-tag">Segment Tree</span>
-    <span class="algo-tag">Shortest Path (Dijkstra/BFS)</span>
-    <span class="algo-tag">Hashing</span>
+      <div class="info-box">
+        <h4>📊 Statistical Insight</h4>
+        <p style="font-size:0.85rem; color:#d1d5db; margin-top:6px;">
+          Recurrent hotspots show a 23% reduction in incidents after optimized patrol routing was deployed.
+        </p>
+      </div>
+    </div>
   </div>
 
-  <div class="algo-buttons">
-    <a href="https://github.com/your-repo/FenwickTree" target="_blank">Fenwick Tree</a>
-    <a href="https://github.com/your-repo/CrimeGraphRoutes" target="_blank">Crime Route Planning</a>
-  </div>
-</div>
-
-<!-- OPTIONAL INFO BOX (Fixed) -->
-<div class="info-box">
-  <h4>📊 Statistical Insight</h4>
-  <p style="font-size:0.85rem; color:#d1d5db; margin-top:6px;">
-    Recurrent hotspots show a 23% reduction in incidents after optimized patrol routing was deployed.
-  </p>
-</div>
-
-</div> <!-- closes the CARD -->
-
-
-
-
-<div style="width:100%; margin:0; padding:0;">
   <!-- SUMMARY TABLE -->
   <h2 class="summary-title">Summary of Emergency Response Initiatives</h2>
   <table>
@@ -784,6 +853,69 @@
       </tr>
     </tbody>
   </table>
-</body>
-</html>
-</div>
+
+  <script>
+    // Algorithm code data
+    const algorithmCode = {
+      'Graph': {
+        title: 'Graph (Adjacency List) Implementation',
+        tags: ['Graph', 'Adjacency List', 'C++', 'O(V + E)'],
+        code: `#include <iostream>
+#include <vector>
+#include <list>
+using namespace std;
+
+class Graph {
+private:
+    int V; // Number of vertices
+    vector<list<pair<int, int>>> adj; // Adjacency list: pair<neighbor, weight>
+    
+public:
+    Graph(int vertices) : V(vertices) {
+        adj.resize(V);
+    }
+    
+    // Add edge to graph
+    void addEdge(int u, int v, int weight = 1, bool directed = false) {
+        adj[u].push_back({v, weight});
+        if (!directed) {
+            adj[v].push_back({u, weight});
+        }
+    }
+    
+    // Print graph representation
+    void printGraph() {
+        for (int i = 0; i < V; i++) {
+            cout << "Vertex " << i << " connects to: ";
+            for (auto &neighbor : adj[i]) {
+                cout << neighbor.first << "(w:" << neighbor.second << ") ";
+            }
+            cout << endl;
+        }
+    }
+    
+    // Get neighbors of a vertex
+    vector<pair<int, int>> getNeighbors(int vertex) {
+        vector<pair<int, int>> neighbors;
+        for (auto &neighbor : adj[vertex]) {
+            neighbors.push_back(neighbor);
+        }
+        return neighbors;
+    }
+    
+    int getVertexCount() { return V; }
+};
+
+// Example usage for city road network
+int main() {
+    // Create graph for city with 10 locations (hospitals, stations, etc.)
+    Graph cityNetwork(10);
+    
+    // Add roads between locations with travel time as weight
+    cityNetwork.addEdge(0, 1, 5);  // Hospital 0 to Fire Station 1: 5 minutes
+    cityNetwork.addEdge(0, 2, 8);  // Hospital 0 to Police Station 2: 8 minutes
+    cityNetwork.addEdge(1, 3, 3);  // Fire Station 1 to Shelter 3: 3 minutes
+    cityNetwork.addEdge(2, 4, 6);  // Police Station 2 to School 4: 6 minutes
+    cityNetwork.addEdge(3, 5, 4);  // Shelter 3 to Hospital 5: 4 minutes
+    
+    cout
