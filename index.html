@@ -1,10 +1,11 @@
+<!-- ======================= NAVBAR (Dark Neon Theme) ======================= -->
 <header>
   <nav class="navbar">
     <div class="logo">
       <img src="KLE-Tech-University-Logo.png" alt="KLE Technological University Logo" />
-
       <span>KLE Technological University</span>
     </div>
+
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="course-reflection.html">Course Reflection</a></li>
@@ -15,44 +16,60 @@
 </header>
 
 <style>
+  /* GLOBAL FONT */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
   body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #e5e7eb;
   }
 
+  /* NAVBAR WRAPPER */
   header {
-    background: white;
-    padding: 15px 40px;
-    box-shadow: 0 5px 25px rgb(0 0 0 / 0.1);
+    width: 100%;
+    backdrop-filter: blur(14px);
+    background: rgba(15, 23, 42, 0.6);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
 
+  /* NAVBAR CONTAINER */
   .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 18px 50px;
   }
 
+  /* LOGO */
   .logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
 
   .logo img {
-    height: 40px;
-    width: auto;
+    height: 45px;
+    filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.4));
   }
 
   .logo span {
+    font-size: 1.15rem;
     font-weight: 700;
-    font-size: 1.1rem;
-    color: #333;
+    color: #a5b4fc;
+    letter-spacing: 0.5px;
   }
 
+  /* NAV LINKS */
   .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 35px;
     margin: 0;
     padding: 0;
   }
@@ -60,30 +77,39 @@
   .nav-links li a {
     text-decoration: none;
     font-weight: 600;
-    color: #333;
-    font-size: 1rem;
-    transition: color 0.3s ease;
+    font-size: 0.98rem;
+    color: #cbd5e1;
+    padding: 8px 14px;
+    border-radius: 10px;
+    transition: 0.25s ease;
   }
 
+  /* Hover glow effect */
   .nav-links li a:hover {
-    color: #56a02f; /* green on hover */
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.15);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
   }
 
+  /* Active Page Highlight */
   .nav-links li a.active {
-    color: #56a02f; /* green for active */
+    color: #22c55e;
+    background: rgba(34, 197, 94, 0.18);
+    box-shadow: 0 0 14px rgba(34, 197, 94, 0.45);
   }
 
-  /* Responsive - stack nav on small screens */
-  @media (max-width: 600px) {
+  /* Responsive */
+  @media (max-width: 720px) {
     .navbar {
       flex-direction: column;
       gap: 15px;
+      padding: 18px 20px;
     }
 
     .nav-links {
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 22px;
     }
   }
 </style>
