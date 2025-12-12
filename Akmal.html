@@ -693,7 +693,7 @@
       </p>
     </div>
 
-    <!-- Card 3: Disaster Evacuation -->
+        <!-- Card 3: Disaster Evacuation -->
     <div class="card">
       <div class="card-header">
         <h2>3. Disaster Evacuation & Safe Shelter Planning</h2>
@@ -855,7 +855,7 @@
   </table>
 
 
-<script>
+  <script>
 const algorithmLibrary = {
 
   /* ---------------------------------- DIJKSTRA ---------------------------------- */
@@ -1110,12 +1110,33 @@ function showAlgorithm(name, key) {
   const tagBox = document.getElementById("algorithmTags");
   const codeBox = document.getElementById("algorithmCode");
 
-  const data = algorithmLibrary[name];
+  // pick library key using either provided name or fallback
+  let data = algorithmLibrary[name] || algorithmLibrary[key] || null;
+
+  if (!data) {
+    // fallback: if name not found, try some known mappings
+    const mapping = {
+      'hashing': 'HashTable',
+      'heap': 'MinHeap',
+      'graph': 'Graph',
+      'tree': 'SegmentTree'
+    };
+    const mapped = mapping[key];
+    data = algorithmLibrary[mapped] || null;
+  }
+
+  if (!data) {
+    title.textContent = "Algorithm Not Found";
+    tagBox.innerHTML = "";
+    codeBox.textContent = "// Sorry, this algorithm snippet is not available.";
+    modal.style.display = "flex";
+    return;
+  }
 
   title.textContent = data.title;
 
   tagBox.innerHTML = "";
-  data.tags.forEach(t => {
+  (data.tags || []).forEach(t => {
     const span = document.createElement("span");
     span.className = "algorithm-tag";
     span.textContent = t;
@@ -1136,3 +1157,6 @@ window.onclick = function (event) {
   if (event.target === modal) modal.style.display = "none";
 };
 </script>
+
+</body>
+</html>
