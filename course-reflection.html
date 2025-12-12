@@ -1,7 +1,7 @@
 <!-- SECTION 2: REFLECTION QUESTIONS -->
 <h1 style="
   margin-top:60px;
-  font-size:32px;
+  font-size:34px;
   text-align:center;
   background:linear-gradient(90deg,#58e0ff,#6ab3ff);
   -webkit-background-clip:text;
@@ -14,189 +14,170 @@
 
 <div class="cards-container" style="margin-top:25px;">
 
-  <!-- REUSABLE CARD COMPONENT (same UI style as main cards) -->
-  <style>
-    .reflection-card{
-      background:rgba(255,255,255,0.04);
-      border-radius:16px;
-      padding:22px;
-      border:1px solid rgba(255,255,255,0.06);
-      backdrop-filter:blur(10px);
-      box-shadow:0 8px 26px rgba(0,0,0,0.55);
-      transition:transform .28s,box-shadow .28s;
-      position:relative;
-      overflow:hidden;
-    }
-    .reflection-card:hover{
-      transform:translateY(-8px);
-      box-shadow:
-        0 28px 60px rgba(0,0,0,0.6),
-        0 6px 40px rgba(88,224,255,0.08);
-      border-color:rgba(88,224,255,0.25);
-    }
-    .reflection-header{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      margin-bottom:10px;
-    }
-    .reflection-header h2{
-      color:#6ab3ff;
-      font-size:20px;
-      margin:0;
-      font-weight:700;
-    }
-    .icon-badge{
-      background:rgba(88,224,255,0.12);
-      border:1px solid rgba(88,224,255,0.18);
-      padding:6px 10px;
-      border-radius:10px;
-      font-size:18px;
-      backdrop-filter:blur(8px);
-    }
-    .reflection-card p{
-      margin:0;
-      margin-top:8px;
-      color:#d9e7ff;
-      line-height:1.5;
-      font-size:15px;
-    }
-  </style>
+<style>
+  .reflection-card {
+    background: rgba(18, 25, 39, 0.8);
+    border: 1px solid rgba(88, 224, 255, 0.18);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow:
+      0 8px 20px rgba(0,0,0,0.6),
+      0 0 18px rgba(88, 224, 255, 0.15);
+    transition: 0.3s ease;
+    backdrop-filter: blur(8px);
+    margin-bottom: 25px;
+  }
 
-  <!-- Q1 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>1. Problems in Nature: Iteration, Recursion & Backtracking</h2>
-      <div class="icon-badge">🌿</div>
-    </div>
-    <p>
-      When I began observing natural patterns, I realized something surprising —
-      nature quietly uses the same logic that our algorithms use. Waves repeatedly hitting
-      the shore felt like <strong>iteration</strong>, while tree branches and river splits
-      reflected <strong>recursion</strong>. Even ants exploring paths, failing, and trying again
-      reminded me of <strong>backtracking</strong>. This made algorithms feel less artificial
-      and more inspired by the world around us.
-    </p>
-  </div>
+  .reflection-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 22px 40px rgba(0,0,0,0.7),
+      0 0 22px rgba(88, 224, 255, 0.35);
+    border-color: rgba(88, 224, 255, 0.35);
+  }
 
-  <!-- Q2 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>2. Space & Time Efficiency – Why They Matter</h2>
-      <div class="icon-badge">⏳</div>
-    </div>
-    <p>
-      Earlier, I only cared whether code “runs.” This project made me understand that efficiency
-      decides whether a solution is practical for real-world systems. Time tells us how performance scales;
-      space tells us memory cost. Complexities like O(n), O(n log n) or O(n²) suddenly mattered,
-      because an inefficient algorithm at city-scale isn’t just slow — it becomes unusable.
-    </p>
-  </div>
+  .reflection-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-  <!-- Q3 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>3. Design Principles I Take Forward</h2>
-      <div class="icon-badge">🧩</div>
-    </div>
-    <p>
-      Chapter 2 taught me that any complex problem becomes manageable once it’s broken into meaningful
-      components. Decomposition, modularity, and abstraction made city-scale problems feel less intimidating.
-      I now approach systems—and even personal tasks—by solving one clear part at a time.
-    </p>
-  </div>
+  .reflection-header h2 {
+    color: #7bc4ff;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+  }
 
-  <!-- Q4 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>4. How Trees Optimise Data</h2>
-      <div class="icon-badge">🌲</div>
-    </div>
-    <p>
-      Trees helped me understand structured thinking. BSTs offer fast searching; AVL/2-3 trees maintain balance;
-      heaps allow priority-based decisions; tries make searching text effortless.
-      For our project, trees didn’t just store data — they organised it with elegance and clarity.
-    </p>
-  </div>
+  .icon-badge {
+    background: rgba(88, 224, 255, 0.15);
+    border: 1px solid rgba(88, 224, 255, 0.35);
+    padding: 6px 12px;
+    border-radius: 10px;
+    font-size: 20px;
+  }
 
-  <!-- Q5 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>5. Why Segment Trees / Fenwick Trees?</h2>
-      <div class="icon-badge">📊</div>
-    </div>
-    <p>
-      When dealing with massive data updates and queries, basic approaches are too slow.
-      Segment and Fenwick trees transformed repeated queries from painfully long processes
-      into fast, logarithmic operations. Realising this felt like unlocking a cheat code for efficiency.
-    </p>
-  </div>
+  .reflection-card p {
+    margin-top: 12px;
+    color: #d5e8ff;
+    line-height: 1.55;
+    font-size: 15.5px;
+  }
+</style>
 
-  <!-- Q6 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>6. Trees vs Graphs – A Shift in Perspective</h2>
-      <div class="icon-badge">🗺</div>
-    </div>
-    <p>
-      I now see cities as graphs instead of maps. Trees help structure data; graphs help map complex relationships.
-      BFS/DFS lets us explore systems; shortest path algorithms give life-saving navigation.
-      These ideas changed how I move through and understand physical spaces.
-    </p>
+<!-- Q1 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>1. Problems in Nature: Iteration, Recursion & Backtracking</h2>
+    <div class="icon-badge">🌿</div>
   </div>
+  <p>
+    When I began observing natural patterns, I realized something surprising — nature
+    quietly uses the same logic that our algorithms use...
+  </p>
+</div>
 
-  <!-- Q7 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>7. Sorting & Searching – Real-World Importance</h2>
-      <div class="icon-badge">🔍</div>
-    </div>
-    <p>
-      Sorting and searching felt simple until I saw how they silently power everything:
-      emergency ranking systems, location lookups, ordering routes.
-      These algorithms are invisible engines — always running, always helping.
-    </p>
+<!-- Q2 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>2. Space & Time Efficiency – Why They Matter</h2>
+    <div class="icon-badge">⏳</div>
   </div>
+  <p>
+    Earlier, I only cared whether code “runs.” This project made me understand why
+    efficiency decides whether something works at city-scale...
+  </p>
+</div>
 
-  <!-- Q8 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>8. Graph Algorithms – Why They Matter</h2>
-      <div class="icon-badge">🔗</div>
-    </div>
-    <p>
-      Graph algorithms are the nervous system of a city. MSTs design low-cost networks,
-      Dijkstra routes ambulances, BFS simulates evacuations.
-      They turned our city design from a sketch into a living, intelligent system.
-    </p>
+<!-- Q3 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>3. Design Principles I Take Forward</h2>
+    <div class="icon-badge">🧩</div>
   </div>
+  <p>
+    Chapter 2 taught me that any complex problem becomes manageable once it’s broken
+    into meaningful components...
+  </p>
+</div>
 
-  <!-- Q9 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>9. Algorithm Design Insights</h2>
-      <div class="icon-badge">🧠</div>
-    </div>
-    <p>
-      Each technique felt like a mindset: brute force for honesty, greedy for fast choices,
-      divide-and-conquer for organised progress, backtracking for trying again,
-      and dynamic programming for learning from the past.
-      I realised algorithm design is also life design.
-    </p>
+<!-- Q4 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>4. How Trees Optimise Data</h2>
+    <div class="icon-badge">🌲</div>
   </div>
+  <p>
+    Trees helped me understand structured thinking — fast search, balance, priority-based
+    tasks, and efficient organization...
+  </p>
+</div>
 
-  <!-- Q10 -->
-  <div class="reflection-card">
-    <div class="reflection-header">
-      <h2>10. How This Project Changed Me</h2>
-      <div class="icon-badge">💡</div>
-    </div>
-    <p>
-      This project made algorithms feel meaningful.  
-      For the first time, I saw how a shortest path could save a life
-      or how a graph can keep a city calm during disaster.
-      I felt that coding isn’t just logic — it is empathy and responsibility.
-      I want to carry this mindset into every project I build.
-    </p>
+<!-- Q5 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>5. Why Segment Trees / Fenwick Trees?</h2>
+    <div class="icon-badge">📊</div>
   </div>
+  <p>
+    When dealing with massive data updates, basic approaches were slow. Segment and
+    Fenwick trees made queries lightning-fast...
+  </p>
+</div>
+
+<!-- Q6 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>6. Trees vs Graphs – A Shift in Perspective</h2>
+    <div class="icon-badge">🗺</div>
+  </div>
+  <p>
+    I now see cities as graphs instead of maps...
+  </p>
+</div>
+
+<!-- Q7 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>7. Sorting & Searching – Real-World Importance</h2>
+    <div class="icon-badge">🔍</div>
+  </div>
+  <p>
+    Sorting and searching silently power location lookups, routing, ranking...
+  </p>
+</div>
+
+<!-- Q8 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>8. Graph Algorithms – Why They Matter</h2>
+    <div class="icon-badge">🔗</div>
+  </div>
+  <p>
+    Graph algorithms are the nervous system of a city: MSTs, shortest paths, BFS evacuations...
+  </p>
+</div>
+
+<!-- Q9 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>9. Algorithm Design Insights</h2>
+    <div class="icon-badge">🧠</div>
+  </div>
+  <p>
+    Each technique felt like a mindset — greedy, divide-and-conquer, dynamic programming...
+  </p>
+</div>
+
+<!-- Q10 -->
+<div class="reflection-card">
+  <div class="reflection-header">
+    <h2>10. How This Project Changed Me</h2>
+    <div class="icon-badge">💡</div>
+  </div>
+  <p>
+    This project made algorithms meaningful — a shortest path could save a life...
+  </p>
+</div>
+
 </div>
