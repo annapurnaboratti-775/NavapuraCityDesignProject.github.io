@@ -402,11 +402,11 @@ footer{
       <h2>🧂 Salt Production</h2>
       <div class="section-title">Implementation Steps</div>
       <ul>
-        <li>Store salt pan outputs in a Max Heap.</li>
-        <li>Pick highest-yield pans first.</li>
-        <li>Plan shortest distribution routes using Graph/Dijkstra.</li>
-        <li>Manage trucks with Priority Queue.</li>
-        <li>Store pan data in Hash Map.</li>
+        <li>Store salt pan production data in a Hash Map (pan ID → {state: Evaporating / Crystallizing / Harvest-ready / Maintenance}).</li>
+        <li>Use a Max Heap to prioritize pans with the highest salt yield.</li>
+        <li>Schedule collection from high-yield pans first to minimize waste.</li>
+        <li>Plan shortest transportation routes using Graph & Dijkstra’s Algorithm.</li>
+       <li> Assign trucks and essential tools based on urgency using a Priority Queue.</li>
       </ul>
       <div class="section-title">Algorithms / DSA</div>
       <ul>
@@ -435,10 +435,10 @@ footer{
       <h2>📝 Feedback System</h2>
       <div class="section-title">Implementation Steps</div>
       <ul>
-        <li>Store feedback entries in Hash Maps.</li>
-        <li>Push urgent complaints into Priority Queue.</li>
-        <li>Route issues to nearest team using Graph.</li>
-        <li>Notify citizens once resolved.</li>
+        <li>Citizens submit feedback, which is stored in Hash Maps for easy access.</li>
+        <li>Urgent complaints are pushed into a Priority Queue for faster resolution.</li>
+        <li>Use Graph Routing to assign issues to the nearest response team efficiently.</li>
+        <li>Notify citizens once their complaints are addressed and resolved.</li>
       </ul>
       <div class="section-title">Algorithms / DSA</div>
       <ul>
