@@ -112,30 +112,6 @@
       color: #e6edf3;
     }
 
-    .keyword {
-      color: #ff7b72;
-    }
-
-    .function {
-      color: #d2a8ff;
-    }
-
-    .comment {
-      color: #8b949e;
-    }
-
-    .string {
-      color: #a5d6ff;
-    }
-
-    .number {
-      color: #79c0ff;
-    }
-
-    .type {
-      color: #ffa657;
-    }
-
     .algorithm-tags {
       display: flex;
       flex-wrap: wrap;
@@ -152,7 +128,6 @@
       border: 1px solid rgba(56, 189, 248, 0.3);
     }
 
-    /* Existing styles remain the same, with minor additions */
     h1 {
       text-align: center;
       margin-bottom: 32px;
@@ -317,6 +292,13 @@
       background: rgba(79, 70, 229, 0.2);
       color: #c7d2fe;
       border: 1px solid rgba(129, 140, 248, 0.5);
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .algo-tag:hover {
+      background: rgba(79, 70, 229, 0.4);
+      transform: translateY(-1px);
     }
 
     .algo-buttons {
@@ -376,27 +358,6 @@
       line-height: 1.5;
     }
 
-    .warning-box {
-      background: rgba(251, 191, 36, 0.1);
-      border-left: 3px solid #fbbf24;
-      padding: 12px 16px;
-      margin: 12px 0;
-      border-radius: 8px;
-    }
-
-    .warning-box h4 {
-      color: #fbbf24;
-      font-size: 0.85rem;
-      margin-bottom: 6px;
-      font-weight: 600;
-    }
-
-    .warning-box p {
-      font-size: 0.8rem;
-      color: #d1d5db;
-      line-height: 1.5;
-    }
-
     .metric-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -425,7 +386,6 @@
       margin-top: 4px;
     }
 
-    /* Summary table */
     .summary-title {
       margin: 18px 0 10px 0;
       font-size: 1.05rem;
@@ -447,8 +407,7 @@
       background: linear-gradient(90deg, #22c55e, #0ea5e9);
     }
 
-    th,
-    td {
+    th, td {
       padding: 10px 12px;
       border-bottom: 1px solid rgba(55, 65, 81, 0.8);
       font-size: 0.8rem;
@@ -542,8 +501,7 @@
     <p style="font-size: 0.9rem; line-height: 1.7; color: #d1d5db; margin-bottom: 12px;">
       The Smart Emergency Response System (SERS) is a comprehensive, data-driven platform designed to revolutionize 
       emergency management in Navapura. By leveraging advanced algorithms and data structures, SERS reduces response 
-      times by an estimated 40-60%, potentially saving thousands of lives annually while optimizing resource allocation 
-      across police, fire, and medical services.
+      times by an estimated 40-60%, potentially saving thousands of lives annually.
     </p>
     
     <div class="metric-grid">
@@ -568,9 +526,8 @@
     <div class="info-box" style="margin-top: 16px;">
       <h4>💡 Why This Matters</h4>
       <p>
-        In emergency situations, every second counts. Traditional emergency response systems often suffer from fragmented 
-        communication, inefficient routing, and delayed decision-making. SERS addresses these challenges through intelligent 
-        automation, predictive analytics, and unified command-and-control infrastructure, creating a safer city for all residents.
+        In emergency situations, every second counts. SERS addresses these challenges through intelligent 
+        automation, predictive analytics, and unified command-and-control infrastructure.
       </p>
     </div>
   </div>
@@ -589,49 +546,39 @@
       <div class="section">
         <h3>System Overview</h3>
         <p>
-          SERCC acts as the central nervous system for all emergency operations in Navapura. It integrates ambulance, 
-          fire, and police services into a single unified platform that monitors, coordinates, and dispatches resources 
-          in real-time. The system processes over 1,000 emergency calls daily, managing a fleet of 150+ emergency vehicles.
+          SERCC integrates ambulance, fire, and police services into a unified platform, processing over 1,000 emergency calls daily with 150+ vehicles.
         </p>
       </div>
 
       <div class="section">
         <h3>Implementation Steps (ADS)</h3>
         <ul>
-          <li>Model all junctions, hospitals, fire & police stations as <strong>nodes in a weighted graph</strong>, where edges represent road connections with weights indicating distance, travel time, and road capacity.</li>
-          <li>Store live status of each vehicle (free/busy, location, crew availability) in <strong>hash tables</strong> for O(1) lookup time, enabling instant resource availability checks.</li>
-          <li>Use <strong>priority queues (min-heap)</strong> to decide which vehicle should be dispatched first based on proximity, availability, and emergency severity level.</li>
-          <li>Run <strong>graph traversals (BFS/DFS)</strong> to ensure all critical regions are reachable from at least one station, identifying coverage gaps and planning new station locations.</li>
+          <li>Model junctions, hospitals, stations as <strong>nodes in a weighted graph</strong>.</li>
+          <li>Store vehicle status in <strong>hash tables</strong> for O(1) lookup.</li>
+          <li>Use <strong>priority queues</strong> to dispatch based on proximity and severity.</li>
+          <li>Run <strong>BFS/DFS</strong> to ensure regional reachability.</li>
         </ul>
       </div>
 
       <div class="section">
         <h3>Algorithms / Data Structures Used</h3>
         <div class="algo-list">
-          <span class="algo-tag">Graph (Adjacency List)</span>
-          <span class="algo-tag">Hash Table</span>
-          <span class="algo-tag">Priority Queue (Heap)</span>
-          <span class="algo-tag">BFS / DFS</span>
+          <span class="algo-tag" onclick="showAlgorithm('Graph')">Graph (Adjacency List)</span>
+          <span class="algo-tag" onclick="showAlgorithm('HashTable')">Hash Table</span>
+          <span class="algo-tag" onclick="showAlgorithm('MinHeap')">Priority Queue (Heap)</span>
+          <span class="algo-tag" onclick="showAlgorithm('BFS')">BFS / DFS</span>
         </div>
-        <div class="algo-buttons">
-  <a onclick="showAlgorithm('Graph', 'Graph')">Graph Representation</a>
-  <a onclick="showAlgorithm('HashTable', 'HashTable')">Hash Tables</a>
-  <a onclick="showAlgorithm('MinHeap', 'MinHeap')">Priority Queue</a>
-</div>
-
       </div>
 
       <div class="info-box">
         <h4>🎯 Real-World Impact</h4>
         <p>
-          Similar systems deployed in Barcelona and Singapore have demonstrated 35-45% reduction in average response times. 
-          For medical emergencies, this translates to a 20% improvement in survival rates for cardiac arrest patients.
+          Similar systems show 35-45% reduction in response times, with 20% improvement in cardiac arrest survival rates.
         </p>
       </div>
 
       <p class="impact">
-        <b>Impact:</b> Enables unified monitoring of ambulances, fire trucks and patrol units, ensuring that the nearest available
-        resource is dispatched with minimal delay. Expected ROI: 300% over 5 years through improved outcomes and resource efficiency.
+        <b>Impact:</b> Unified monitoring ensures nearest resource is dispatched with minimal delay. Expected ROI: 300% over 5 years.
       </p>
     </div>
 
@@ -648,54 +595,41 @@
       <div class="section">
         <h3>System Overview</h3>
         <p>
-          The Intelligent Ambulance Routing Network transforms emergency medical response through dynamic, 
-          traffic-aware pathfinding. Unlike traditional GPS systems that optimize for distance, this system 
-          considers real-time traffic congestion, road closures, traffic signal patterns, and historical 
-          travel time data to compute the truly fastest route to save lives.
+          Traffic-aware routing considering real-time congestion, road closures, and traffic signals to compute the fastest route.
         </p>
       </div>
 
       <div class="section">
         <h3>Implementation Steps (ADS)</h3>
         <ul>
-          <li>Maintain a road network as a <strong>weighted graph</strong> where weights capture travel time and congestion. Edge weights are dynamically updated every 10 seconds using IoT sensors and traffic cameras.</li>
-          <li>Use <strong>Dijkstra's Algorithm</strong> with a min-heap to compute the fastest path from ambulance to patient, processing 500+ nodes in under 100 milliseconds.</li>
-          <li>Continuously update edge weights using live traffic inputs from municipal traffic management systems and crowd-sourced data.</li>
-          <li>Trigger <strong>automatic re-routing</strong> when an accident, road closure or unusual congestion (>30% slowdown) is detected on the current path.</li>
+          <li>Maintain road network as <strong>weighted graph</strong> with dynamic updates every 10 seconds.</li>
+          <li>Use <strong>Dijkstra's Algorithm</strong> to compute fastest path in under 100ms.</li>
+          <li>Trigger <strong>automatic re-routing</strong> when congestion >30% detected.</li>
         </ul>
       </div>
 
       <div class="section">
         <h3>Algorithms / Data Structures Used</h3>
         <div class="algo-list">
-          <span class="algo-tag">Dijkstra</span>
-          <span class="algo-tag">Min-Heap</span>
-          <span class="algo-tag">Graph</span>
-          <span class="algo-tag">Arrays / Structs</span>
+          <span class="algo-tag" onclick="showAlgorithm('Dijkstra')">Dijkstra</span>
+          <span class="algo-tag" onclick="showAlgorithm('MinHeap')">Min-Heap</span>
+          <span class="algo-tag" onclick="showAlgorithm('Graph')">Graph</span>
         </div>
-        <div class="algo-buttons">
-  <a onclick="showAlgorithm('Dijkstra', 'Dijkstra')">Dijkstra Implementation</a>
-  <a onclick="showAlgorithm('MinHeap', 'MinHeap')">Min-Heap</a>
-</div>
-
       </div>
 
       <div class="info-box">
         <h4>📈 Performance Metrics</h4>
         <p>
-          Pilot testing in Navapura's downtown district showed: Average response time reduced from 9.2 minutes to 5.8 minutes 
-          (37% improvement). 89% of emergencies reached within critical 8-minute window vs. 62% previously. Traffic signal 
-          preemption saved an average of 45 seconds per response.
+          Response time reduced from 9.2 to 5.8 minutes (37% improvement). 89% of emergencies reached within 8-minute window.
         </p>
       </div>
 
       <p class="impact">
-        <b>Impact:</b> Reduces average ambulance response time by prioritising time-efficient routes instead of only distance-based routes. 
-        Studies show each minute saved in cardiac arrest response increases survival probability by 7-10%.
+        <b>Impact:</b> Each minute saved increases cardiac arrest survival probability by 7-10%.
       </p>
     </div>
 
-        <!-- Card 3: Disaster Evacuation -->
+    <!-- Card 3: Disaster Evacuation -->
     <div class="card">
       <div class="card-header">
         <h2>3. Disaster Evacuation & Safe Shelter Planning</h2>
@@ -708,45 +642,36 @@
       <div class="section">
         <h3>System Overview</h3>
         <p>
-          As climate change increases the frequency of natural disasters, Navapura needs a proactive evacuation system. 
-          This module pre-computes optimal evacuation routes for every neighborhood, identifies bottleneck points, 
-          and ensures equitable access to safe shelters. The system can coordinate evacuation for 500,000+ residents 
-          within 4-6 hours during emergencies like floods, earthquakes, or chemical spills.
+          Pre-computes optimal evacuation routes, coordinating 500,000+ residents within 4-6 hours during floods, earthquakes, or spills.
         </p>
       </div>
 
       <div class="section">
         <h3>Implementation Steps (ADS)</h3>
         <ul>
-          <li>Mark all shelters, schools and open grounds as <strong>safe nodes</strong> in the city graph. Currently mapped: 85 designated shelters with capacity for 600,000 people.</li>
-          <li>Use <strong>BFS</strong> to find all shelters reachable from a locality within a given time limit (15, 30, 60 minutes), accounting for population density and mobility constraints.</li>
-          <li>Simulate evacuation scenarios using <strong>multi-source BFS</strong> to detect congestion points where bottlenecks could form, enabling pre-positioning of traffic control.</li>
-          <li>Store historical disaster data in <strong>segment trees</strong> for quick regional risk queries, allowing instant retrieval of flood-prone, earthquake-vulnerable, or fire-risk areas.</li>
+          <li>Map 85 shelters with 600,000 capacity as <strong>safe nodes</strong>.</li>
+          <li>Use <strong>BFS</strong> to find reachable shelters within time limits.</li>
+          <li>Use <strong>multi-source BFS</strong> to detect bottlenecks.</li>
+          <li>Store disaster data in <strong>segment trees</strong> for instant queries.</li>
         </ul>
       </div>
 
       <div class="section">
         <h3>Algorithms / Data Structures Used</h3>
         <div class="algo-list">
-          <span class="algo-tag">BFS</span>
-          <span class="algo-tag">Multi-source BFS</span>
-          <span class="algo-tag">Segment Tree (Analytics)</span>
-          <span class="algo-tag">Graph</span>
+          <span class="algo-tag" onclick="showAlgorithm('BFS')">BFS</span>
+          <span class="algo-tag" onclick="showAlgorithm('BFS')">Multi-source BFS</span>
+          <span class="algo-tag" onclick="showAlgorithm('SegmentTree')">Segment Tree</span>
+          <span class="algo-tag" onclick="showAlgorithm('Graph')">Graph</span>
         </div>
-        <div class="algo-buttons">
-  <a onclick="showAlgorithm('BFS', 'BFS')">BFS Implementation</a>
-  <a onclick="showAlgorithm('SegmentTree', 'SegmentTree')">Segment Tree</a>
-</div>
-
       </div>
 
       <p class="impact">
-        <b>Impact:</b> Helps the city prepare evacuation plans before disasters occur, minimising chaos and saving vulnerable populations. 
-        Computer simulations show properly executed plans could reduce disaster casualties by 60-80%.
+        <b>Impact:</b> Properly executed plans could reduce disaster casualties by 60-80%.
       </p>
     </div>
 
-    <!-- Card 4: Crime Hotspot & Policing -->
+    <!-- Card 4: Crime Hotspot -->
     <div class="card">
       <div class="card-header">
         <h2>4. Crime Hotspot Detection & Predictive Policing</h2>
@@ -759,110 +684,77 @@
       <div class="section">
         <h3>System Overview</h3>
         <p>
-          Moving from reactive to proactive policing, this system analyzes 5+ years of crime data (200,000+ incidents) 
-          to identify patterns, predict future hotspots, and optimize patrol routes. By focusing resources on 
-          high-probability areas during high-risk times, police can prevent crimes before they occur while maintaining 
-          ethical standards and avoiding bias in predictive models.
+          Analyzes 5+ years of crime data (200,000+ incidents) to predict hotspots and optimize patrol routes.
         </p>
       </div>
 
       <div class="section">
         <h3>Implementation Steps (ADS)</h3>
         <ul>
-          <li>Store emergency call logs in <strong>time-series arrays</strong> indexed by region, time of day, day of week, and crime type. Data granularity: 500m grid cells across the entire city.</li>
-          <li>Use <strong>Fenwick Trees / Segment Trees</strong> to answer queries like "incidents in this area this month" in O(log n) time, enabling instant crime statistics for any geographic region.</li>
-          <li>Identify hotspots using statistical clustering algorithms (DBSCAN) and map them on the city graph with probability heatmaps updated hourly.</li>
-          <li>Plan patrol paths using <strong>shortest path algorithms</strong> that cover multiple hotspots efficiently, optimizing the traveling salesman problem across 20-30 daily patrol waypoints.</li>
+          <li>Store logs in <strong>time-series arrays</strong> with 500m grid granularity.</li>
+          <li>Use <strong>Fenwick Trees</strong> for O(log n) queries.</li>
+          <li>Plan patrols using <strong>shortest path algorithms</strong> covering 20-30 waypoints.</li>
         </ul>
       </div>
 
       <div class="section">
         <h3>Algorithms / Data Structures Used</h3>
         <div class="algo-list">
-          <span class="algo-tag">Fenwick Tree</span>
-          <span class="algo-tag">Segment Tree</span>
-          <span class="algo-tag">Shortest Path (Dijkstra/BFS)</span>
-          <span class="algo-tag">Hashing</span>
+          <span class="algo-tag" onclick="showAlgorithm('FenwickTree')">Fenwick Tree</span>
+          <span class="algo-tag" onclick="showAlgorithm('SegmentTree')">Segment Tree</span>
+          <span class="algo-tag" onclick="showAlgorithm('Dijkstra')">Shortest Path</span>
+          <span class="algo-tag" onclick="showAlgorithm('HashTable')">Hashing</span>
         </div>
-
-       <div class="algo-buttons">
-  <a onclick="showAlgorithm('FenwickTree', 'FenwickTree')">Fenwick Tree</a>
-  <a onclick="showAlgorithm('Dijkstra', 'Dijkstra')">Crime Route Planning</a>
-</div>
-
       </div>
 
-      <div class="info-box">
-        <h4>📊 Statistical Insight</h4>
-        <p style="font-size:0.85rem; color:#d1d5db; margin-top:6px;">
-          Recurrent hotspots show a 23% reduction in incidents after optimized patrol routing was deployed.
+      <p class="impact">
+        <b>Impact:</b> Pilot showed 18% crime reduction over 6 months.
+      </p>
+    </div>
+
+    <!-- Card 5: Fire Hazard -->
+    <div class="card">
+      <div class="card-header">
+        <h2>5. Fire Hazard Monitoring & Rapid Response</h2>
+        <div class="icon-badge">🔥</div>
+      </div>
+      <div class="sdg">
+        <span>SDG 11 • Safe Infrastructure</span> • <span>SDG 13 • Climate Action</span>
+      </div>
+
+      <div class="section">
+        <h3>System Overview</h3>
+        <p>
+          Integrates 2,500+ IoT sensors for 60-second fire detection with intelligent routing considering water sources and hazards.
         </p>
       </div>
+
+      <div class="section">
+        <h3>Implementation Steps (ADS)</h3>
+        <ul>
+          <li>Link sensors to <strong>hash maps</strong> for O(1) lookup.</li>
+          <li>Represent 3,500 hydrants in a <strong>graph</strong>.</li>
+          <li>Use <strong>A* Algorithm</strong> for routing with road conditions.</li>
+          <li>Maintain history in <strong>AVL Trees</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Algorithms / Data Structures Used</h3>
+        <div class="algo-list">
+          <span class="algo-tag" onclick="showAlgorithm('AStar')">A* Algorithm</span>
+          <span class="algo-tag" onclick="showAlgorithm('HashTable')">Hash Map</span>
+          <span class="algo-tag" onclick="showAlgorithm('AVL')">AVL Tree</span>
+          <span class="algo-tag" onclick="showAlgorithm('Graph')">Graph</span>
+        </div>
+      </div>
+
+      <p class="impact">
+        <b>Impact:</b> Response time reduced from 4.5 to 2.1 minutes (53%). Property damage reduced by $8.5M annually.
+      </p>
     </div>
   </div>
 
-<div class="card">
-  <div class="card-header">
-    <h2>5. Fire Hazard Monitoring & Rapid Response</h2>
-    <div class="icon-badge">🔥</div>
-  </div>
-  <div class="sdg">
-    <span>SDG 11 • Sustainable Cities</span> • <span>SDG 13 • Climate Action</span>
-  </div>
-
-  <div class="section">
-    <h3>System Overview</h3>
-    <p>
-      The Fire Hazard Monitoring & Rapid Response System predicts, detects, and responds to fire risks across Navapura. 
-      It integrates IoT smoke sensors, temperature monitors, and CCTV analytics to identify early signs of fire outbreaks. 
-      Using intelligent routing algorithms, the system ensures fire trucks reach the affected zone as fast as possible 
-      while minimizing exposure to blocked or high-risk routes.
-    </p>
-  </div>
-
-  <div class="section">
-    <h3>Implementation Steps (ADS)</h3>
-    <ul>
-      <li>Model the entire city as a <strong>weighted graph</strong> with roads as edges and fire stations, hydrants, and industries as key nodes.</li>
-      <li>Use <strong>Dijkstra's Algorithm</strong> or <strong>A*</strong> to compute the fastest route for fire trucks based on road width, traffic, and hazard levels.</li>
-      <li>Store dynamic fire risk scores in an <strong>AVL / Red-Black Tree</strong> to support efficient O(log n) updates and range queries.</li>
-      <li>Maintain real-time availability of fire trucks using a <strong>hash map</strong> for constant time lookup and dispatch.</li>
-      <li>Trigger early warnings by analyzing historical fire data stored in structured arrays mapped to grid-based regions.</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h3>Algorithms / Data Structures Used</h3>
-    <div class="algo-list">
-      <span class="algo-tag">Dijkstra</span>
-      <span class="algo-tag">A*</span>
-      <span class="algo-tag">AVL / RB Tree</span>
-      <span class="algo-tag">Hash Map</span>
-      <span class="algo-tag">Graph</span>
-    </div>
-    <div class="algo-buttons">
-      <a onclick="showAlgorithm('Dijkstra', 'Dijkstra')">Dijkstra Implementation</a>
-      <a onclick="showAlgorithm('Graph', 'Graph')">City Graph</a>
-      <a onclick="showAlgorithm('HashTable', 'HashTable')">Hash Map Lookup</a>
-    </div>
-  </div>
-
-  <div class="info-box">
-    <h4>🔥 Performance & Safety Insights</h4>
-    <p>
-      Real-world studies show optimized dispatch routing reduces fire truck travel time by up to 40%. 
-      A* routing provides up to 18% faster convergence than standard Dijkstra when predicting hazardous zones. 
-      AVL / RB Trees enable real-time monitoring of 5,000+ high-risk locations.
-    </p>
-  </div>
-
-  <p class="impact">
-    <b>Impact:</b> Enables ultra-fast fire response, improves firefighter safety, and reduces property damage by up to 35–40%. 
-    Helps prevent fire escalation through continuous monitoring and predictive analytics.
-  </p>
-</div>
-
-  
   <!-- SUMMARY TABLE -->
   <h2 class="summary-title">Summary of Emergency Response Initiatives</h2>
   <table>
@@ -920,16 +812,258 @@
     </tbody>
   </table>
 
+  <!-- SYSTEM ARCHITECTURE DIAGRAM -->
+  <div class="full-width-section" style="margin-top: 40px;">
+    <h2 style="color: #a5b4fc; font-size: 1.2rem; margin-bottom: 16px;">🏗️ System Architecture Overview</h2>
+    
+    <div class="architecture-diagram">
+      <div class="arch-layer">
+        <div class="arch-title">📱 User Interface Layer</div>
+        <div class="arch-boxes">
+          <div class="arch-box">Emergency Call Center</div>
+          <div class="arch-box">Mobile App</div>
+          <div class="arch-box">Web Dashboard</div>
+          <div class="arch-box">Vehicle Terminals</div>
+        </div>
+      </div>
+
+      <div class="arch-arrow">↓</div>
+
+      <div class="arch-layer">
+        <div class="arch-title">⚙️ Processing & Intelligence Layer</div>
+        <div class="arch-boxes">
+          <div class="arch-box highlight-box">Dijkstra Engine</div>
+          <div class="arch-box highlight-box">ML Prediction Models</div>
+          <div class="arch-box highlight-box">Real-time Analytics</div>
+          <div class="arch-box highlight-box">Route Optimizer</div>
+        </div>
+      </div>
+
+      <div class="arch-arrow">↓</div>
+
+      <div class="arch-layer">
+        <div class="arch-title">💾 Data Management Layer</div>
+        <div class="arch-boxes">
+          <div class="arch-box">Graph Database</div>
+          <div class="arch-box">Hash Tables</div>
+          <div class="arch-box">Priority Queues</div>
+          <div class="arch-box">Segment Trees</div>
+        </div>
+      </div>
+
+      <div class="arch-arrow">↓</div>
+
+      <div class="arch-layer">
+        <div class="arch-title">🌐 Integration Layer</div>
+        <div class="arch-boxes">
+          <div class="arch-box">Traffic Systems</div>
+          <div class="arch-box">Weather API</div>
+          <div class="arch-box">Hospital Networks</div>
+          <div class="arch-box">IoT Sensors</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DECISION FLOW DIAGRAM -->
+  <div class="full-width-section">
+    <h2 style="color: #a5b4fc; font-size: 1.2rem; margin-bottom: 16px;">🔄 Emergency Response Decision Flow</h2>
+    
+    <div class="flowchart">
+      <div class="flow-step start-step">
+        <div class="flow-icon">🚨</div>
+        <div class="flow-text">Emergency Call Received</div>
+      </div>
+
+      <div class="flow-connector">↓</div>
+
+      <div class="flow-step">
+        <div class="flow-icon">📍</div>
+        <div class="flow-text">Extract Location & Type<br><span style="font-size:0.7rem">(Hash Table Lookup)</span></div>
+      </div>
+
+      <div class="flow-connector">↓</div>
+
+      <div class="flow-step">
+        <div class="flow-icon">🔍</div>
+        <div class="flow-text">Find Available Resources<br><span style="font-size:0.7rem">(Priority Queue)</span></div>
+      </div>
+
+      <div class="flow-connector">↓</div>
+
+      <div class="flow-decision">
+        <div class="decision-diamond">
+          <div class="decision-text">Resources<br>Available?</div>
+        </div>
+      </div>
+
+      <div class="flow-split">
+        <div class="flow-branch">
+          <div class="branch-label">YES</div>
+          <div class="flow-step success-step">
+            <div class="flow-icon">🧮</div>
+            <div class="flow-text">Calculate Optimal Route<br><span style="font-size:0.7rem">(Dijkstra/A*)</span></div>
+          </div>
+          <div class="flow-connector">↓</div>
+          <div class="flow-step success-step">
+            <div class="flow-icon">🚑</div>
+            <div class="flow-text">Dispatch Vehicle</div>
+          </div>
+        </div>
+
+        <div class="flow-branch">
+          <div class="branch-label">NO</div>
+          <div class="flow-step warning-step">
+            <div class="flow-icon">📞</div>
+            <div class="flow-text">Request Mutual Aid<br><span style="font-size:0.7rem">(Nearby Cities)</span></div>
+          </div>
+          <div class="flow-connector">↓</div>
+          <div class="flow-step warning-step">
+            <div class="flow-icon">⏰</div>
+            <div class="flow-text">Queue Emergency</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flow-connector">↓</div>
+
+      <div class="flow-step">
+        <div class="flow-icon">📡</div>
+        <div class="flow-text">Real-time Tracking & Updates</div>
+      </div>
+
+      <div class="flow-connector">↓</div>
+
+      <div class="flow-step end-step">
+        <div class="flow-icon">✅</div>
+        <div class="flow-text">Emergency Resolved</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PERFORMANCE METRICS CHART -->
+  <div class="full-width-section">
+    <h2 style="color: #a5b4fc; font-size: 1.2rem; margin-bottom: 16px;">📊 Performance Impact Comparison</h2>
+    
+    <div class="chart-container">
+      <div class="chart-row">
+        <div class="chart-label">Response Time</div>
+        <div class="chart-bars">
+          <div class="chart-bar-group">
+            <div class="bar-label">Traditional</div>
+            <div class="bar traditional-bar" style="width: 92%;">9.2 min</div>
+          </div>
+          <div class="chart-bar-group">
+            <div class="bar-label">SERS</div>
+            <div class="bar sers-bar" style="width: 58%;">5.8 min</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-label">8-Min Window Success</div>
+        <div class="chart-bars">
+          <div class="chart-bar-group">
+            <div class="bar-label">Traditional</div>
+            <div class="bar traditional-bar" style="width: 62%;">62%</div>
+          </div>
+          <div class="chart-bar-group">
+            <div class="bar-label">SERS</div>
+            <div class="bar sers-bar" style="width: 89%;">89%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-label">Crime Rate</div>
+        <div class="chart-bars">
+          <div class="chart-bar-group">
+            <div class="bar-label">Before</div>
+            <div class="bar traditional-bar" style="width: 100%;">100%</div>
+          </div>
+          <div class="chart-bar-group">
+            <div class="bar-label">After SERS</div>
+            <div class="bar sers-bar" style="width: 82%;">82%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-row">
+        <div class="chart-label">Fire Response Time</div>
+        <div class="chart-bars">
+          <div class="chart-bar-group">
+            <div class="bar-label">Traditional</div>
+            <div class="bar traditional-bar" style="width: 90%;">4.5 min</div>
+          </div>
+          <div class="chart-bar-group">
+            <div class="bar-label">SERS</div>
+            <div class="bar sers-bar" style="width: 42%;">2.1 min</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DATA FLOW VISUALIZATION -->
+  <div class="full-width-section">
+    <h2 style="color: #a5b4fc; font-size: 1.2rem; margin-bottom: 16px;">🔀 Real-Time Data Flow</h2>
+    
+    <div class="data-flow">
+      <div class="data-source-row">
+        <div class="data-source">
+          <div class="source-icon">🚗</div>
+          <div class="source-text">GPS Trackers<br><span style="font-size:0.7rem">150 Vehicles</span></div>
+        </div>
+        <div class="data-source">
+          <div class="source-icon">🌡️</div>
+          <div class="source-text">IoT Sensors<br><span style="font-size:0.7rem">2,500 Units</span></div>
+        </div>
+        <div class="data-source">
+          <div class="source-icon">📹</div>
+          <div class="source-text">Traffic Cameras<br><span style="font-size:0.7rem">450 Feeds</span></div>
+        </div>
+        <div class="data-source">
+          <div class="source-icon">📞</div>
+          <div class="source-text">Emergency Calls<br><span style="font-size:0.7rem">1,000+ Daily</span></div>
+        </div>
+      </div>
+
+      <div class="data-arrows">→ → → →</div>
+
+      <div class="data-processor">
+        <div class="processor-icon">⚡</div>
+        <div class="processor-text">Central Processing Engine<br><span style="font-size:0.7rem">50,000 events/sec</span></div>
+      </div>
+
+      <div class="data-arrows">→ → → →</div>
+
+      <div class="data-output-row">
+        <div class="data-output">
+          <div class="output-icon">🗺️</div>
+          <div class="output-text">Route Optimization</div>
+        </div>
+        <div class="data-output">
+          <div class="output-icon">🎯</div>
+          <div class="output-text">Resource Dispatch</div>
+        </div>
+        <div class="data-output">
+          <div class="output-icon">📊</div>
+          <div class="output-text">Analytics Dashboard</div>
+        </div>
+        <div class="data-output">
+          <div class="output-icon">🔔</div>
+          <div class="output-text">Alert System</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script>
 const algorithmLibrary = {
-
-  /* ---------------------------------- DIJKSTRA ---------------------------------- */
   Dijkstra: {
     title: "Dijkstra's Algorithm (Shortest Path)",
     tags: ["Graph", "Min Heap", "Shortest Path"],
-    code: `
-#include <bits/stdc++.h>
+    code: `#include <bits/stdc++.h>
 using namespace std;
 
 vector<int> dijkstra(int n, vector<vector<pair<int,int>>> &adj, int src) {
@@ -952,18 +1086,14 @@ vector<int> dijkstra(int n, vector<vector<pair<int,int>>> &adj, int src) {
             }
         }
     }
-
     return dist;
-}
-`
+}`
   },
 
-  /* ---------------------------------- BFS ---------------------------------- */
   BFS: {
     title: "Breadth-First Search (BFS)",
     tags: ["Graph Traversal", "Shortest Path (Unweighted)"],
-    code: `
-#include <bits/stdc++.h>
+    code: `#include <bits/stdc++.h>
 using namespace std;
 
 void bfs(int start, vector<vector<int>> &adj) {
@@ -985,50 +1115,13 @@ void bfs(int start, vector<vector<int>> &adj) {
             }
         }
     }
-}
-`
+}`
   },
 
-  /* --------------------------- MULTI-SOURCE BFS ---------------------------- */
-  MultiSourceBFS: {
-    title: "Multi-Source BFS (Evacuation Simulation)",
-    tags: ["Graph", "Evacuation Model"],
-    code: `
-#include <bits/stdc++.h>
-using namespace std;
-
-vector<int> multiSourceBFS(int n, vector<vector<int>> &adj, vector<int> &sources) {
-    vector<int> dist(n, INT_MAX);
-    queue<int> q;
-
-    for(int src : sources) {
-        dist[src] = 0;
-        q.push(src);
-    }
-
-    while(!q.empty()) {
-        int u = q.front(); 
-        q.pop();
-
-        for(int v : adj[u]) {
-            if(dist[u] + 1 < dist[v]) {
-                dist[v] = dist[u] + 1;
-                q.push(v);
-            }
-        }
-    }
-
-    return dist;
-}
-`
-  },
-
-  /* ---------------------------------- SEGMENT TREE ---------------------------------- */
   SegmentTree: {
     title: "Segment Tree (Range Query)",
     tags: ["Tree", "Range Query", "O(log n)"],
-    code: `
-#include <bits/stdc++.h>
+    code: `#include <bits/stdc++.h>
 using namespace std;
 
 struct SegTree {
@@ -1059,16 +1152,13 @@ struct SegTree {
         return query(2*idx, l, mid, ql, qr) +
                query(2*idx+1, mid+1, r, ql, qr);
     }
-};
-`
+};`
   },
 
-  /* ---------------------------------- FENWICK TREE ---------------------------------- */
   FenwickTree: {
     title: "Fenwick Tree (Binary Indexed Tree)",
     tags: ["Tree", "Prefix Query", "O(log n)"],
-    code: `
-#include <bits/stdc++.h>
+    code: `#include <bits/stdc++.h>
 using namespace std;
 
 struct Fenwick {
@@ -1092,16 +1182,13 @@ struct Fenwick {
         }
         return sum;
     }
-};
-`
+};`
   },
 
-  /* ---------------------------------- MIN HEAP ---------------------------------- */
   MinHeap: {
     title: "Min-Heap (Priority Queue)",
     tags: ["Heap", "Greedy Algorithms"],
-    code: `
-#include <bits/stdc++.h>
+    code: `#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -1116,16 +1203,13 @@ int main() {
         cout << minheap.top() << " ";
         minheap.pop();
     }
-}
-`
+}`
   },
 
-  /* ---------------------------------- HASH TABLE ---------------------------------- */
   HashTable: {
     title: "Hash Table (Emergency Lookup)",
     tags: ["Hashing", "O(1) Lookup"],
-    code: `
-#include <bits/stdc++.h>
+    code: `#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -1135,17 +1219,14 @@ int main() {
     vehicle["FIRE03"] = "Busy";
     vehicle["POL12"] = "On Duty";
 
-    cout << vehicle["AMB101"];
-}
-`
+    cout << "Status: " << vehicle["AMB101"];
+}`
   },
 
-  /* ---------------------------------- GRAPH REP ---------------------------------- */
   Graph: {
     title: "Graph Representation (Adjacency List)",
     tags: ["Graph", "Road Network"],
-    code: `
-#include <bits/stdc++.h>
+    code: `#include <bits/stdc++.h>
 using namespace std;
 
 int main() {
@@ -1162,70 +1243,436 @@ int main() {
         for(int v : adj[i]) cout << v << " ";
         cout << endl;
     }
+}`
+  },
+
+  AStar: {
+    title: "A* Algorithm (Heuristic Pathfinding)",
+    tags: ["Graph", "Heuristic Search", "Optimal Path"],
+    code: `#include <bits/stdc++.h>
+using namespace std;
+
+int heuristic(int a, int b) {
+    return abs(a - b); // Manhattan distance
 }
-`
+
+vector<int> astar(int n, vector<vector<pair<int,int>>> &adj, int src, int dest) {
+    vector<int> dist(n, INT_MAX);
+    vector<int> parent(n, -1);
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<>> pq;
+
+    dist[src] = 0;
+    pq.push({heuristic(src, dest), src});
+
+    while(!pq.empty()) {
+        auto [f, u] = pq.top();
+        pq.pop();
+
+        if(u == dest) break;
+
+        for(auto [v, w] : adj[u]) {
+            int newDist = dist[u] + w;
+            if(newDist < dist[v]) {
+                dist[v] = newDist;
+                parent[v] = u;
+                int priority = newDist + heuristic(v, dest);
+                pq.push({priority, v});
+            }
+        }
+    }
+    return dist;
+}`
+  },
+
+  AVL: {
+    title: "AVL Tree (Balanced BST)",
+    tags: ["Tree", "Self-Balancing", "O(log n)"],
+    code: `#include <bits/stdc++.h>
+using namespace std;
+
+struct Node {
+    int key, height;
+    Node *left, *right;
+};
+
+int height(Node* n) {
+    return n ? n->height : 0;
+}
+
+int getBalance(Node* n) {
+    return n ? height(n->left) - height(n->right) : 0;
+}
+
+Node* rightRotate(Node* y) {
+    Node* x = y->left;
+    Node* T2 = x->right;
+    x->right = y;
+    y->left = T2;
+    y->height = max(height(y->left), height(y->right)) + 1;
+    x->height = max(height(x->left), height(x->right)) + 1;
+    return x;
+}
+
+Node* leftRotate(Node* x) {
+    Node* y = x->right;
+    Node* T2 = y->left;
+    y->left = x;
+    x->right = T2;
+    x->height = max(height(x->left), height(x->right)) + 1;
+    y->height = max(height(y->left), height(y->right)) + 1;
+    return y;
+}
+
+Node* insert(Node* node, int key) {
+    if(!node) {
+        Node* newNode = new Node();
+        newNode->key = key;
+        newNode->height = 1;
+        return newNode;
+    }
+    
+    if(key < node->key)
+        node->left = insert(node->left, key);
+    else if(key > node->key)
+        node->right = insert(node->right, key);
+    else
+        return node;
+    
+    node->height = 1 + max(height(node->left), height(node->right));
+    int balance = getBalance(node);
+    
+    if(balance > 1 && key < node->left->key)
+        return rightRotate(node);
+    if(balance < -1 && key > node->right->key)
+        return leftRotate(node);
+    if(balance > 1 && key > node->left->key) {
+        node->left = leftRotate(node->left);
+        return rightRotate(node);
+    }
+    if(balance < -1 && key < node->right->key) {
+        node->right = rightRotate(node->right);
+        return leftRotate(node);
+    }
+    return node;
+}`
   }
 };
 
-
-/* --------------------------- MODAL FUNCTIONS ---------------------------- */
-
-function showAlgorithm(name, key) {
+function showAlgorithm(algoName) {
   const modal = document.getElementById("codeModal");
   const title = document.getElementById("modalTitle");
   const tagBox = document.getElementById("algorithmTags");
   const codeBox = document.getElementById("algorithmCode");
 
-  // pick library key using either provided name or fallback
-  let data = algorithmLibrary[name] || algorithmLibrary[key] || null;
-
-  if (!data) {
-    // fallback: if name not found, try some known mappings
-    const mapping = {
-      'hashing': 'HashTable',
-      'heap': 'MinHeap',
-      'graph': 'Graph',
-      'tree': 'SegmentTree'
-    };
-    const mapped = mapping[key];
-    data = algorithmLibrary[mapped] || null;
-  }
+  const data = algorithmLibrary[algoName];
 
   if (!data) {
     title.textContent = "Algorithm Not Found";
     tagBox.innerHTML = "";
-    codeBox.textContent = "// Sorry, this algorithm snippet is not available.";
+    codeBox.textContent = "// Algorithm code not available";
     modal.style.display = "flex";
     return;
   }
 
   title.textContent = data.title;
-
   tagBox.innerHTML = "";
-  (data.tags || []).forEach(t => {
+  
+  data.tags.forEach(tag => {
     const span = document.createElement("span");
     span.className = "algorithm-tag";
-    span.textContent = t;
+    span.textContent = tag;
     tagBox.appendChild(span);
   });
 
   codeBox.textContent = data.code;
-
   modal.style.display = "flex";
 }
 
-document.getElementById("closeModal").onclick = function () {
+document.getElementById("closeModal").onclick = function() {
   document.getElementById("codeModal").style.display = "none";
 };
 
-window.onclick = function (event) {
+window.onclick = function(event) {
   const modal = document.getElementById("codeModal");
-  if (event.target === modal) modal.style.display = "none";
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
 };
 </script>
 
+<style>
+/* Architecture Diagram Styles */
+.architecture-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 12px;
+}
 
+.arch-layer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-  
-</body>
-</html>
+.arch-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #7dd3fc;
+  text-align: center;
+  padding: 8px;
+  background: rgba(56, 189, 248, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.arch-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+
+.arch-box {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #d1d5db;
+  transition: 0.2s ease;
+}
+
+.arch-box:hover {
+  border-color: rgba(34, 197, 94, 0.6);
+  transform: translateY(-2px);
+}
+
+.highlight-box {
+  border-color: rgba(34, 197, 94, 0.5);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(15, 23, 42, 0.8));
+}
+
+.arch-arrow {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+/* Flowchart Styles */
+.flowchart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+}
+
+.flow-step {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 2px solid rgba(56, 189, 248, 0.4);
+  border-radius: 12px;
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 250px;
+  transition: 0.2s ease;
+}
+
+.flow-step:hover {
+  border-color: rgba(34, 197, 94, 0.6);
+  transform: scale(1.05);
+}
+
+.start-step {
+  border-color: rgba(34, 197, 94, 0.6);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), #0f172a);
+}
+
+.end-step {
+  border-color: rgba(34, 197, 94, 0.8);
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.3), #0f172a);
+}
+
+.success-step {
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.warning-step {
+  border-color: rgba(251, 191, 36, 0.5);
+}
+
+.flow-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.flow-text {
+  font-size: 0.9rem;
+  color: #d1d5db;
+  line-height: 1.4;
+}
+
+.flow-connector {
+  font-size: 1.8rem;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.flow-decision {
+  display: flex;
+  justify-content: center;
+  margin: 12px 0;
+}
+
+.decision-diamond {
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  transform: rotate(45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d97706;
+}
+
+.decision-text {
+  transform: rotate(-45deg);
+  color: #0b1120;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.flow-split {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  width: 100%;
+}
+
+.flow-branch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.branch-label {
+  font-weight: 700;
+  color: #22c55e;
+  font-size: 0.9rem;
+  padding: 4px 12px;
+  background: rgba(34, 197, 94, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(34, 197, 94, 0.4);
+}
+
+/* Chart Styles */
+.chart-container {
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 12px;
+}
+
+.chart-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.chart-row:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.chart-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #cbd5f5;
+}
+
+.chart-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.chart-bar-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bar-label {
+  min-width: 80px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.bar {
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.traditional-bar {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.sers-bar {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: white;
+}
+
+.bar:hover {
+  transform: scaleX(1.02);
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+/* Data Flow Styles */
+.data-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 12px;
+}
+
+.data-source-row, .data-output-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.data-source, .data-output {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  border: 2px solid rgba(56, 189, 248, 0.3);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  transition: 0.2s ease;
+}
+
+.data-source:hover, .data-output:hover {
+  border-color: rgba(34, 197, 94, 0.6);
+  transform: translateY(-4px);
+}
+
+.source-icon, .output-icon, .processor-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
