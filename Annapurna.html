@@ -77,6 +77,122 @@
       <h1>Navapura City Initiatives</h1>
       <p>Futuristic, Sustainable & Algorithm-Driven Urban Planning</p>
     </section>
+<style>
+  /* Urban Matrix – scoped styles */
+  .urban-matrix{
+    max-width:1200px;
+    margin:40px auto;
+    padding:40px 20px;
+  }
+
+  .urban-matrix h1{
+    text-align:center;
+    font-size:2.2rem;
+    margin-bottom:8px;
+    background:linear-gradient(90deg,#58e0ff,#6ab3ff);
+    -webkit-background-clip:text;
+    color:transparent;
+    font-weight:900;
+  }
+
+  .urban-matrix .subtitle{
+    text-align:center;
+    opacity:.7;
+    margin-bottom:40px;
+  }
+
+  .system-node{
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:16px;
+    padding:24px;
+    margin-bottom:28px;
+    backdrop-filter:blur(10px);
+    box-shadow:0 0 30px rgba(88,224,255,0.08);
+  }
+
+  .node-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:20px;
+  }
+
+  .sdg-tag{
+    padding:6px 12px;
+    border-radius:999px;
+    font-size:.8rem;
+    font-weight:800;
+    background:#00bbf9;
+    color:#001b2e;
+  }
+
+  .node-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+  }
+
+  .node-block h3{
+    color:#9dfcbd;
+    margin-bottom:10px;
+  }
+
+  .node-block ul{
+    list-style:none;
+    padding:0;
+  }
+
+  .node-block li{
+    position:relative;
+    padding-left:14px;
+    margin-bottom:8px;
+    opacity:.85;
+  }
+
+  .node-block li::before{
+    content:"▸";
+    position:absolute;
+    left:0;
+    color:#58e0ff;
+  }
+
+  @media(max-width:800px){
+    .node-grid{grid-template-columns:1fr}
+  }
+</style>
+
+<section class="urban-matrix">
+  <h1>Navapura City – Urban Systems Matrix</h1>
+  <p class="subtitle">Futuristic • Sustainable • Algorithm-Driven Infrastructure</p>
+
+  <div class="system-node">
+    <div class="node-header">
+      <span class="sdg-tag">SDG 11</span>
+      <h2>Urban Waste-to-Resource Hubs</h2>
+    </div>
+
+    <div class="node-grid">
+      <div class="node-block">
+        <h3>Core Impact</h3>
+        <ul>
+          <li>Decentralized waste-to-energy & recycling hubs</li>
+          <li>AI-driven segregation and digestion systems</li>
+          <li>Supports circular urban economy</li>
+        </ul>
+      </div>
+
+      <div class="node-block">
+        <h3>Algorithmic Design</h3>
+        <ul>
+          <li>Graph modeling of collection & processing nodes</li>
+          <li>Dijkstra’s Algorithm for route optimization</li>
+          <li>Priority Queues for hazardous waste handling</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!-- CARDS: exact content + algorithm dropdowns (links are placeholders to be replaced) -->
     <section class="cards-container" id="cards">
