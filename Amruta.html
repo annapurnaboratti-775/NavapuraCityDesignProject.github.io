@@ -257,6 +257,47 @@ footer{
   color: #9dfcbd; /* keep consistent with other cards */
   margin-bottom: 12px;
 }
+.flow-diagram {
+  margin-bottom: 30px;
+}
+
+.flow-diagram h3 {
+  color: #3ad7ff;
+  margin-bottom: 12px;
+}
+
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.flow span {
+  background: rgba(58, 215, 255, 0.1);
+  color: #d9e7ff;
+  padding: 10px 16px;
+  border-radius: 12px;
+  position: relative;
+  font-weight: 600;
+  min-width: 120px;
+  text-align: center;
+}
+
+/* Add arrow between steps */
+.flow span::after {
+  content: "→";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #3ad7ff;
+  font-weight: bold;
+}
+
+.flow span:last-child::after {
+  content: "";
+}
 
 </style>
 </head>
@@ -401,7 +442,6 @@ footer{
 
 <div class="alg-dropdown">
   <a href="#">BFS</a>
-  <a href="#">Min Heap</a>
   <a href="#">Hash Map</a>
 </div>
 
@@ -497,6 +537,78 @@ footer{
     <li>🌱 <strong>Sustainability:</strong> Smart city decisions promote eco-friendly and resource-efficient operations.</li>
   </ul>
 </div>
+  <div class="big-card">
+  <h2>🔄 Service Flow Diagrams (With Data Structures)</h2>
+
+  <!-- Hospital -->
+  <div class="flow-diagram">
+    <h3>🏥 Hospital Management</h3>
+    <div class="flow">
+      <span>Patient Enters</span>
+      <span>Store Patient Record (Hash Map)</span>
+      <span>Priority Queue → Emergency Cases</span>
+      <span>Doctor Assignment</span>
+      <span>Bed Allocation</span>
+    </div>
+  </div>
+
+  <!-- Waste Collection -->
+  <div class="flow-diagram">
+    <h3>♻️ Waste Collection</h3>
+    <div class="flow">
+      <span>Identify Collection Points</span>
+      <span>DFS / Dijkstra Routing</span>
+      <span>Waste Trucks Dispatch</span>
+      <span>Collection Complete</span>
+    </div>
+  </div>
+
+  <!-- Water & Electricity -->
+  <div class="flow-diagram">
+    <h3>💡💧 Water & Electricity</h3>
+    <div class="flow">
+      <span>High-Demand Areas Detected</span>
+      <span>Dynamic Resource Allocation</span>
+      <span>Critical Areas → Priority Queue</span>
+      <span>Supply Delivered</span>
+    </div>
+  </div>
+
+  <!-- Parking -->
+  <div class="flow-diagram">
+    <h3>🅿️ Parking</h3>
+    <div class="flow">
+      <span>Driver Looks for Parking</span>
+      <span>Check Slot Availability (Hash Map)</span>
+      <span>BFS → Nearest Slot Found</span>
+      <span>Slot Assigned</span>
+    </div>
+  </div>
+
+  <!-- Salt Production -->
+  <div class="flow-diagram">
+    <h3>🧂 Salt Production</h3>
+    <div class="flow">
+      <span>Monitor Salt Pans</span>
+      <span>Max Heap → High-Yield Pans</span>
+      <span>Truck Assignment</span>
+      <span>Harvest & Distribution</span>
+    </div>
+  </div>
+
+  <!-- Feedback System -->
+  <div class="flow-diagram">
+    <h3>📝 Feedback System</h3>
+    <div class="flow">
+      <span>Citizen Submits Feedback</span>
+      <span>Store Feedback (Hash Map)</span>
+      <span>Urgent Cases → Priority Queue</span>
+      <span>Assign to Nearest Team</span>
+      <span>Issue Resolved / Notify Citizen</span>
+    </div>
+  </div>
+</div>
+
 
 
   <!-- SUMMARY TABLE -->
