@@ -181,6 +181,71 @@ footer{
     grid-template-columns:1fr;
   }
 }
+  /* ===== CSS-only Algorithms Dropdown ===== */
+
+.alg-toggle{
+  display:none;
+}
+
+.alg-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:linear-gradient(90deg,var(--neon),#3bf3ff);
+  color:#001f20;
+  padding:8px 14px;
+  border-radius:10px;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 8px 26px rgba(0,246,255,0.06);
+  user-select:none;
+}
+
+.alg-btn .arrow{
+  transition:transform .25s ease;
+}
+
+.alg-dropdown{
+  margin-top:10px;
+  background:rgba(6,10,14,0.96);
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.04);
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transform:translateY(-8px);
+  transition:max-height .35s ease, opacity .25s ease, transform .25s ease;
+}
+
+.alg-toggle:checked + .alg-btn .arrow{
+  transform:rotate(180deg);
+}
+
+.alg-toggle:checked + .alg-btn + .alg-dropdown{
+  max-height:300px;
+  opacity:1;
+  transform:translateY(0);
+}
+
+.alg-dropdown a{
+  display:block;
+  padding:8px 10px;
+  color:#cfeeff;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:700;
+}
+
+.alg-dropdown a:hover{
+  background:linear-gradient(
+    90deg,
+    rgba(88,224,255,0.06),
+    rgba(106,179,255,0.03)
+  );
+  color:var(--accent-2);
+}
+
 </style>
 </head>
 
@@ -229,10 +294,17 @@ footer{
         <li>Priority Queue</li>
         <li>Hash Map</li>
       </ul>
-      <div class="button-group">
-        <button>Learn Priority Queue</button>
-        <button>Learn Hash Map</button>
-      </div>
+     <input type="checkbox" id="alg-h" class="alg-toggle">
+
+<label for="alg-h" class="alg-btn">
+  Algorithms <span class="arrow">▾</span>
+</label>
+
+<div class="alg-dropdown">
+  <a href="#">Priority Queue</a>
+  <a href="#">Hash Map</a>
+</div>
+
     </div>
 
     <div class="card" id="w">
@@ -249,11 +321,18 @@ footer{
         <li>Dijkstra</li>
         <li>Graph</li>    
       </ul>
-      <div class="button-group">
-        <button>Learn DFS</button>
-        <button>Learn Dijkstra</button>
-        <button>Learn Graph</button>
-      </div>
+     <input type="checkbox" id="alg-w" class="alg-toggle">
+
+<label for="alg-w" class="alg-btn">
+  Algorithms <span class="arrow">▾</span>
+</label>
+
+<div class="alg-dropdown">
+  <a href="#">DFS</a>
+  <a href="#">Dijkstra</a>
+  <a href="#">Graph</a>
+</div>
+
     </div>
 
     <div class="card" id="u">
@@ -272,12 +351,19 @@ footer{
         <li>Priority Queue / Min-Heap</li>
         <li>Dynamic Allocation</li>
       </ul>
-      <div class="button-group">
-        <button>Learn MST</button>
-        <button>Learn Graphs</button>
-        <button>Learn Priority Queue</button>
-        <button>Learn Dynamic Allocation</button>
-      </div>
+     <input type="checkbox" id="alg-u" class="alg-toggle">
+
+<label for="alg-u" class="alg-btn">
+  Algorithms <span class="arrow">▾</span>
+</label>
+
+<div class="alg-dropdown">
+  <a href="#">MST (Prim / Kruskal)</a>
+  <a href="#">Graph</a>
+  <a href="#">Priority Queue / Min Heap</a>
+  <a href="#">Dynamic Allocation</a>
+</div>
+
     </div>
   </div>
 
@@ -298,11 +384,18 @@ footer{
         <li>Min Heap</li>
         <li>Hash Map</li>
       </ul>
-      <div class="button-group">
-        <button>Learn BFS</button>
-        <button>Learn Min Heap</button>
-        <button>Learn Hash Map</button>
-      </div>
+      <input type="checkbox" id="alg-p" class="alg-toggle">
+
+<label for="alg-p" class="alg-btn">
+  Algorithms <span class="arrow">▾</span>
+</label>
+
+<div class="alg-dropdown">
+  <a href="#">BFS</a>
+  <a href="#">Min Heap</a>
+  <a href="#">Hash Map</a>
+</div>
+
     </div>
 
     <div class="card" id="s">
@@ -322,13 +415,20 @@ footer{
         <li>Priority Queue</li>
         <li>Hash Map</li>
       </ul>
-      <div class="button-group">
-        <button>Learn Max Heap</button>
-        <button>Learn Graph</button>
-        <button>Learn Dijkstra</button>
-        <button>Learn Priority Queue</button>
-        <button>Learn Hash Map</button>
-      </div>
+      <input type="checkbox" id="alg-s" class="alg-toggle">
+
+<label for="alg-s" class="alg-btn">
+  Algorithms <span class="arrow">▾</span>
+</label>
+
+<div class="alg-dropdown">
+  <a href="#">Max Heap</a>
+  <a href="#">Graph</a>
+  <a href="#">Dijkstra</a>
+  <a href="#">Priority Queue</a>
+  <a href="#">Hash Map</a>
+</div>
+
     </div>
 
     <div class="card" id="f">
@@ -346,11 +446,18 @@ footer{
         <li>Hash Map</li>
         <li>Graph Routing</li>
       </ul>
-      <div class="button-group">
-        <button>Learn Priority Queue</button>
-        <button>Learn Hash Map</button>
-        <button>Learn Graph Routing</button>
-      </div>
+     <input type="checkbox" id="alg-f" class="alg-toggle">
+
+<label for="alg-f" class="alg-btn">
+  Algorithms <span class="arrow">▾</span>
+</label>
+
+<div class="alg-dropdown">
+  <a href="#">Priority Queue</a>
+  <a href="#">Hash Map</a>
+  <a href="#">Graph Routing</a>
+</div>
+
     </div>
   </div>
 
