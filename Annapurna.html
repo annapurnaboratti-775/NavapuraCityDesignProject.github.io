@@ -109,6 +109,37 @@
     </text>
   </svg>
 </section>
+<section class="card" id="city-graph">
+  <h2>Navapura City as a Graph Model</h2>
+  <p style="color:#94a3c4;margin-bottom:14px">
+    Urban systems are represented as nodes and connections, enabling graph algorithms for routing, optimization, and resilience.
+  </p>
+
+  <svg viewBox="0 0 800 360" width="100%" height="auto">
+    <!-- edges -->
+    <line x1="150" y1="180" x2="350" y2="90" stroke="#334155" stroke-width="2"/>
+    <line x1="150" y1="180" x2="350" y2="270" stroke="#334155" stroke-width="2"/>
+    <line x1="350" y1="90" x2="550" y2="180" stroke="#334155" stroke-width="2"/>
+    <line x1="350" y1="270" x2="550" y2="180" stroke="#334155" stroke-width="2"/>
+
+    <!-- nodes -->
+    <circle cx="150" cy="180" r="24" fill="#38bdf8"/>
+    <text x="150" y="185" text-anchor="middle" fill="#020617" font-weight="700">N1</text>
+
+    <circle cx="350" cy="90" r="24" fill="#22c55e"/>
+    <text x="350" y="95" text-anchor="middle" fill="#020617" font-weight="700">N2</text>
+
+    <circle cx="350" cy="270" r="24" fill="#facc15"/>
+    <text x="350" y="275" text-anchor="middle" fill="#020617" font-weight="700">N3</text>
+
+    <circle cx="550" cy="180" r="24" fill="#a78bfa"/>
+    <text x="550" y="185" text-anchor="middle" fill="#020617" font-weight="700">N4</text>
+  </svg>
+
+  <p style="color:#94a3c4;font-size:14px">
+    Dijkstra → routing • BFS/DFS → fault detection • Prim’s → microgrid MST
+  </p>
+</section>
 
 
     <!-- CARDS: exact content + algorithm dropdowns (links are placeholders to be replaced) -->
