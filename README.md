@@ -1,4 +1,4 @@
-# NavapuraCityDesignProject.github.io
+
 # City Design – Navapura
 
 A team-based web project that presents a  city layout, Navapura, using structured design principles inspired by data structures and algorithms.
